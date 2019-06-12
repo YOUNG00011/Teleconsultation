@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/comm_item_group_title" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/l_patiment"
+            layout="@layout/comm_item_patient" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_patiment"
+            android:layout_marginLeft="68dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:textSize="10dp"
+                        android:text="@string/consultation_list_item_describe" />
+
+                    <TextView
+                        android:id="@+id/tv_describe_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="10dp"
+                        android:textColor="@color/black"
+                        android:text="hahaha" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:textSize="10dp"
+                        android:text="@string/consultation_list_item_join_doctor" />
+
+                    <TextView
+                        android:id="@+id/tv_invite_doctor_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:textSize="10dp"
+                        android:textColor="@color/black"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_my_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
+                        android:textSize="10dp"
+                        android:text="@string/consultation_list_item_my_status" />
+
+                    <TextView
+                        android:id="@+id/tv_my_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        android:maxLines="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/ll_desc"
+                android:layout_below="@id/ll_desc"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="4dp"
+                android:textSize="10dp"
+                android:maxLength="16"
+
+                android:id="@+id/t_time"
+                android:text="@string/consultation_time" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/t_time"
+                android:layout_below="@id/ll_desc"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="4dp"
+                android:textSize="10dp"
+                android:maxLength="16"
+                android:textColor="@color/black"
+                android:text="haha" />
+
+            <TextView
+                android:id="@+id/tv_status_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/tv_time"
+                android:layout_alignParentRight="true"
+                android:text="dsfdfdfdf"
+                android:textColor="@color/colorPrimary" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
+
+
+

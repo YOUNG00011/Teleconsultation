@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_1"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_1"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_2"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_2"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_3"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_3"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l4"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_4"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_4"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_5"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_5"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l6"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_6"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_6"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l7"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/week_day_7"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_7"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="00:00~00:00"
+            android:drawableRight="@drawable/ic_arrow_right" />
+    </LinearLayout>
+
+</LinearLayout>

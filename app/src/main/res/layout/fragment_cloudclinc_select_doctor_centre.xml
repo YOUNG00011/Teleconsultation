@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前:"
+            android:layout_marginRight="8dp"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_department"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="全部医院"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_clear_black_24dp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:background="@color/comm_list_divider_color"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/tv_toggle"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:text="切换"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/week_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scrollbarStyle="insideOverlay"
+        app:scrollbars="none"
+        app:layout_progress="@layout/comm_loading"
+        app:layout_empty="@layout/comm_message"
+        app:layout_error="@layout/comm_message" />
+
+    <include layout="@layout/comm_horizontal_line"/>
+    <include layout="@layout/comm_recycler_view"/>
+</LinearLayout>

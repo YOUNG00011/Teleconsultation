@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_select_patient"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/create_consultation_select_patient"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/ic_arrow_right"
+            android:textSize="16sp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/ll_patient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_select_doctor"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:text="邀请会诊医生"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:drawableRight="@drawable/ic_arrow_right"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingRight="16dp"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:background="@color/white" />-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/ll_doctor"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical" />-->
+
+        <!--<include layout="@layout/comm_horizontal_line"/>-->
+
+        <RelativeLayout
+            android:id="@+id/rl_preliminary_diagnosis"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:id="@+id/tv_preliminary_diagnosis_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/create_consultation_diagnosis"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/tv_preliminary_diagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                android:hint="@string/create_consultation_diagnosis_input_hint"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:gravity="right" />
+        </RelativeLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/create_consultation_explain"
+            android:gravity="center_vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:background="@color/white"
+            android:textSize="16sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <EditText
+                android:id="@+id/et_clinic_explain"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="@string/create_consultation_explain_input_hint"
+                android:background="@drawable/gray_stroke_rectangle_bg"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:gravity="top|left"
+                android:imeOptions="actionDone"
+                android:textColor="@color/black" />
+        </FrameLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_time"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/create_consultation_expected_time"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_arrow_right_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_arrow_right_2"
+                android:layout_centerVertical="true"
+                android:hint="@string/unlimited"
+                android:textColor="@color/black"
+                android:gravity="right" />
+        </RelativeLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rl_hospital"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="@color/white"-->
+            <!--android:paddingLeft="16dp"-->
+            <!--android:paddingRight="16dp">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:text="期望医院"-->
+                <!--android:textSize="16sp" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_arrow_right_3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ic_arrow_right"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="16dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_hospital"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toLeftOf="@id/iv_arrow_right_3"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:hint="不限"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:gravity="right" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<include layout="@layout/comm_horizontal_line"/>-->
+
+        <RelativeLayout
+            android:id="@+id/rl_department"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/create_consultation_expected_department"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_arrow_right_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_arrow_right_3"
+                android:layout_centerVertical="true"
+                android:hint="@string/unlimited"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:gravity="right" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_departments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_doctor_title"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/create_consultation_doctor_job_title"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_arrow_right_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp" />
+
+            <TextView
+                android:id="@+id/tv_position_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_arrow_right_4"
+                android:layout_centerVertical="true"
+                android:hint="@string/unlimited"
+                android:textColor="@color/black"
+                android:gravity="right" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_consultation_upload_pictures"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="20dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@string/create_consultation_upload_pictures_explain" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants">
+
+                <com.jude.easyrecyclerview.EasyRecyclerView
+                    android:id="@+id/recycler_view_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:scrollbars="none" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/primary_btn_bg"
+            android:text="@string/ok_button_text"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

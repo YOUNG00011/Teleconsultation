@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/riv_type"
+        android:layout_alignBottom="@+id/riv_type"
+        android:text="李平"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="3dp"
+        />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:maxHeight="12dp"
+        android:isIndicator="true"
+        android:id="@+id/rating"
+        android:layout_alignTop="@+id/tv_name"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会诊说明:dsdsdsdsdsddsdsdsdsdsdsdsdsdsddsdsd"
+        android:layout_alignLeft="@id/riv_type"
+        android:layout_below="@id/tv_name"
+        android:layout_marginTop="3dp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/tv_describe"
+
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会诊说明:dsdsdsdsdsddsdsdsdsdsdsdsdsdsddsdsd"
+        android:layout_alignLeft="@id/riv_type"
+        android:layout_below="@id/tv_instruction"
+        android:layout_marginTop="3dp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/tv_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会诊说明:dsdsdsdsdsddsdsdsdsdsdsdsdsdsddsdsd"
+        android:layout_alignLeft="@id/riv_type"
+        android:layout_below="@id/tv_describe"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+</RelativeLayout>

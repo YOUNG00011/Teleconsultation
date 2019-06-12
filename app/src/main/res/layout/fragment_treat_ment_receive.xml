@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        >
+        <LinearLayout
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/transfer_treatment_type"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="@string/transfer_treatment_type_1"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingBottom="4dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:text="患者住院预约信息"/>
+
+
+
+        <LinearLayout
+            android:paddingLeft="16dp"
+            android:id="@+id/l_select_dept"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/receive_treatment_select_dept"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="16sp"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:id="@+id/tv_select_dept"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+            android:paddingLeft="16dp"
+            android:id="@+id/l_select_doc"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/receive_treatment_select_doc"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="16sp"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:id="@+id/tv_select_doc"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+            android:paddingLeft="16dp"
+            android:id="@+id/l_select_time"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/receive_treatment_date"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="16sp"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:id="@+id/tv_select_time"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_height="wrap_content"
+            android:text="@string/receive_treatment_more_detail"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/check_l1_tilte"
+                    android:layout_margin="4dp"
+                    android:id="@+id/check_l1"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="@color/treatment_checkbox_text_color"
+                    android:background="@drawable/treatment_checkbox_bg"
+                    android:button="@null"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_r1_tilte"
+                    android:layout_margin="4dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/check_l1"
+                    android:id="@+id/check_l2"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textColor="@color/treatment_checkbox_text_color"
+                    android:background="@drawable/treatment_checkbox_bg"
+                    android:button="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/check_l2_tilte"
+                android:layout_margin="4dp"
+                android:id="@+id/check_r1"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textColor="@color/treatment_checkbox_text_color"
+                android:background="@drawable/treatment_checkbox_bg"
+                android:button="@null"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/check_r2_tilte"
+                android:layout_margin="4dp"
+                android:id="@+id/check_r2"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textColor="@color/treatment_checkbox_text_color"
+                android:background="@drawable/treatment_checkbox_bg"
+                android:button="@null"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/transfer_treatment_suggest"/>
+
+
+            <EditText
+                android:id="@+id/the_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="@string/transfer_treatment_suggest_money"
+                android:background="@color/transparent"
+                android:textColor="@color/font_inntegral"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:paddingLeft="16dp"
+            android:id="@+id/l_surgery_time"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/receive_surgery_date"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="16sp"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:id="@+id/tv_surgery_time"
+                android:gravity="center"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/receive_treatment_message"
+            android:gravity="center_vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:background="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+        <RelativeLayout
+            android:layout_margin="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:background="@drawable/white_stroke_rectangle_bg"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <EditText
+                android:id="@+id/et_clinic_explain"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="@string/receive_treatment_message_input_hint"
+               android:background="@color/transparent"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:maxLength="500"
+                android:gravity="top|left"
+                android:imeOptions="actionDone"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:id="@+id/reman_text_size"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_toLeftOf="@+id/get_module"
+                android:layout_below="@+id/et_clinic_explain"
+                android:text="500"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:id="@+id/get_module"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="12sp"
+                android:textColor="@color/blue"
+                android:background="@drawable/white_stroke_rectangle_bg"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/et_clinic_explain"
+                android:text="@string/treatment_receive_get_model"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:id="@+id/new_module"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="12sp"
+                android:textColor="@color/blue"
+                android:background="@drawable/white_stroke_rectangle_bg"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/et_clinic_explain"
+                android:text="@string/btn_new_model_text"/>
+        </RelativeLayout>
+        </LinearLayout>
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/primary_btn_bg"
+            android:text="@string/ok_button_text"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

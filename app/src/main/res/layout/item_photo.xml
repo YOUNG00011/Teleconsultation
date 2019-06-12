@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wxsoft.teleconsultation.ui.widget.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp">
+
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:padding="10dp" />
+
+</com.wxsoft.teleconsultation.ui.widget.SquareLayout>

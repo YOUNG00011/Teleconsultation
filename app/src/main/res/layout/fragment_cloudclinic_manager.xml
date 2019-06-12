@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tool">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
+            android:layout_height="wrap_content"
+            >
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/doc_online_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:switchTextAppearance="@style/Toolbar.TitleTextSwitch"
+                android:textOff="@string/workout"
+                android:layout_gravity="center"
+                android:textOn="@string/working"
+                android:thumb="@drawable/shape_switch_selector"
+                app:track="@drawable/switch_track_selector"
+                app:showText="true"/>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/fragment_cloudclinc_page_content"/>
+
+</LinearLayout>

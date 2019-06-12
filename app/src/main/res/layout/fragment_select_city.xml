@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="当前定位:  蜀山区"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_use_current_location"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="使用当前定位"
+            android:background="#73d4cc"
+            android:textColor="@color/white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recycler_view_province"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recycler_view_city"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recycler_view_area"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
+    </LinearLayout>
+</LinearLayout>

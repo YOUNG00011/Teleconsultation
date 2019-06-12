@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scrollbarStyle="insideOverlay"
+        app:scrollbars="none"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="3dp"
+        app:layout_progress="@layout/comm_loading"
+        app:layout_empty="@layout/comm_message"
+        app:layout_error="@layout/comm_message" />
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scrollbarStyle="insideOverlay"
+        app:scrollbars="none"
+        app:layout_progress="@layout/comm_loading"
+        app:layout_empty="@layout/comm_message"
+        app:layout_error="@layout/comm_message" />
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+        <!--<com.astuetz.PagerSlidingTabStrip-->
+            <!--android:id="@+id/tabs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:background="@color/white"-->
+            <!--app:pstsShouldExpand="true"-->
+            <!--app:pstsIndicatorColor="@color/colorPrimary"-->
+            <!--app:pstsTabTextColor="@color/colorPrimary"-->
+            <!--app:pstsTabTextSize="16sp" />-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/view_pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+</LinearLayout>

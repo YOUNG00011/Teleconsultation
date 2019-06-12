@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/register_hint"
+        android:textColor="@color/comm_info_hint_text_color"
+        android:textSize="12sp" />
+
+    <include layout="@layout/comm_horizontal_line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp">
+
+                <ImageView
+                    android:id="@+id/iv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_register_name" />
+
+                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                    android:id="@+id/cet_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_name"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/cet_name"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_idcard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_register_idcard" />
+
+                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                    android:id="@+id/cet_idcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_idcard"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/idcard"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/cet_idcard"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_gender" />
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_gender"
+                    android:gravity="center_vertical"
+                    android:hint="@string/gender"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/tv_gender"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_register_hospital" />
+
+                <TextView
+                    android:id="@+id/tv_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_hospital"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:hint="@string/register_hospital"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/tv_hospital"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_register_department" />
+
+                <TextView
+                    android:id="@+id/tv_department"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_department"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:hint="@string/register_department"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/tv_department"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_position_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_register_jobtitle" />
+
+                <TextView
+                    android:id="@+id/tv_position_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_position_title"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:hint="@string/register_job_title"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/tv_position_title"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_duty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_duty" />
+
+                <TextView
+                    android:id="@+id/tv_duty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_duty"
+                    android:drawableRight="@drawable/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:hint="@string/duty"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/tv_duty"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_password" />
+
+                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                    android:id="@+id/cet_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_password"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/cet_password"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_password_again"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_comfirm_password" />
+
+                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                    android:id="@+id/cet_password_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/iv_password_again"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignLeft="@id/cet_password_again"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/comm_list_divider_color" />
+            </RelativeLayout>
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ok"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="30dp"-->
+                <!--android:background="@drawable/primary_btn_bg"-->
+                <!--android:text="@string/sign_up"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="16sp" />-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

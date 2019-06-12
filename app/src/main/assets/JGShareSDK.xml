@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DevInfor>
+
+    <!-- 如果不需要支持某平台，可缺省该平台的配置-->
+    <!-- 各个平台的KEY仅供DEMO演示，开发者要集成发布需要改成自己的KEY-->
+
+
+    <Wechat
+        AppId="wxbd317ad2a5e8e93f"
+        AppSecret="65e00ba30f59aadcf4d20d16ce0ebc47"/>
+
+</DevInfor>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+                android:text="@string/f_bank_account_add_text1"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_owner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"
+            android:textColor="@color/comm_msg_color"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="18" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/f_bank_account_add_text2"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/et_card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"
+            android:maxLines="1"
+
+            android:hint="@string/f_bank_account_add_hint2"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:id="@+id/l_bank"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/f_bank_account_add_text3"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_bank"
+            android:hint="@string/f_bank_account_add_hint3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"
+            android:textColor="@color/comm_msg_color"
+            android:clickable="false"
+            android:maxLines="1"
+            android:drawableRight="@drawable/ic_arrow_right"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_health_card"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/f_bank_account_add_text4"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/ed_bank_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:imeOptions="actionDone"
+            android:hint="@string/f_bank_account_add_hint4"
+            android:background="@android:color/transparent"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/save_button_text"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

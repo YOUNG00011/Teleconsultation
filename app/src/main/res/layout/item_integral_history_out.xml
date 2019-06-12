@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:padding="8dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@string/item_integral_history_out_title"/>
+
+        <TextView
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08月13日"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_out_history_time"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/start_time"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08月13日 14:37"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_out_history_type"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/type"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="积分兑换"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_out_history_money1"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/money"
+                android:textSize="12sp"
+                android:textColor="@color/font_inntegral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_history_bank"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/bank"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国农业银行"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_history_account"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/account"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="**** **** **** 3786"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:minWidth="75dp"
+                android:text="@string/item_integral_history_person"/>
+
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:id="@+id/person"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刘浩"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

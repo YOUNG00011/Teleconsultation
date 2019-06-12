@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/iv_patient_avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_exception" />
+
+    <ImageView
+        android:id="@+id/iv_checkbox"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_comm_checkbox_on"
+        android:layout_gravity="center_vertical"
+        android:scaleType="center"
+        android:layout_marginRight="10dp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_patient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="李平"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自费"
+            android:layout_toRightOf="@id/tv_patient_name"
+            android:layout_alignBottom="@id/tv_patient_name" />
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:layout_below="@id/tv_patient_name"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+</LinearLayout>

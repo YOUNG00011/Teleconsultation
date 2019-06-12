@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="emr_photo_option">
+        <item name="delete">@string/remove</item>
+        <item name="sava">@string/save_to_gallery</item>
+    </array>
+
+    <array name="delete_option">
+        <item name="delete">@string/remove</item>
+    </array>
+
+    <array name="sava_pic">
+        <item name="save">@string/save_picture</item>
+    </array>
+
+    <array name="patient_gender_option">
+        <item name="man">@string/male</item>
+        <item name="women">@string/female</item>
+    </array>
+</resources>

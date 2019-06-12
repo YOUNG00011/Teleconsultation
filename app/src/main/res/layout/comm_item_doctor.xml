@@ -1,0 +1,83 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_doctor_avatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginRight="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="李平"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_doctor_name"
+            android:layout_alignBottom="@id/tv_doctor_name"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_doctor_name"
+            android:layout_marginRight="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="医学影像科"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_doctor_name"
+            android:layout_toRightOf="@id/tv_department"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="妇幼保健院fdfdfdfdfdfdfdfdfdfdfdfdfdfd"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_goodat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_department"
+            android:text="擅长:"
+            android:maxLines="2"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_doctor_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未进行"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:paddingTop="10dp">
+
+        <include layout="@layout/item_doc"/>
+
+        <LinearLayout
+            android:id="@+id/rl_preliminary_diagnosis1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/register_dept"
+                android:textSize="12sp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_select_dept"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/register_doc"
+                android:textSize="12sp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_select_doc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/register_time"
+                android:textSize="12sp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_select_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/mdtp_red_focused" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:text="@string/register_clinc_type"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:id="@+id/tv_select_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patient_select"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/null_select"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/create_consultation_select_patient"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_select_patient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+                android:layout_toLeftOf="@id/iv_arrow_right"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+            <include layout="@layout/comm_item_patient"
+                android:id="@+id/l_patiment"
+                android:visibility="gone"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/primary_btn_bg"
+            android:text="@string/ok_button_text"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

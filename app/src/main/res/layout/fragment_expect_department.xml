@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/expected_department_add_hint"
+        android:paddingLeft="16dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <co.lujun.androidtagview.TagContainerLayout
+            android:id="@+id/tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            app:tag_enable_cross="true"
+            app:container_enable_drag="false"
+            app:container_border_radius="0dp"
+            app:container_border_width="0dp"
+            app:container_border_color="@android:color/transparent"
+            app:horizontal_interval="10dp"
+            app:vertical_interval="10dp"
+            app:tag_clickable="true"
+            app:tag_theme="none"
+            app:tag_corner_radius="5dp"
+            app:tag_border_color="@color/comm_list_divider_color"
+            app:tag_background_color="@android:color/transparent"
+            app:tag_text_color="@color/black"
+            app:container_background_color="@android:color/transparent" />
+
+
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/expected_department_add_button_text"
+            android:textColor="@color/colorPrimary"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/primary_tag_bg" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/ok_button_text"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

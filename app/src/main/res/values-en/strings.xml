@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">分级诊疗系统</string>
+    <string name="consultation_time">会诊时间:</string>
+    <string name="patient_integration">患者评价</string>
+    <string name="home_menu_trsnsfer_treatment">转诊</string>
+    <string name="home_menu_register">预约</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_out">Sign out</string>
+    <string name="ok">OK</string>
+    <string name="ok_button_text">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="save_button_text">Save</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="job_title">Job title</string>
+    <string name="duty">Duty</string>
+    <string name="idcard">ID card</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm New password</string>
+    <string name="phone">Phone</string>
+    <string name="medicare_card">Medicare card</string>
+    <string name="birthday">Birthday</string>
+    <string name="name">Name</string>
+    <string name="remove">Remove</string>
+    <string name="save_to_gallery">Save to gallery</string>
+    <string name="save_picture">Save Picture</string>
+    <string name="detail">Detail</string>
+    <string name="search">Search</string>
+    <string name="unlimited">Unlimited</string>
+    <string name="system_message">System message</string>
+    <string name="dynamic">Dynamic</string>
+    <string name="introduction">Introduction</string>
+    <string name="good_at">Good at</string>
+    <string name="achievement">Achievement</string>
+
+    <!-- 登陆 -->
+    <string name="sign_in">Sign in</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="input_phone">Input phone</string>
+    <string name="input_password">Input password</string>
+
+    <!-- 验证手机号 -->
+    <string name="verify_phone_recover_password">Recover password</string>
+    <string name="verify_phone_input_phone">Input phone</string>
+    <string name="verify_phone_input_valid_code">Input verification code</string>
+    <string name="verify_phone_valid_code_obtain">Obtain</string>
+
+    <!-- 注册 -->
+    <string name="register_title">Perfect information</string>
+    <string name="register_hint">Improve your personal information</string>
+    <string name="register_hospital">Hospital</string>
+    <string name="register_department">Department</string>
+    <string name="register_job_title">Job title</string>
+
+    <!-- 按医院查找 -->
+    <string name="find_by_hospital_title">Find by hospital</string>
+
+    <!-- 选择科室 -->
+    <string name="select_department_title">Select department</string>
+
+    <!-- 选择职称 -->
+    <string name="select_job_title_title">Select job title</string>
+
+    <!-- 选择职务 -->
+    <string name="select_duty_title">Select duty</string>
+
+    <!-- 重置密码 -->
+    <string name="reset_password_title">Reset password</string>
+
+    <!-- 主界面 -->
+    <string name="home_tab_text_1">Home</string>
+    <string name="home_tab_text_2">Message</string>
+    <string name="home_tab_text_3">User</string>
+
+    <!-- 首页 -->
+    <string name="home_menu_advisory">Advisory</string>
+    <string name="home_menu_clinic">Consultation</string>
+    <string name="home_menu_cloud_clinic">Cloud clinic</string>
+    <string name="home_menu_patient">Patient</string>
+    <string name="home_todo">To do(%1$d)</string>
+    <string name="home_task_item_explain">Explain:%1$s</string>
+
+    <!-- 我的 -->
+    <string name="user_my_sign">Signature</string>
+    <string name="user_settings">Settings</string>
+
+    <!-- 个人信息 -->
+    <string name="information_title">Information</string>
+    <string name="information_avatar">Avatar</string>
+    <string name="information_personal">Personal information</string>
+    <string name="information_name">Name</string>
+    <string name="information_id_card">ID card</string>
+    <string name="information_email">Email</string>
+    <string name="information_education">Education</string>
+    <string name="information_working_years">Working years</string>
+    <string name="information_practice_information">Practice information</string>
+    <string name="information_hospital">Hospital</string>
+    <string name="information_department">Department</string>
+    <string name="email_input">Input email</string>
+    <string name="information_input_content">Input content...</string>
+
+    <!-- 设置 -->
+    <string name="setting">Settings</string>
+    <string name="setting_no_disturb">No disturb</string>
+    <string name="setting_features">Features</string>
+    <string name="setting_language">Language</string>
+    <string name="setting_modify_password">Modify password</string>
+    <string name="setting_clear_cache">Clear cache</string>
+    <string name="setting_feedback">Feedback</string>
+    <string name="setting_contact">Contact</string>
+    <string name="setting_clear_cache_hint">Are you sure you want to clear the cache?</string>
+    <string name="setting_clear_cache_option">Clear</string>
+    <string name="setting_input_old_password">Input old password</string>
+    <string name="setting_input_new_password">Input new password</string>
+    <string name="setting_input_new_password_again">Input new password again</string>
+
+    <!-- 我的签名 -->
+    <string name="sign_title">Signature</string>
+    <string name="sign_verify_password">Verify password</string>
+    <string name="sign_verify_password_hint">Please input your password</string>
+    <string name="sign_input_error_hint">Please  the correct password</string>
+    <string name="sign_forget_password">Forget</string>
+    <string name="sign_your_signature">Your signature</string>
+    <string name="sign_resign">Resign</string>
+    <string name="sign_hint">Use when replying to consultation opinion</string>
+    <string name="sign_modify_title">Edit signature</string>
+    <string name="sign_clear">Clear</string>
+    <string name="sign_commit">Commit</string>
+
+    <!-- 多语言 -->
+    <string name="language_title">Language</string>
+
+    <!-- 患者管理 -->
+    <string name="patient_manager_title">Patient management</string>
+
+    <!-- 新的患者 -->
+    <string name="new_patient_title">New Patient</string>
+
+    <!-- 患者详情 -->
+    <string name="patient_detail_add_tags">+Add tags</string>
+    <string name="patient_detail_emr">EMR</string>
+    <string name="patient_detail_patient_description">Patient description</string>
+    <string name="patient_detail_no_description">No description</string>
+
+    <!-- 修改描述 -->
+    <string name="modify_desc_title">Modify description</string>
+    <string name="modify_desc_input_hint">Input patient description</string>
+
+    <!-- 我的标签 -->
+    <string name="my_tags_title">My tags</string>
+
+    <!-- 添加标签 -->
+    <string name="add_tags_title">Add tags</string>
+    <string name="add_tags_input_hint">Input tag name</string>
+    <string name="add_tags_recommend_text">Recommend tags</string>
+
+    <!-- 病历列表 -->
+    <string name="emr_list_title">%1$s\'s EMR</string>
+    <string name="emr_list_create_title">New EMR</string>
+    <string name="emr_list_create_input_hint">Input EMR name</string>
+
+    <!-- 会诊管理 -->
+    <string name="consultation_manager_title">Consultation management</string>
+    <string name="consultation_manager_tab_text_1">My application</string>
+    <string name="consultation_manager_tab_text_2">My consultation</string>
+    <string name="consultation_list_filter_text_1">All</string>
+    <string name="consultation_list_filter_text_2">Untreated</string>
+    <string name="consultation_list_filter_text_3">Consultation</string>
+    <string name="consultation_list_filter_text_4">Completed</string>
+    <string name="consultation_list_item_describe">Describe:</string>
+    <string name="consultation_list_item_join_doctor">Join doctors:</string>
+    <string name="consultation_list_item_my_status">My status:</string>
+    <string name="consultation_list_menu_text_1">Name consultation</string>
+    <string name="consultation_list_menu_text_2">Consultation center</string>
+
+    <string name="create_consultation_title">Consultation application</string>
+    <string name="create_consultation_select_patient">Select patient</string>
+    <string name="create_consultation_select_doctor">Invite doctors</string>
+    <string name="create_consultation_diagnosis">Diagnosis</string>
+    <string name="create_consultation_diagnosis_input_hint">Input initial diagnosis</string>
+    <string name="create_consultation_explain">Explain</string>
+    <string name="create_consultation_explain_input_hint">Input the symptoms of the patient and the purpose of this consultation</string>
+    <string name="create_consultation_expected_time">Expected time</string>
+    <string name="create_consultation_upload_pictures">Upload pictures</string>
+    <string name="create_consultation_upload_pictures_explain">(Disease location, inspection report or other disease information)</string>
+    <string name="create_consultation_emr_text">EMR:%1$s</string>
+    <string name="create_consultation_emr_system_create_text">EMR:The system creates a new EMR</string>
+    <string name="create_consultation_expected_department">Expected department</string>
+    <string name="create_consultation_doctor_job_title">Job title</string>
+
+    <!-- 选择患者 -->
+    <string name="select_patient_history">Historical patients</string>
+    <string name="select_patient_search_input_hint">Input patient name</string>
+
+    <!-- 患者信息确认 -->
+    <string name="patient_confirm_title">Information confirm</string>
+    <string name="patient_confirm_hint">Please check the information and confirm it without mistake.</string>
+    <string name="patient_confirm_select_emr_title">Select EMR</string>
+    <string name="patient_confirm_select_emr_hint">Do you choose an existing EMR?</string>
+
+    <!-- 选择医生 -->
+    <string name="select_doctor_title">Select doctor</string>
+    <string name="select_doctor_common">Common doctors</string>
+    <string name="select_doctor_search_by_condition">Search by condition</string>
+    <string name="select_doctor_my_focus">Doctors I care about</string>
+    <string name="select_doctor_search_by_hospital">Search by hospital</string>
+
+    <!-- 按条件查找医生 -->
+    <string name="search_doctor_by_condition_title">Search by condition</string>
+    <string name="search_doctor_by_condition_input_doctor_name_hint">Input doctor name</string>
+    <string name="search_doctor_by_condition_goodat">Good at disease</string>
+    <string name="search_doctor_by_condition_input_goodat_hint">Input good at disease</string>
+
+    <!-- 省市选择 -->
+    <string name="select_city_title">Select city</string>
+
+    <!-- 按医院查找 -->
+    <string name="select_doctor_search_by_hospital_title">Search by hospital</string>
+
+    <!-- 医院主页 -->
+    <string name="hospital_home_title">Hospital home page</string>
+    <string name="hospital_home_introduction">Hospital introduction</string>
+
+    <!-- 搜索疾病 -->
+    <string name="primary_diagnosis_input_hint">Input the name of the disease or the initials</string>
+    <string name="primary_diagnosis_undiagnosed">Undiagnosed</string>
+
+    <!-- 选择图片类型 -->
+    <string name="select_picture_type_title">Select picture type</string>
+    <string name="select_picture_type_text">Select type</string>
+
+    <!-- 搜索医院 -->
+    <string name="search_hospital_title">Search hospital</string>
+    <string name="search_hospital_input_hint">Input hospital name</string>
+
+    <!-- 期望科室 -->
+    <string name="expected_department_title">Expected department</string>
+    <string name="expected_department_add_hint">Add expected department(Up to 5)</string>
+    <string name="expected_department_add_button_text">Add</string>
+
+    <!-- 会诊单详情 -->
+    <string name="consultation_details_title">Consultation details</string>
+    <string name="consultation_details_group">Group</string>
+    <string name="consultation_details_status">Status:&#160;</string>
+    <string name="consultation_details_patient_info">Patient infomation</string>
+    <string name="consultation_details_diagnosis">Diagnosis</string>
+    <string name="consultation_details_explain">Explain</string>
+    <string name="consultation_details_look_at_more_emr">Look at more EMRS&#160;&#160;>></string>
+    <string name="consultation_details_arrange">Arrange</string>
+    <string name="consultation_details_time">Time</string>
+    <string name="consultation_details_department">Department</string>
+    <string name="consultation_details_apply_doctor">Apple doctor</string>
+    <string name="consultation_details_join_doctor">Join doctors</string>
+    <string name="consultation_details_video_account">Video Account</string>
+    <string name="consultation_details_select_account">Select Account</string>
+    <string name="consultation_details_none">None</string>
+    <string name="consultation_details_translator">Translator</string>
+    <string name="consultation_details_refuse_reason">Refuse resson</string>
+    <string name="consultation_details_cancel">Cancel</string>
+    <string name="consultation_details_end">End</string>
+    <string name="consultation_details_look_at_advice">View comments</string>
+    <string name="consultation_details_refuse">Refuse</string>
+    <string name="consultation_details_reply">Reply</string>
+    <string name="consultation_details_re_consultation">Re consultation</string>
+    <string name="consultation_details_cancel_hint">Is it sure to cancel the consultation?</string>
+
+    <!-- 结束会诊 -->
+    <string name="end_consultation_title">End consultation</string>
+    <string name="end_consultation_progress">Progress</string>
+    <string name="end_consultation_input_title">To the doctor who did not reply</string>
+    <string name="end_consultation_input_hint">Please inform the doctor who has not yet replied to avoid causing unnecessary misunderstanding</string>
+
+    <!-- 回复会诊意见 -->
+    <string name="reply_title">Reply to consultation</string>
+    <string name="reply_input_title">Input of consultation:</string>
+
+    <!-- 拒绝会诊 -->
+    <string name="refuse_title">Refusal of consultation</string>
+    <string name="refuse_input_title">Inputting the reasons for refusing the consultation:</string>
+
+    <!-- 查看会诊意见 -->
+    <string name="view_comments_title">View comments</string>
+    <string name="view_comments_evaluate">Evaluate</string>
+    <string name="view_comments_view_evaluate">View evaluation</string>
+
+    <!-- 会诊评价 -->
+    <string name="evaluate_edit_title">Editorial evaluation</string>
+    <string name="evaluate_edit_situation_title">Treatment and treatment</string>
+    <string name="evaluate_edit_situation_input_hint">The effect of consultation advice given by a consultant on the treatment of patients</string>
+    <string name="evaluate_edit_condition_title">Current condition (rehabilitation)</string>
+    <string name="evaluate_edit_condition_input_hint">What is the patient at present? Is there any improvement? Specific status description</string>
+    <string name="evaluate_edit_advice_title">The opinion or suggestion of this consultation</string>
+    <string name="evaluate_edit_advice_input_hint">Do you think there is any room for improvement in this consultation？</string>
+    <string name="evaluate_edit_gone_title">The patient\'s whereabouts</string>
+    <string name="evaluate_edit_gone_input_hint">At present, the patient\'s whereabouts, is the treatment of rehabilitation? Return home for a regular review? Or something else?</string>
+
+    <!-- 医生详细 -->
+    <string name="doctor_detail_title">Doctor&#160;%1$s</string>
+    <string name="doctor_detail_follow">Follow</string>
+    <string name="doctor_detail_unfollow">UnFollow</string>
+    <string name="doctor_detail_education">Education&#160;&#160;%1$s</string>
+    <string name="doctor_detail_work_year">Working life&#160;&#160;%1$dyears</string>
+
+    <string name="comm_loading_msg">Loading...</string>
+    <string name="comm_load_more">Loading...</string>
+    <string name="comm_no_more">No more</string>
+    <string name="comm_empty_msg">抱歉,暂未获取到数据!\n请点击屏幕重试~</string>
+    <string name="comm_error_msg">抱歉,系统出错了!\n请点击屏幕重试~</string>
+    <string name="comm_no_network_msg">暂未连接上网络!\n请连接后点击屏幕重试~</string>
+
+    <string name="language_auto">跟随系统</string>
+    <string name="language_cn">中文(简体)</string>
+    <string name="language_en">EngLish</string>
+    <string name="language_ru">Русский</string>
+    <string name="language_ar">لغة عربية</string>
+
+    <string name="jmui_time_format_accuracy">yyyy-MM-dd HH:mm:ss </string>
+
+    <string name="jmui_monday">周一</string>
+    <string name="jmui_tuesday">周二</string>
+    <string name="jmui_wednesday">周三</string>
+    <string name="jmui_thursday">周四</string>
+    <string name="jmui_friday">周五</string>
+    <string name="jmui_saturday">周六</string>
+    <string name="jmui_sunday">周日</string>
+
+    <string name="jmui_resend_message_hint">重发该消息？</string>
+    <string name="jmui_resend_commit">重发</string>
+    <string name="jmui_cancel">取消</string>
+    <string name="btn_send">发送</string>
+    <string name="btn_text_speak">按住录音</string>
+    <string name="group">群聊</string>
+
+    <string name="picker_image_error">获取图片出错</string>
+    <string name="type_picture">[图片]</string>
+    <string name="group_notification">[群组消息]</string>
+    <string name="draft">[草稿]</string>
+    <string name="jmui_delete_conv">删除该消息</string>
+
+    <string name="inaccessible">对方不可达</string>
+    <string name="cancelled">呼叫被取消</string>
+    <string name="oppositebusying">对方正忙…</string>
+    <string name="bereject">呼叫被拒绝</string>
+    <string name="callfailed">呼叫结束</string>
+    <string name="voipstatusnoreply">对方无应答</string>
+    <string name="voipstatusnocnt">暂时无法接通</string>
+    <string name="errorcall">呼叫失败</string>
+    <string name="msg_tip">消息提示</string>
+    <string name="certificate_error">证书认证失败</string>
+    <string name="accountnum_overlimit">登陆用户已达上限</string>
+    <string name="network_off">网络已断开</string>
+    <string name="limit_login_prompt">版本下载错误，请下载TE Mobile</string>
+    <string name="viawifi">请连接WiFi网络使用TE Mobile</string>
+    <string name="connect_error">连接服务器失败，请检查网络设置</string>
+    <string name="module_error_1">服务器处理失败，请重试或联系管理员解决</string>
+    <string name="etimeout">超时，请检查网络！</string>
+    <string name="module_error_4">终端请求消息异常</string>
+    <string name="account_error">帐号或密码错误</string>
+    <string name="module_error_1login">与服务器连接失败，请重试或联系管理员解决</string>
+    <string name="callover">通话结束</string>
+
+    <string name="hide_video_window">关闭画中画</string>
+    <string name="show_video_window">显示画中画</string>
+    <string name="switch_audio">视频转音频</string>
+    <string name="switch_local_camera">切换本地摄像头</string>
+    <string name="close_local_camera">关闭本地摄像头</string>
+    <string name="camera_bad">Can not get camera</string>
+    <string name="set_camera_angle">Set camera angle</string>
+    <string name="set_local_video_angle">Set local video angle</string>
+    <string name="zero_begin_time">00:00:00</string>
+    <string name="remote_number">Remote number:</string>
+    <string name="video_upgrade_failure_try_again">Video call switch request failed. please retry later</string>
+    <string name="retry">Retry</string>
+    <string name="low_bw_update_fail">Low band width,can not turn to video</string>
+    <string name="oper_failure">Operation failed</string>
+    <string name="ntf_upgrade_videocall">Accept request to switch to video call</string>
+    <string name="accept">Accept</string>
+    <string name="refuse">Refuse</string>
+    <string name="cancel_video_update">Video call switch request canceled</string>
+    <string name="input_call_number">Input call number</string>
+    <string name="open_local_camera">打开本地摄像头</string>
+    <string name="audio_answer">Audio answer</string>
+    <string name="video_answer">Video answer</string>
+    <string name="reject">Reject</string>
+
+    <!-- 咨询 -->
+    <string name="diseasecounseling_manager_title">Advisory</string>
+    <string name="diseasecounseling_manager_tab_text_1">未完成</string>
+    <string name="diseasecounseling_manager_tab_text_2">已结束</string>
+
+
+    <!--  -->
+    <string name="register_manager_title">预约</string>
+    <string name="register_list_filter_text_1">全部</string>
+    <string name="register_list_filter_text_2">待就诊</string>
+    <string name="register_list_filter_text_3">已就诊</string>
+    <string name="register_list_filter_text_4">今日就诊</string>
+    <string name="register_list_filter_text_5">明日就诊</string>
+    <string name="register_list_filter_text_6">7日内就诊</string>
+    <string name="register_list_filter_text_7">7日后就诊</string>
+
+
+    <string name="bank_0001">中国工商银行</string>
+    <string name="bank_0002">中国建设银行</string>
+    <string name="bank_0003">中国农业银行</string>
+    <string name="bank_0004">交通银行</string>
+    <string name="bank_0005">中国银行</string>
+    <string name="bank_0006">招商银行</string>
+    <string name="bank_0007">中国邮政储蓄银行</string>
+
+    <!-- 星期信息 -->
+    <string name="mon">周一</string>
+    <string name="tue">周二</string>
+    <string name="wen">周三</string>
+    <string name="thu">周四</string>
+    <string name="fri">周五</string>
+    <string name="san">周六</string>
+    <string name="sun">周日</string>
+
+    <!-- 时间信息 -->
+    <string name="date_day">天</string>
+    <string name="date_hour">时</string>
+    <string name="date_minute">分</string>
+
+
+    <!-- 确认挂号 -->
+    <string name="register_type">挂号类型</string>
+    <string name="register_dept">就诊科室</string>
+    <string name="register_doc">医生姓名</string>
+    <string name="register_time">就诊时间</string>
+    <string name="register_clinc_type">门诊类型</string>
+    <string name="register_money_short">挂号费：</string>
+    <string name="register_patient">就诊病人</string>
+    <string name="choose_schude_item">选择号源</string>
+    <string name="dollar">元</string>
+    <string name="register_list_item_describe">预约时间</string>
+
+    <!-- 预约详情 -->
+    <string name="register_detail_doctor1">就诊医生</string>
+    <string name="register_detail_doctor2">接诊医生</string>
+    <string name="register_detail_hospital">接诊地点</string>
+    <string name="register_detail_time">接诊时间</string>
+    <string name="register_detail_cost">诊疗费用</string>
+    <string name="register_detail_title">预约单详情</string>
+    <string name="register_new_title">预约挂号</string>
+    <string name="register_detail">预约信息</string>
+    <string name="register_manager_tab_text_2">发给我的</string>
+    <string name="register_manager_tab_text_1">我发起的</string>
+    <string name="toast_no_patient">请选择患者</string>
+
+    <!-- 转诊列表 -->
+
+    <string name="create_treatment_title">住院转诊申请</string>
+    <string name="receive_treatment_title">接收转诊</string>
+    <string name="transfer_treatment_manager_title">转诊</string>
+    <string name="transfer_treatment_list_filter_text_1">全部</string>
+    <string name="transfer_treatment_list_filter_text_2">待处理</string>
+    <string name="transfer_treatment_list_filter_text_3">已接收</string>
+    <string name="transfer_treatment_list_filter_text_4">已取消</string>
+    <string name="transfer_treatment_list_filter_text_5">已拒绝</string>
+    <string name="transfer_treatment_list_filter_text_6">已就诊</string>
+
+    <string name="transfer_treatment_transto">转往:</string>
+    <string name="transfer_treatment_doc">转往医生</string>
+    <string name="treatment_details_explain">转诊说明</string>
+    <string name="treatment_detail_title">住院转诊单详情</string>
+    <string name="create_treatment_explain_input_hint">可以输入患者的病情症状和本次转诊的目的</string>
+    <string name="create_treatment_explain">转诊说明</string>
+    <string name="create_treatment_select_doctor">选择转诊医生</string>
+    <string name="workout">下班</string>
+    <string name="working">开诊</string>
+    <string name="history">历史</string>
+    <string name="cloud_menu_current">今日门诊</string>
+    <string name="cloud_menu_next">预约门诊</string>
+    <string name="str_cloudclinc_history_text1">申请记录</string>
+    <string name="str_cloudclinc_history_text2">接诊记录</string>
+    <string name="status_310_0001">已转账</string>
+    <string name="status_502_0000">全部</string>
+    <string name="status_502_0001">待支付</string>
+    <string name="status_502_0002">待接收</string>
+    <string name="status_502_0003">待就诊</string>
+    <string name="status_502_0004">已结束</string>
+
+    <string name="status_602_0000">全部</string>
+    <string name="status_602_0001">待处理</string>
+    <string name="status_602_0002">已接收</string>
+    <string name="status_602_0003">已取消</string>
+    <string name="status_602_0004">已拒绝</string>
+    <string name="status_602_0005">已就诊</string>
+
+    <string name="action_602_0001_mine">取消转诊</string>
+    <string name="action_602_0001_tome_2">接收</string>
+    <string name="action_602_0001_tome_1">拒绝</string>
+    <string name="action_602_0002">已接收</string>
+    <string name="action_602_0002_tome">完成</string>
+    <string name="action_602_0003_mine">重新转诊</string>
+    <string name="action_602_0004">已拒绝</string>
+    <string name="action_602_0005">已就诊</string>
+    <string name="string_item_cloud_clinc_pname">就诊患者</string>
+    <string name="string_item_cloud_clinc_dname">目标医生</string>
+    <string name="submit_transfer_input_title">请输入转诊小结</string>
+    <string name="refuse_transfer_input_title">请输入取消原因</string>
+    <string name="setting_transfertreatment_title">转诊业务</string>
+    <string name="setting_clinc_title">会诊业务</string>
+    <string name="setting_cloudclinc_title">云门诊业务</string>
+    <string name="setting_transfertreatment_discription">接收其他医疗机构的转诊申请</string>
+    <string name="setting_clinc_discription">接收其他医疗机构的会诊申请</string>
+    <string name="setting_cloudclinc_discription">向患者提供线上门诊服务</string>
+    <string name="transfer_treatment_type">转诊类别</string>
+    <string name="transfer_treatment_type_1">住院转诊</string>
+    <string name="receive_treatment_select_dept">入院科室</string>
+    <string name="receive_treatment_select_doc">主治医生</string>
+    <string name="receive_treatment_date">入院日期</string>
+    <string name="transfer_treatment_suggest">建议预交金(元)</string>
+    <string name="transfer_treatment_suggest_money">5000</string>
+    <string name="receive_surgery_date">手术日期</string>
+    <string name="receive_treatment_message">给申请医生留言</string>
+    <string name="receive_treatment_message_input_hint">如果有需要请给申请医生留言</string>
+    <string name="receive_treatment_more_detail">更多选项</string>
+    <string name="check_l1_tilte">就近收治</string>
+    <string name="check_r1_tilte">入院检查项目</string>
+    <string name="check_l2_tilte">需要手术</string>
+    <string name="check_r2_tilte">住院检查项目</string>
+
+    <!-- 拒绝会诊 -->
+    <string name="treatment_submit_title">完成转诊</string>
+    <!--<string name="refuse_input_title">输入拒绝会诊的原因:</string>-->
+    <string name="btn_new_model_text">添加为模板</string>
+    <string name="integration_count">评价</string>
+    <string name="evaluater_name_unkown">未知</string>
+    <string name="evaluate_title">患者评价</string>
+    <string name="integral_title">我的积分</string>
+    <string name="integral_in_history">累计记录</string>
+    <string name="integral_out_history">兑换记录</string>
+    <string name="integral_out">我要兑换</string>
+    <string name="item_integral_history_in_title">积分流水记录</string>
+    <string name="item_integral_history_time1">获取时间：</string>
+    <string name="item_integral_history_money1">获取金额：</string>
+    <string name="item_integral_history_person">收取人：</string>
+    <string name="item_integral_history_out_title">兑换记录</string>
+    <string name="item_integral_out_history_time">兑换时间：</string>
+    <string name="item_integral_out_history_type">兑换类型</string>
+    <string name="item_integral_out_history_money1">兑换数额：</string>
+    <string name="item_integral_history_account">提现账号 ：</string>
+    <string name="item_integral_history_bank">提现账户 ：</string>
+    <string name="menu_integral_card">银行卡</string>
+    <string name="menu_integral_new_card">添加</string>
+    <string name="f_bank_account_add_text1">持卡人</string>
+    <string name="f_bank_account_add_text2">银行卡号</string>
+    <string name="f_bank_account_add_text3">开户银行</string>
+    <string name="f_bank_account_add_text4">开户网点</string>
+    <string name="f_bank_account_add_hint3">请输入您本人银行卡开户行</string>
+    <string name="f_bank_account_add_hint2">请输入您本人银行卡卡号</string>
+    <string name="f_bank_account_add_hint4">请输入您本人银行卡开户网点</string>
+    <string name="new_bank_account_title">添加银行卡</string>
+    <string name="bank_type_list_title">选择银行卡</string>
+    <string name="integral_my_bank_account_title">我的银行卡</string>
+    <string name="integral_in_title">累计积分纪录</string>
+    <string name="string_mm_dd">MM月dd日</string>
+    <string name="string_mm_dd_hh_mm">MM月dd日 hh:mm</string>
+    <string name="integral_out_title">兑换积分纪录</string>
+    <string name="integral_out_type1">积分兑换</string>
+    <string name="f_draw_money_add_text1">请选择兑换积分的银行卡</string>
+    <string name="f_draw_money_add_text2">预计5～10个工作日到账</string>
+    <string name="f_draw_money_add_hint2">请输入需要兑换的积分数量</string>
+    <string name="draw_button_text">兑 换</string>
+    <string name="f_draw_money_add_text4">兑换比例：1积分=1元</string>
+    <string name="f_draw_money_add_text3">可兑换积分数：</string>
+    <string name="draw_money_title">积分兑换</string>
+    <string name="week_day_1">星期一</string>
+    <string name="week_day_2">星期二</string>
+    <string name="week_day_3">星期三</string>
+    <string name="week_day_4">星期四</string>
+    <string name="week_day_5">星期五</string>
+    <string name="week_day_6">星期六</string>
+    <string name="week_day_7">星期日</string>
+    <string name="treatment_receive_get_model">选择模板</string>
+    <string name="edit">编辑</string>
+    <string name="model_list_title">我的模板</string>
+    <string name="live_list_title">直播</string>
+    <string name="home_menu_live">视频教学</string>
+    <string name="live_detail_text1">主讲人：</string>
+    <string name="live_detail_text2">直播介绍</string>
+    <string name="live_detail_text3">发 布</string>
+    <string name="live_detail_text4">删 除</string>
+    <string name="live_detail_text5">开始直播</string>
+    <string name="live_detail_text6">结束直播</string>
+    <string name="live_detail_text7">取 消</string>
+    <string name="live_detail_title">直播详情</string>
+    <string name="delete_live_title">删除直播</string>
+    <string name="delete_live_content">是否删除直播？</string>
+    <string name="stop_live_content">是否结束直播</string>
+    <string name="stop_live_title">结束直播</string>
+    <string name="live_title">直播名称</string>
+    <string name="live_content">直播描述</string>
+    <string name="live_date">直播日期</string>
+    <string name="live_price">观看价格</string>
+    <string name="live_timestamp">预计时长</string>
+    <string name="live_notifyable">是否需要通知关注的病人</string>
+    <string name="live_bg">选择直播封面</string>
+    <string name="save_live_button_text">保存直播</string>
+    <string name="live_title_hint">请输入直播名称</string>
+    <string name="live_timestamp_hint">预计开播时长</string>
+    <string name="live_price_hint">观看直播的价格</string>
+    <string name="live_date_hint">请选择直接开始时间</string>
+    <string name="live_content_hint">请输入直播描述</string>
+    <string name="create_live_title">新建直播</string>
+    <string name="call">拨打电话</string>
+    <string name="phone_call">拨打电话</string>
+    <string name="treatment_detail_hospital">就诊医院</string>
+    <string name="treatment_detail_time">就诊时间</string>
+    <string name="treatment_detail_memo">医生留言</string>
+    <string name="input_phone2">手机号</string>
+    <string name="input_password2">验证码</string>
+    <string name="send_code">发送验证码</string>
+    <string name="use_code">手机动态登陆</string>
+    <string name="no_score_to_draw">您没有可以兑换的积分</string>
+    <string name="score">积分</string>
+
+    <string name="discription_item_disease_counseling"><![CDATA[<font color=#000000>病情概要：</font>]]></string>
+    <string name="discription_disease_counseling_detail">病情概要：</string>
+    <string name="str_disease_counseling_complate">完成咨询</string>
+
+
+    <string name="service_setting">业务设置</string>
+    <string name="setting_diseasecounseling_title">图文咨询</string>
+    <string name="setting_phonecall_title">电话咨询</string>
+    <string name="setting_diseasecounseling_discription">以文本形式向患者停工实时咨询服务</string>
+    <string name="setting_phonecall_discription">在约定时间内向患者提供电话咨询服务</string>
+    <string name="str_recommend">预约</string>
+    <string name="str_transfer_treatment">转诊</string>
+
+    <!-- 拒绝咨询 -->
+    <string name="refuse_dis_title">拒绝咨询</string>
+    <string name="refuse_dis_input_title">输入拒绝咨询的原因:</string>
+
+    <string name="create_consultation_follow_patient">我关注的患者</string>
+    <string name="str_dis_reply">回复</string>
+    <string name="str_dis_calling">拨打电话</string>
+    <string name="submit_cloud_clinc_input_title">请输入 小结</string>
+    <string name="cloud_clinc_submit_title">门诊小结</string>
+    <string name="refuse_dis_coun_title">拒绝咨询</string>
+</resources>

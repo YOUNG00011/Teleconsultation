@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/live_title"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/live_title"
+            android:hint="@string/live_title_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:maxLength="18" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/live_content"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/live_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:hint="@string/live_content_hint"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionNext" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l_live_date"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/live_date"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/live_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:clickable="false"
+            android:hint="@string/live_date_hint"
+            android:drawableRight="@drawable/ic_arrow_right"
+            android:textColor="@color/comm_msg_color"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/live_price"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/live_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:hint="@string/live_price_hint"
+            android:inputType="phone"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/live_timestamp"
+            android:textSize="14sp"
+            android:clickable="false"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/live_timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:hint="@string/live_timestamp_hint"
+            android:inputType="phone"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/live_notifyable"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/live_notifyable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:inputType="phone"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/l_live_bg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/live_bg"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/live_bg"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:maxHeight="48dp"
+            android:maxWidth="48dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/save_live_button_text"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comm_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/comm_list_divider_color"/>
+
+    <LinearLayout
+        android:id="@+id/ll_menu"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_send_sms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="群发短信"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_select_patient"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_select_all"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="全选"
+            android:drawableLeft="@drawable/ic_comm_checkbox_off"
+            android:drawablePadding="10dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="群发短信"
+            android:textSize="16sp"
+            android:textColor="@color/comm_btn_disabled"
+            android:gravity="center"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="取消"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/tv_ok"
+            android:layout_marginRight="20dp" />
+    </RelativeLayout>
+</LinearLayout>

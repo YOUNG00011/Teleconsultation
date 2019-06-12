@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comm_toolbar"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/ll_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consultation_details_status" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/comm_info_hint_text_color" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp">
+
+                    <View
+                        android:id="@+id/v_1"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_1"
+                        android:text="@string/consultation_details_patient_info"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <include layout="@layout/comm_item_patient" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp">
+
+                    <View
+                        android:id="@+id/v_2"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_2"
+                        android:text="@string/consultation_details_diagnosis"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_diagnosis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_2"
+                        android:layout_marginTop="8dp"
+                        android:text="未诊断" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp">
+
+                    <View
+                        android:id="@+id/v_3"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_3"
+                        android:text="@string/consultation_details_explain"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_3"
+                        android:layout_marginTop="8dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_info_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_horizontal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="@string/consultation_details_look_at_more_emr"
+                    android:textColor="@color/colorPrimary" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp">
+
+                    <View
+                        android:id="@+id/v_4"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_4"
+                        android:text="@string/consultation_details_arrange"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/consultation_details_time"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unlimited"
+                        android:textColor="@color/comm_info_hint_text_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_departments_root"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/consultation_details_department"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_department_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unlimited" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="医生职称"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_position_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unlimited" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_apply_doctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp">
+
+                        <View
+                            android:id="@+id/v_5"
+                            android:layout_width="3dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/v_5"
+                            android:text="@string/consultation_details_apply_doctor"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <include
+                        layout="@layout/comm_item_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_join_doctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="8dp">
+
+                        <View
+                            android:id="@+id/v_6"
+                            android:layout_width="3dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/tv_join_doctor_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_arrow_right"
+                            android:layout_toRightOf="@id/v_6"
+                            android:text="@string/consultation_details_join_doctor"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <com.jude.easyrecyclerview.EasyRecyclerView
+                        android:id="@+id/recycler_view_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_video_device"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="8dp"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/v_10"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_10"
+                        android:text="@string/consultation_details_video_account"
+                        android:drawableRight="@drawable/ic_arrow_right"
+                        android:textColor="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/v_10"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_video_device"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/consultation_details_none" />
+
+                        <ImageView
+                            android:id="@+id/iv_video_device_remove"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_remove"
+                            android:scaleType="centerInside"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_translator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="8dp">
+
+                        <View
+                            android:id="@+id/v_7"
+                            android:layout_width="3dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/tv_translator_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/v_7"
+                            android:text="@string/consultation_details_translator"
+                            android:textColor="@color/black" />
+                    </RelativeLayout>
+
+                    <com.jude.easyrecyclerview.EasyRecyclerView
+                        android:id="@+id/recycler_view_translator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_cancel_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:visibility="gone">
+
+                    <View
+                        android:id="@+id/v_8"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_8"
+                        android:text="取消原因"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tv_cancel_reason"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_below="@id/v_8"
+                        android:gravity="center_vertical"
+                        android:text="取消了"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_refuse_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp">
+
+                    <View
+                        android:id="@+id/v_9"
+                        android:layout_width="3dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/v_9"
+                        android:text="@string/consultation_details_refuse_reason"
+                        android:textColor="@color/black" />
+
+                    <com.jude.easyrecyclerview.EasyRecyclerView
+                        android:id="@+id/recycler_view_refuse_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_9"
+                        android:scrollbars="none" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_single_action"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_single_action"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_4th_action"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_double_action_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="预约"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_double_action_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="转诊"
+            android:textColor="@color/white" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_double_action_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="检查"
+            android:gravity="center"
+            android:textColor="@color/white" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_double_action_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开处方"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

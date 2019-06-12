@@ -1,0 +1,174 @@
+#
+<center>
+<p>分级诊疗系统Android开发文档</p>
+<h2 id="项目介绍">项目介绍</h2>
+<h3 id="开发目的">开发目的</h3>
+<p>为了简化医生的日常工作，提高工作效率而开发此款Android客户端。</p>
+<h3 id="项目背景">项目背景</h3>
+<ol type="1">
+<li>项目名称：分级诊疗系统</li>
+<li>项目提出者：新疆</li>
+<li>项目负责人：朱明成</li>
+<li>Android程序员：李平</li>
+<li>Code recode by:Allen</li>
+</ol>
+<h2 id="项目概述">项目概述</h2>
+<h3 id="待开发软件的简要描述">待开发软件的简要描述</h3>
+<ol type="1">
+<li><p>开发软件背景：<br />
+IDE：Android studio 3.3<br />
+编程语言：Java,xml JDK：jdk1.8<br />
+Android SDK：sdk 28<br />
+构建工具：gradle v3.1.2</p>
+<pre><code> classpath &#39;com.android.tools.build:gradle:3.3.0-alpha13&#39;   </code></pre>
+<p>单元测试：junit v4.12</p>
+<pre><code> testImplementation &#39;junit:junit:4.12&#39;  </code></pre>
+<p>依赖注入：butterknife v8.8.1</p>
+<pre><code> implementation &#39;com.jakewharton:butterknife:8.5.1&#39; </code></pre>
+<p>Github:<a href="https://github.com/JakeWharton/butterknife">https://github.com/JakeWharton/butterknife</a></p>
+<p>fragment：fragmentation v1.1.8</p>
+<pre><code> implementation &#39;me.yokeyword:fragmentation:1.1.8&#39;</code></pre>
+<p>Github:<a href="https://github.com/YoKeyword/Fragmentation">https://github.com/YoKeyword/Fragmentation</a></p>
+<p>事件：eventbus v3.0.0</p>
+<pre><code> implementation &#39;org.greenrobot:eventbus:3.0.0&#39;</code></pre>
+<p>Github:<a href="https://github.com/greenrobot/EventBus">https://github.com/greenrobot/EventBus</a></p>
+<p>tab：materialtabstrip v1.1.1</p>
+<pre><code>implementation&#39;com.jpardogo.materialtabstrip:library:1.1.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/jpardogo/PagerSlidingTabStrip">https://github.com/jpardogo/PagerSlidingTabStrip</a></p>
+<p>列表：easyrecyclerview v4.3.6</p>
+<pre><code> implementation &#39;com.jude:easyrecyclerview:4.3.6&#39;</code></pre>
+<p>Github:<a href="https://github.com/Jude95/EasyRecyclerView">https://github.com/Jude95/EasyRecyclerView</a></p>
+<p>Gson：gson v2.3.1</p>
+<pre><code> implementation &#39;com.google.code.gson:gson:2.3.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
+<p>网络：retrofit v2.1.0</p>
+<pre><code> implementation &#39;com.squareup.retrofit2:retrofit:2.4.0&#39;</code></pre>
+<pre><code> implementation &#39;com.squareup.retrofit2:converter-gson:2.4.0&#39;</code></pre>
+<pre><code> implementation &#39;com.squareup.retrofit2:adapter-rxjava:2.4.0&#39;</code></pre>
+<pre><code> implementation &#39;com.squareup.okhttp3:okhttp-urlconnection:3.2.0&#39;</code></pre>
+<p>Github:<a href="https://github.com/square/retrofit">https://github.com/square/retrofit</a></p>
+<p>函数式编程：rxjava v1.2.1，rxandroid v1.2.1</p>
+<pre><code> implementation &#39;io.reactivex:rxjava:1.3.0&#39;  </code></pre>
+<pre><code> implementation &#39;io.reactivex:rxandroid:1.2.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/ReactiveX/RxJava">https://github.com/ReactiveX/RxJava</a></p>
+<p>Github:<a href="https://github.com/ReactiveX/RxAndroid">https://github.com/ReactiveX/RxAndroid</a></p>
+<p>运行时权限：rxpermissions v0.9.3</p>
+<pre><code> implementation &#39;com.tbruyelle.rxpermissions:rxpermissions:0.9.3@aar&#39;</code></pre>
+<p>Github:<a href="https://github.com/tbruyelle/RxPermissions">https://github.com/tbruyelle/RxPermissions</a></p>
+<p>图片加载：gilde v4.8.0</p>
+<pre><code> implementation &quot;com.github.bumptech.glide:glide:4.1.1&quot;</code></pre>
+<p>Github:<a href="https://github.com/bumptech/glide">https://github.com/bumptech/glide</a></p>
+<p>图片选择器：PictureSelector v2.2.3</p>
+<pre><code> implementation &#39;com.github.LuckSiege.PictureSelector:picture_library:v2.2.3&#39;</code></pre>
+<p>Github:<a href="https://github.com/LuckSiege/PictureSelector">https://github.com/LuckSiege/PictureSelector</a></p>
+<p>对话框：material-dialogs v0.9.0.2，materialdatetimepicker v3.5.1</p>
+<pre><code> implementation &#39;com.afollestad.material-dialogs:core:0.9.0.2&#39;</code></pre>
+<pre><code> implementation &#39;com.wdullaer:materialdatetimepicker:3.5.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/afollestad/material-dialogs">https://github.com/afollestad/material-dialogs</a></p>
+<p>Github:<a href="https://github.com/wdullaer/MaterialDateTimePicker">https://github.com/wdullaer/MaterialDateTimePicker</a></p>
+<p>底部弹出框：bottom sheet v1.5.3</p>
+<pre><code> implementation &#39;com.flipboard:bottomsheet-core:1.5.3&#39;</code></pre>
+<pre><code> implementation &#39;com.flipboard:bottomsheet-commons:1.5.3&#39; // optional</code></pre>
+<p>Github:<a href="https://github.com/Flipboard/bottomsheet">https://github.com/Flipboard/bottomsheet</a></p>
+<p>轮播：banner v1.4.9</p>
+<pre><code> implementation &#39;com.youth.banner:banner:1.4.9&#39;</code></pre>
+<p>Github:<a href="https://github.com/youth5201314/banner">https://github.com/youth5201314/banner</a></p>
+<p>二维码：bga-qrcode-zxing v1.2.1</p>
+<pre><code> implementation &#39;cn.bingoogolapple:bga-qrcode-zxing:1.2.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/bingoogolapple/BGAQRCode-Android">https://github.com/bingoogolapple/BGAQRCode-Android</a></p>
+<p>圆角图片：roundedimageview v2.2.1</p>
+<pre><code> implementation &#39;com.makeramen:roundedimageview:2.2.1&#39;</code></pre>
+<p>Github:<a href="https://github.com/vinc3m1/RoundedImageView">https://github.com/vinc3m1/RoundedImageView</a></p>
+<p>角标控件：badgeview v1.1.3</p>
+<pre><code> implementation &#39;q.rorbin:badgeview:1.1.3&#39;</code></pre>
+<p>Github:<a href="https://github.com/qstumn/BadgeView">https://github.com/qstumn/BadgeView</a></p>
+<p>图片缩放：PhotoView v1.2.6</p>
+<pre><code> implementation &#39;com.github.chrisbanes:PhotoView:1.2.6&#39;</code></pre>
+<p>Github:<a href="https://github.com/chrisbanes/PhotoView">https://github.com/chrisbanes/PhotoView</a></p>
+<p>流式标签：androidtagview v1.1.4</p>
+<pre><code> implementation &#39;co.lujun:androidtagview:1.1.4&#39;</code></pre>
+<p>Github:<a href="https://github.com/whilu/AndroidTagView">https://github.com/whilu/AndroidTagView</a></p>
+<p>推送：JPush v3.1.1</p>
+<pre><code> implementation &#39;cn.jiguang.sdk:jpush:3.1.1&#39;</code></pre>
+<p>及时通讯：JMessage v2.5.0</p>
+<pre><code> implementation &#39;cn.jiguang.sdk:jmessage:2.5.0&#39;</code></pre>
+<pre><code> implementation &#39;cn.jiguang.sdk:jcore:1.1.9&#39;</code></pre></li>
+<li><p>所要达到的目的：开发出完整，可用，用户体验好的Android客户端。</p></li>
+</ol>
+<h3 id="软件主要功能">软件主要功能</h3>
+<ol type="1">
+<li>患者管理：通过标签的形式对患者进行分类。可以添加患者，查看患者详情，改变患者描述，编辑患者标签，为患者添加病历以及对各个病历中患者的资料进行分类管理。<br />
+</li>
+<li>会诊管理：分为<strong>“我的会诊”</strong>和<strong>“会诊中心”</strong>两大模块，医生可以通过点名会诊（通过邀请指定的医生）和会诊中心（通过一些条件筛选医生）的方式来创建一张会诊单，根据会诊单的内容展开会诊并与参与会诊单的医生进行交流。</li>
+<li>云门诊：业务开展有今日门诊 和预约门诊，今日门诊针对开展云门诊并且本日在线医生进行在线门诊业务。</li>
+<li>转诊： 分为<strong>“我发起的“<strong>和</strong>发给我的”</strong>,医生可以通过新增转诊，发起对指定医生进行指定病人转诊，也可以跟转诊医生，病人通过电话交流。</li>
+<li>直播：开通直播功能医院的医生可以发起在线直播功能，微信用户 或者app用户可以查看直播内容（可以设置资费信息）。</li>
+<li>患者咨询：患者通过微信企业号可以向医生发起电话或实时消息（文字，语音，视频）咨询。</li>
+<li>预约管理：分为<strong>“我发起的“<strong>和</strong>发给我的”</strong>两大模块，医生可以通过新增预约帮助病人预约挂号未来一周的在职医生号源。</li>
+</ol>
+<h3 id="用户特征和水平">用户特征和水平</h3>
+<p>主要针对从事医疗行业的工作人员使用。</p>
+<h3 id="运行环境">运行环境</h3>
+<p>Android移动设备（Android操作系统需要大于4.1）。</p>
+<h3 id="条件与限制">条件与限制</h3>
+<p>项目采用MVC模式开发。</p>
+<h2 id="功能需求">功能需求</h2>
+<h3 id="功能划分">功能划分</h3>
+<ol type="1">
+<li>注册</li>
+<li>登录</li>
+<li>忘记密码</li>
+<li>患者管理</li>
+<li>会诊管理</li>
+<li>系统消息</li>
+<li>即时通讯</li>
+<li>用户信息修改</li>
+<li>用户签名</li>
+<li>免打扰</li>
+<li>多语言</li>
+<li>修改密码</li>
+<li>清除缓存</li>
+<li>登出</li>
+<li>推送</li>
+<li>云门诊</li>
+<li>转诊</li>
+<li>直播</li>
+<li>患者咨询</li>
+<li>预约管理</li>
+</ol>
+<h3 id="功能描述">功能描述</h3>
+<ol type="1">
+<li>注册：根据必要的用户信息创建用户。</li>
+<li>登录：app登录、华为登录、极光登录。</li>
+<li>忘记密码：通过手机短信方式重置密码。</li>
+<li>患者管理：通过标签的形式管理患者，主要有添加患者、修改患者标签、修改患者描述、创建病历、修改病历资料。</li>
+<li>会诊管理：创建点名会诊和会诊中心，根据角色对会诊单进行操作、与会诊单中的医生开视频会议。</li>
+<li>系统消息：查看系统发出的消息。</li>
+<li>即时通讯：实时与其他医生进行交流（文字、图片）。</li>
+<li>用户信息修改：修改用户的可修改信息。</li>
+<li>用户签名：用户在手机上通过画板的方式手写签名、保存。</li>
+<li>免打扰：开启或关闭系统发出的推送消息。</li>
+<li>多语言：简体中文、英语、俄语的替换。</li>
+<li>修改密码：根据旧密码来修改当前用户密码。</li>
+<li>清除缓存：清除app运行期间的缓存（主要是图片缓存）。</li>
+<li>登出：退出当前用户帐号。</li>
+<li>推送：集成极光推送。</li>
+<li>云门诊： 云门诊业务</li>
+<li>转诊： 转诊业务</li>
+<li>直播：直播业务</li>
+<li>患者咨询：咨询业务</li>
+<li>预约管理：预约业务</li>
+</ol>
+<h2 id="其他">其他</h2>
+<h3 id="用户界面">用户界面</h3>
+<p>主要采用Android 5.0的Material Design风格。</p>
+<h3 id="软件接口">软件接口</h3>
+<ol type="1">
+<li>公共接口：全局使用的接口。</li>
+<li>用户接口：保存用户信息数据的接口。</li>
+<li>登录接口：操作用户登入、登出的接口。</li>
+<li>患者管理接口：患者管理模块的接口。</li>
+<li>会诊管理接口：会诊管理模块的接口。</li>
+</ol>
+<h3 id="华为视频会议">华为视频会议</h3>
+<p>接入华为eSDK CloudVC 1.1.0，文档、jar、Demo详见<strong>/eSDK</strong>文件夹。</p>

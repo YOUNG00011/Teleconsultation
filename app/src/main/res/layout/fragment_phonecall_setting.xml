@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="接受电话咨询"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:textSize="10dp"
+        android:text="在约定时间内向患者提供15分钟以内的电话咨询服务"/>
+        <LinearLayout
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/white"
+
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="提前10分钟提醒"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/checked2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:textSize="10dp"
+        android:text="提前10分钟发送电话咨询提醒，关闭后不再提醒"/>
+
+    <LinearLayout
+        android:id="@+id/prices"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收费价格"
+            android:textSize="16dp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/price"
+            android:text="5"
+            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:textSize="16dp"
+            android:gravity="right"
+            android:textColor="@color/font_inntegral"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="元"
+            android:textSize="16dp"
+            android:textColor="@color/font_inntegral"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:textSize="10dp"
+        android:text="建议价格20～200元以内，其中10.0%将作为平台费"/>
+    <include layout="@layout/layout_weekday_working_time"/>
+        </LinearLayout>
+</LinearLayout>
+</ScrollView>

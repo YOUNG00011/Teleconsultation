@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_exception" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="李平"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_dept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="精神科"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="乌鲁木齐爱德华医院"
+            android:layout_toRightOf="@+id/tv_dept"
+            android:layout_below="@id/tv_name"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="5dp" />
+    </RelativeLayout>
+</LinearLayout>

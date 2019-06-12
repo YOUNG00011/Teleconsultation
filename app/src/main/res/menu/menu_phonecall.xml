@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/call"
+        android:icon="@drawable/ic_phone"
+        app:showAsAction="ifRoom"
+        android:title=""
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/text"
+        android:icon="@drawable/ic_talk"
+        app:showAsAction="ifRoom"
+        android:title=""
+        android:visible="false"/>
+
+    <item
+        android:id="@+id/refuse"
+        app:showAsAction="ifRoom"
+        android:title="@string/refuse"
+        android:visible="false"/>
+</menu>

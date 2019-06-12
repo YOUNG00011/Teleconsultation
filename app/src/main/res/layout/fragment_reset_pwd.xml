@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+
+    <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        android:id="@+id/cet_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:hint="@string/new_password"
+        android:background="@android:color/transparent"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:imeOptions="actionNext" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/comm_list_divider_color" />
+
+    <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        android:id="@+id/cet_password_again"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/confirm_new_password"
+        android:background="@android:color/transparent"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:imeOptions="actionDone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/comm_list_divider_color" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/ok_button_text"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_group_title"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:gravity="center_vertical"
+        android:text="标签患者"
+        android:paddingLeft="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="患者管理"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="50"
+            android:gravity="end"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:maxLines="1" />
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <ImageView
+            android:id="@+id/iv_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+</LinearLayout>

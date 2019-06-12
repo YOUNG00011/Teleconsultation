@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_treat_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/evaluate_edit_situation_title"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/tv_treat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_treat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_treat"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:hint="@string/evaluate_edit_situation_input_hint"
+                android:gravity="top|left"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_treat_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/1000"
+                android:layout_below="@id/et_treat"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_condition_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/evaluate_edit_condition_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_condition"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:hint="@string/evaluate_edit_condition_input_hint"
+                android:gravity="top|left"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_condition_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/1000"
+                android:layout_below="@id/et_condition"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_suggest_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/evaluate_edit_advice_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tv_suggest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_suggest"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:hint="@string/evaluate_edit_advice_input_hint"
+                android:gravity="top|left"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_suggest_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/1000"
+                android:layout_below="@id/et_suggest"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_direction_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/evaluate_edit_gone_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_direction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_direction"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:hint="@string/evaluate_edit_gone_input_hint"
+                android:gravity="top|left"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_direction_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/1000"
+                android:layout_below="@id/et_direction"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

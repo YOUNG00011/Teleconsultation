@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/patient_confirm_hint"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp"
+        android:textColor="@color/comm_info_hint_text_color"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/idcard"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:maxLength="18" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/phone"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_health_card"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/medicare_card"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_health_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/ok_button_text"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

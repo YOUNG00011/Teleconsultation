@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+
+
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="20dp"
+                >
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/ic_exception"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任浩"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tv_department"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全科医学"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:layout_below="@id/tv_name" />
+
+                <TextView
+                    android:id="@+id/tv_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="六二中心"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:layout_below="@id/tv_department"
+                    android:layout_alignBottom="@id/iv_avatar" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_qrcode"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_exception" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="长按保存至相册"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_share_clinic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/primary_btn_bg"
+            android:text="分享给患者，方便患者管理"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_share_doctor"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="30dp"-->
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@drawable/primary_btn_bg"-->
+            <!--android:text="分享给医生，一起加入我们"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="14sp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_my_invite_code"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="医生注册时，记得输入我的邀请码:41217"-->
+                <!--android:layout_marginTop="10dp" />-->
+    </LinearLayout>
+</ScrollView>

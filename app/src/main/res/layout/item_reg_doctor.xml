@@ -1,0 +1,72 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:gravity="center"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_doctor_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_doctor_schedu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:text="专家门诊"
+        android:background="@drawable/black_desc_bg"
+        android:layout_alignBottom="@id/iv_doctor_avatar"
+        android:layout_alignRight="@+id/iv_doctor_avatar"
+        android:textColor="@color/white"
+        android:textSize="8sp" />
+
+    <TextView
+        android:layout_below="@+id/iv_doctor_avatar"
+        android:id="@+id/tv_doctor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="李平"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/job_name"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_doctor_name"
+        android:textSize="14sp"
+        android:text="副主任医师"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/resource_no_count"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/job_name"
+        android:textSize="14sp"
+        android:text="剩21"
+
+        android:textColor="@color/colorPrimary" />
+
+
+</RelativeLayout>

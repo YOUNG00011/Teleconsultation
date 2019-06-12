@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="剩余积分"
+                    android:id="@+id/score"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/font_inntegral"
+                    android:text="0.0"
+                    android:id="@+id/integral"
+                    android:layout_marginBottom="3dp"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <include layout="@layout/comm_horizontal_line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/integral_in_history"
+                    android:text="@string/integral_in_history"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    />
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/comm_list_divider_color" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/integral_out_history"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/integral_out_history"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+
+            <include layout="@layout/comm_horizontal_line"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:gravity="center"
+                android:paddingTop="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/integral_out"
+                    android:text="@string/integral_out"
+                    android:textColor="@color/white"
+                    android:background="@drawable/black_desc_bg"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    />
+
+
+            </LinearLayout>
+
+            <include layout="@layout/comm_horizontal_line"/>
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

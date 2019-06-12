@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="@string/sign_hint"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:textColor="@color/comm_info_hint_text_color"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical">
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0.5dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_your_signature"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sign"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <Button
+        android:id="@+id/btn_sign_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/primary_btn_bg"
+        android:text="@string/sign_resign"
+        android:textSize="16sp"
+        android:textColor="@color/white" />
+
+</LinearLayout>

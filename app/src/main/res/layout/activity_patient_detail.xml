@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/ic_patient_detail_bg">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_back_white_24dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_avatar"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/riv_avatar"
+                android:text="李平"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/tv_health"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="自费"
+                android:layout_toRightOf="@id/tv_name"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/white_desc_bg"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/tv_name"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/riv_avatar"
+                android:background="@drawable/black_desc_bg"
+                android:gravity="center"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="女"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="23"
+                android:layout_below="@id/tv_name"
+                android:layout_toRightOf="@id/tv_gender"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/white"
+                android:background="@drawable/black_desc_bg"
+                android:textSize="12sp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:gravity="center" />
+
+            <com.wxsoft.teleconsultation.ui.widget.InterceptAllEventLinearLayout
+                android:id="@+id/ll_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/riv_avatar"
+                android:layout_marginTop="10dp">
+
+                <co.lujun.androidtagview.TagContainerLayout
+                    android:id="@+id/tag"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:container_border_radius="0dp"
+                    app:container_border_width="0dp"
+                    app:container_border_color="@android:color/transparent"
+                    app:container_background_color="@android:color/transparent"
+                    app:horizontal_interval="5dp"
+                    app:vertical_interval="5dp"
+                    app:tag_theme="none"
+                    app:tag_corner_radius="5dp"
+                    app:tag_background="@drawable/black_desc_bg"
+                    app:tag_border_color="@color/colorPrimary"
+                    app:tag_text_color="@color/white"
+                    app:tag_text_size="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_more_horiz_white_36dp"
+                    android:layout_gravity="center_vertical" />
+            </com.wxsoft.teleconsultation.ui.widget.InterceptAllEventLinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/ll_EMR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_patient_emr" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_detail_emr"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/patient_detail_patient_description" />
+
+        <LinearLayout
+            android:id="@+id/ll_patient_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_patient_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/patient_detail_no_description"
+                android:textColor="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_marginLeft="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

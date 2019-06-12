@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_month_day"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="04-09"-->
+        <!--android:textSize="14sp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:visibility="gone"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_time"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="12:34"-->
+        <!--android:layout_below="@id/tv_month_day"-->
+        <!--android:layout_alignRight="@id/tv_month_day"-->
+        <!--android:textSize="10sp" />-->
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/fl_line"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_toRightOf="@id/tv_month_day"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginRight="10dp">-->
+
+        <!--<View-->
+            <!--android:layout_width="0.5dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="@color/comm_list_divider_color" />-->
+
+        <!--<View-->
+            <!--android:layout_width="8dp"-->
+            <!--android:layout_height="8dp"-->
+            <!--android:background="@drawable/primary_circle_bg"-->
+            <!--android:layout_marginTop="10dp" />-->
+    <!--</FrameLayout>-->
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/riv_type"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:src="@drawable/ic_clinic"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" />
+
+
+    <TextView
+        android:id="@+id/tv_type_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/riv_type"
+        android:layout_marginTop="10dp"
+            android:text="会诊"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/riv_type"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:text="会诊"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/riv_type"
+        android:layout_alignBottom="@+id/riv_type"
+        android:text="李平"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_name"
+        android:layout_alignBottom="@id/tv_name"
+        android:layout_marginRight="8dp"
+        android:text="女" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_gender"
+        android:layout_alignBottom="@id/tv_gender"
+        android:layout_marginTop="10dp"
+        android:text="22" />
+
+    <TextView
+        android:id="@+id/tv_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="会诊说明:dsdsdsdsdsddsdsdsdsdsdsdsdsdsddsdsd"
+        android:layout_alignLeft="@id/riv_type"
+        android:layout_below="@id/tv_name"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:maxLines="5"
+        android:ellipsize="end" />
+</RelativeLayout>

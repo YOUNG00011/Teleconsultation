@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flipboard.bottomsheet.BottomSheetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/comm_recycler_view"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabtn_more"
+            app:fabSize="mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_add_white_24dp"/>
+    </RelativeLayout>
+</com.flipboard.bottomsheet.BottomSheetLayout>

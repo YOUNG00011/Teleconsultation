@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_root"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:stepSize="0.1"
+
+                    android:id="@+id/stars"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:rating="3"/>
+                <TextView
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="3.0分"
+                    android:id="@+id/score"
+                    android:textSize="20sp"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:paddingBottom="8dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/the_count"
+                    android:textStyle="bold"
+                    android:text="@string/integration_count"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+            <include layout="@layout/comm_recycler_view" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_schude_item"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:layout_margin="1dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08-09"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_weekday"
+        android:layout_toRightOf="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name"
+        android:layout_marginRight="10dp"
+        android:text="星期四"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_toLeftOf="@+id/btn_register"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_schude_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_date"
+        android:text="08：45-08：48"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btn_register"/>
+
+    <TextView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:id="@+id/btn_register"
+
+        android:text="5"
+        android:layout_centerVertical="true"
+        android:padding="2dp"
+        android:gravity="center"
+        android:background="@drawable/btn_schude_item_count"
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

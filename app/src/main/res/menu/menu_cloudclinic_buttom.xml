@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/next"
+        android:title="@string/cloud_menu_next"
+        android:icon="@drawable/ic_clinic" />
+    <item
+        android:id="@+id/current"
+        android:title="@string/cloud_menu_current"
+        android:icon="@drawable/ic_patient_manager" />
+</menu>

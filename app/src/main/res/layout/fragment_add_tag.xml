@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        android:id="@+id/cet_tag"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:hint="@string/add_tags_input_hint"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_tags_recommend_text"
+        android:layout_margin="16dp" />
+
+    <co.lujun.androidtagview.TagContainerLayout
+        android:id="@+id/tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:container_border_radius="0dp"
+        app:container_border_width="0dp"
+        app:container_border_color="@android:color/transparent"
+        app:container_background_color="@android:color/transparent"
+        app:horizontal_interval="10dp"
+        app:vertical_interval="10dp"
+        android:clickable="true"
+        app:tag_clickable="true"
+        app:tag_theme="none"
+        app:tag_corner_radius="5dp"
+        app:tag_background_color="@color/white"
+        app:tag_border_color="@color/white"
+        app:tag_text_color="@color/black" />
+</LinearLayout>

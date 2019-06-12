@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_bg_bankaccount_owner"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/call"
+            android:textSize="16dp"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"/>
+
+ <include layout="@layout/comm_horizontal_line"/>
+    <TextView
+        android:id="@+id/patient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="你好"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"/>
+        <include layout="@layout/comm_horizontal_line"/>
+    <TextView
+        android:id="@+id/doctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刘浩"
+        android:textSize="20dp"
+        android:textColor="@color/blue"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cancel_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textSize="20dp"
+        android:textColor="@color/blue"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/white_bg_bankaccount_owner"
+        android:gravity="center"/>
+</LinearLayout>

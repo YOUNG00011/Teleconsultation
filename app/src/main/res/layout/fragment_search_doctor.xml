@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:textColor="@color/comm_msg_color"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:hint="@string/search_doctor_by_condition_input_doctor_name_hint" />
+    </LinearLayout>
+
+    <include layout="@layout/comm_horizontal_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/search_doctor_by_condition_goodat"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            android:id="@+id/et_goodat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:textColor="@color/comm_msg_color"
+            android:imeOptions="actionDone"
+            android:hint="@string/search_doctor_by_condition_input_goodat_hint" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/ll_root_department"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="专科"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:text="不限"
+                android:textSize="14sp"
+                android:drawablePadding="10dp" />
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+            android:id="@+id/ll_root_position_title"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/job_title"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_position_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_arrow_right"
+                android:text="@string/unlimited"
+                android:textSize="14sp"
+                android:drawablePadding="10dp" />
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/disabled_btn_bg"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
