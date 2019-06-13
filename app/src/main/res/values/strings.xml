@@ -646,6 +646,8 @@
     <string name="cloud_clinc_submit_title">门诊小结</string>
     <string name="refuse_dis_coun_title">拒绝咨询</string>
     <string name="chat_send_button_text">发送</string>
+    <string name="prescription_manager_tab_text_1">咨询</string>
+    <string name="prescription_manager_tab_text_2">处方</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import com.wxsoft.teleconsultation.http.api.DiseaseCounselingApi;
 import com.wxsoft.teleconsultation.http.api.LiveApi;
 import com.wxsoft.teleconsultation.http.api.LoginApi;
 import com.wxsoft.teleconsultation.http.api.PatientManagerApi;
+import com.wxsoft.teleconsultation.http.api.PrescriptionApi;
 import com.wxsoft.teleconsultation.http.api.RegisterApi;
 import com.wxsoft.teleconsultation.http.api.SmcApi;
 import com.wxsoft.teleconsultation.http.api.TransferTreatmentApi;
@@ -36,6 +37,10 @@ public class ApiFactory {
     // 会诊管理
     private static ClinicManagerApi clinicManagerApi;
     private static SmcApi smcApi;
+    /**
+     * 处方api
+     */
+    private static PrescriptionApi prescriptionApi;
     /**
      * 云门诊
      */
@@ -122,6 +127,15 @@ public class ApiFactory {
             }
         }
         return patientManagerApi;
+    }
+
+    public static PrescriptionApi getPrescriptionApi() {
+        if (prescriptionApi == null) {
+            synchronized (monitor) {
+                prescriptionApi = RetrofitManager.getInstance().create(PrescriptionApi.class);
+            }
+        }
+        return prescriptionApi;
     }
 
     public static ClinicManagerApi getClinicManagerApi() {
