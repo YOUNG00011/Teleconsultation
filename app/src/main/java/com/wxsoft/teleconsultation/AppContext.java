@@ -23,10 +23,6 @@ public class AppContext {
     }
 
     public static User getUser() {
-//        UserInfo userInfo = JMessageClient.getMyInfo();
-//        if (userInfo == null) {
-//            return null;
-//        }
 
         user = SharedPreferencesHelper.getUser();
         return user;

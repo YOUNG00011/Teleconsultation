@@ -43,6 +43,7 @@ import com.wxsoft.teleconsultation.ui.fragment.homepage.diseasecounseling.Diseas
 import com.wxsoft.teleconsultation.ui.fragment.homepage.diseasecounseling.DiseaseCounselingManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.live.LiveListFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.patientmanager.PatientManagerFragment;
+import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.PrescriptionManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.register.RegisterManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.transfertreatment.TransferTreatmentDetailFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.transfertreatment.TransferTreatmentManageFragment;
@@ -278,6 +279,8 @@ public class HomePageContentFragment extends BaseFragment {
                         PatientManagerFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_REGISTER){
                         RegisterManageFragment.launch(_mActivity);
+                    }else if(action==Item.ACTION_PRESCRIPTION){
+                        PrescriptionManageFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_TRANSFER_TREATMENT){
                         TransferTreatmentManageFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_TRANSFER_LIVE){
@@ -482,8 +485,10 @@ public class HomePageContentFragment extends BaseFragment {
                 Item item1 = new Item(R.drawable.ic_patient_manager, getString(R.string.home_menu_patient), Item.ACTION_PATIENT_MANAGER);
                 items.add(item1);
             }
-
         }
+
+        Item itemPre = new Item(R.drawable.ic_register, getString(R.string.home_menu_prescription), Item.ACTION_PRESCRIPTION);
+        items.add(itemPre);
 
         return items;
     }
@@ -576,14 +581,15 @@ public class HomePageContentFragment extends BaseFragment {
 
         public static final int ACTION_CONSULT = 1;
         public static final int ACTION_CLINIC = 2;
+        public static final int ACTION_CLOUD_CLINIC = 3;
+        public static final int ACTION_PATIENT_MANAGER = 4;
         /**
          * 预约
          */
         public static final int ACTION_REGISTER = 5;
-        public static final int ACTION_CLOUD_CLINIC = 3;
         public static final int ACTION_TRANSFER_TREATMENT = 6;
         public static final int ACTION_TRANSFER_LIVE = 7;
-        public static final int ACTION_PATIENT_MANAGER = 4;
+        public static final int ACTION_PRESCRIPTION = 8;
 
         private int drawableRes;
         private String title;

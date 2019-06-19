@@ -136,7 +136,7 @@ public class OnLineListFragment extends BaseFragment {
 //                startActivity(intent);
 //
 //            }else
-//                DiseaseCounselingDetailFragment.launch(_mActivity,diseaseCounselingId);
+//                PrescriptionDetailFragment.launch(_mActivity,diseaseCounselingId);
 
         });
 

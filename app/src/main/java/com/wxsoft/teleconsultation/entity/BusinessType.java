@@ -33,4 +33,8 @@ public @interface BusinessType {
      * 咨询
      */
     String COUNSELING = "Counseling";
+    /**
+     * 电子处方
+     */
+    String PRESCRIPTION = "Prescription";
 }

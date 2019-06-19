@@ -644,5 +644,13 @@
     <string name="refuse_dis_coun_title">拒绝咨询</string>
 	<string name="prescription_manager_tab_text_1">咨询</string>
 	<string name="prescription_manager_tab_text_2">处方</string>
+	<string name="home_menu_prescription">电子处方</string>
+	<string name="prescription_manager_title">电子处方</string>
+	<string name="create_prescription_select_work_studio">执业点</string>
+    <string name="create_prescription_diagnosis">诊断</string>
+    <string name="create_prescription_diagnosis_input_hint">请选择确诊疾病</string>
+    <string name="create_prescription_memo">备注</string>
+	<string name="title_common_medicine">常用药品</string>
+	<string name="select__medicine_search_input_hint">请输入药品名</string>
 
 </resources>

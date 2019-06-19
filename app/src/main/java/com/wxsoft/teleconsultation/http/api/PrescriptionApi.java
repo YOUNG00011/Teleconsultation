@@ -2,6 +2,8 @@ package com.wxsoft.teleconsultation.http.api;
 
 import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.PatientManagerTag;
+import com.wxsoft.teleconsultation.entity.prescription.Medicine;
+import com.wxsoft.teleconsultation.entity.prescription.MedicineCategory;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
@@ -53,7 +55,7 @@ public interface PrescriptionApi {
 	 * @param preId 处方id
 	 * @return
 	 */
-	@GET("api/Prescription/GetPrescriptionById?preId={preId}&isMobile=true")
+	@GET("api/Prescription/GetPrescriptionById?isMobile=true")
 	Observable<BaseResp<OnlinePrescription>> getPrescription(@Query("preId") String preId);
 
 	/**
@@ -61,6 +63,30 @@ public interface PrescriptionApi {
 	 * @param preId
 	 * @return
 	 */
-	@GET("api/Prescription/GetAllMedicines?preId={preId}&isMobile=true")
-	Observable<BaseResp<List<PatientManagerTag>>> getMedTypes(@Query("preId") String preId);
+	@GET("api/Prescription/GetAllMedicines?isMobile=true")
+	Observable<BaseResp<List<MedicineCategory>>> getMedTypes(@Query("category") String preId);
+
+	/**
+	 * 根据药品分类获取药品列表
+	 * @param categoryId 分类id
+	 * @return
+	 */
+	@GET("api/Prescription/GetMedicines?isMobile=true")
+	Observable<BaseResp<List<Medicine>>> getMedicines(@Query("medicineCategoryId") String categoryId);
+
+	/**
+	 * 根据关键字获取药品列表
+	 * @param key 搜索关键字
+	 * @return
+	 */
+	@GET("api/Prescription/GetMedicinesByKey?isMobile=true")
+	Observable<BaseResp<List<Medicine>>> getMedicinesByKey(@Query("key") String key);
+
+	/**
+	 * 获取医生常用药品列表
+	 * @param doctorId 医生id
+	 * @return
+	 */
+	@GET("api/Prescription/GetCommonMedicine?isMobile=true")
+	Observable<BaseResp<List<Medicine>>> getCommonMedicines(@Query("doctorId") String doctorId);
 }

@@ -23,18 +23,13 @@ import com.wxsoft.teleconsultation.AppConstant;
 import com.wxsoft.teleconsultation.AppContext;
 import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
-import com.wxsoft.teleconsultation.entity.Patient;
-import com.wxsoft.teleconsultation.entity.PatientTag;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
-import com.wxsoft.teleconsultation.entity.transfertreatment.TreatMent;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.transfertreatment.TransferTreatmentDetailFragment;
-import com.wxsoft.teleconsultation.util.AppUtil;
-import com.wxsoft.teleconsultation.util.DateUtil;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
@@ -177,38 +172,38 @@ public class PrescriptionListFragment extends BaseFragment {
         String status = statuses.get(statusIndex);
         String doctId = AppContext.getUser().getDoctId();
         QueryRequestBody body = QueryRequestBody.getTransferTreatmentRequestBody(doctId, queryType, status, AppConstant.SIZE_OF_PAGE, mPage);
-//        ApiFactory.getPrescriptionApi().getPrescription(body)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<BaseResp<QueryResponseData< OnlinePrescription>>>() {
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        if (mAdapter.getCount() == 0) {
-//                            ((TextView) ButterKnife.findById(mRecyclerView.getErrorView(), R.id.message_info)).setText(e.getMessage());
-//                            mRecyclerView.showError();
-//                            mRecyclerView.getErrorView().setOnClickListener(v -> {
-//                                mRecyclerView.showProgress();
-//                                loadData();
-//                            });
-//                        } else {
-//                            showRefreshing(false);
-//                            ViewUtil.showMessage(e.getMessage());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onNext(BaseResp<QueryResponseData<OnlinePrescription>> resp) {
-//                        showRefreshing(false);
-////                        String s=resp.getData().toString();
-////                        Log.i(s,s);
-//                        processResponse(resp);
-//                    }
-//                });
+        ApiFactory.getPrescriptionApi().queryDiseaseCounseling(body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BaseResp<QueryResponseData< OnlinePrescription>>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (mAdapter.getCount() == 0) {
+                            ((TextView) ButterKnife.findById(mRecyclerView.getErrorView(), R.id.message_info)).setText(e.getMessage());
+                            mRecyclerView.showError();
+                            mRecyclerView.getErrorView().setOnClickListener(v -> {
+                                mRecyclerView.showProgress();
+                                loadData();
+                            });
+                        } else {
+                            showRefreshing(false);
+                            ViewUtil.showMessage(e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onNext(BaseResp<QueryResponseData<OnlinePrescription>> resp) {
+                        showRefreshing(false);
+//                        String s=resp.getData().toString();
+//                        Log.i(s,s);
+                        processResponse(resp);
+                    }
+                });
     }
 
     private void processResponse(BaseResp<QueryResponseData<OnlinePrescription>> resp) {
@@ -280,7 +275,7 @@ public class PrescriptionListFragment extends BaseFragment {
         });
     }
 
-    private class MyApplyViewHolder extends BaseViewHolder<TreatMent> {
+    private class MyApplyViewHolder extends BaseViewHolder<OnlinePrescription> {
 
         private TextView mGroupTitleView;
         private ImageView mAvatarView;
@@ -314,34 +309,12 @@ public class PrescriptionListFragment extends BaseFragment {
         }
 
         @Override
-        public void setData(TreatMent data) {
+        public void setData(OnlinePrescription data) {
             super.setData(data);
 
             try {
 
 
-                Patient patient = data.patient;
-                mNameView.setText(patient.getName());
-                mAvatarView.setImageResource(patient.getAvatarDrawableRes());
-                mGenderView.setText(patient.getFriendlySex());
-                mAgeView.setText(String.valueOf(patient.getAge()));
-                mHealthView.setText(patient.getMedicalInsuranceName());
-                mTransToView.setText(getResources().getString(R.string.transfer_treatment_transto)+data.acceptDoctorName+" "+data.acceptDoctor.getDepartmentName()+" "+data.acceptDoctor.getHospitalName());
-                mDescribeView.setText(data.describe);
-                mTagsView.removeAllViews();
-                List<PatientTag> patientTags = patient.getPatientTags();
-                if (patientTags == null || patientTags.isEmpty()) {
-                    mTagsView.setVisibility(View.INVISIBLE);
-                } else {
-                    mTagsView.setVisibility(View.VISIBLE);
-                    for (PatientTag patientTag : patientTags) {
-                        mTagsView.addView(AppUtil.getTagTextView(mContext, patientTag.getTagName()));
-                    }
-                }
-
-                mStatusView.setText(data.statusName);
-
-                mTimeView.setText(DateUtil.getCustomTimeStamp(getActivity(),data.createdDate.substring(0,19).replace("T"," "),null));
             } catch (Exception e) {
                 e.printStackTrace();
                 int i = 0;
