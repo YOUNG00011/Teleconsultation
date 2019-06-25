@@ -2,11 +2,13 @@ package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltherol
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jude.easyrecyclerview.EasyRecyclerView;
@@ -18,6 +20,7 @@ import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.prescription.MedicineCategory;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
+import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.medicine.select.MedicineListFragment;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
@@ -74,6 +77,15 @@ public class MedicineTreeFragment extends BaseFragment {
             public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
                 return new MedCategoryViewHolder(parent);
             }
+
+        });
+
+        mAdapter.setOnItemClickListener(position -> {
+
+            MedicineCategory category=mAdapter.getItem(position);
+            MedicineListFragment.launchForResult(_mActivity,category.id,category.name);
+            _mActivity.finish();
+
         });
 
         mRecyclerView.setRefreshListener(() -> {
@@ -87,12 +99,6 @@ public class MedicineTreeFragment extends BaseFragment {
             loadData();
         });
 
-        mAdapter.setOnItemClickListener(position -> {
-//            String clinicId = mAdapter.getItem(position).id;
-//            TransferTreatmentDetailFragment.launch(_mActivity, clinicId,mCurrentPosition==0);
-
-        });
-
         loadData();
     }
     private void showRefreshing(final boolean refresh) {
@@ -100,7 +106,6 @@ public class MedicineTreeFragment extends BaseFragment {
             mRecyclerView.getSwipeToRefresh().setRefreshing(refresh);
         });
     }
-
 
     private void loadData() {
         String queryType = mCurrentPosition==0?"0":"1";
@@ -131,13 +136,10 @@ public class MedicineTreeFragment extends BaseFragment {
               @Override
               public void onNext(BaseResp<List<MedicineCategory>> resp) {
                   showRefreshing(false);
-//                        String s=resp.getData().toString();
-//                        Log.i(s,s);
                   processResponse(resp);
               }
           });
     }
-
 
     private void processResponse(BaseResp<List<MedicineCategory>> resp) {
         showRefreshing(false);
@@ -174,7 +176,6 @@ public class MedicineTreeFragment extends BaseFragment {
                 return;
             }
 
-
             List<MedicineCategory> targetClinics = new ArrayList<>();
             if (mPage > 1 && !mAdapter.getAllData().isEmpty()) {
                 targetClinics.addAll(mAdapter.getAllData());
@@ -185,29 +186,26 @@ public class MedicineTreeFragment extends BaseFragment {
             mRecyclerView.showRecycler();
             mAdapter.clear();
             mAdapter.addAll(targetClinics);
-
-
-
         }
     }
-
 
     private class MedCategoryViewHolder extends BaseViewHolder<MedicineCategory> {
 
         private TextView title;
+        private RelativeLayout root;
         private ImageView icon;
         private EasyRecyclerView items;
 
         public MedCategoryViewHolder(ViewGroup parent) {
             super(parent, R.layout.comm_item_med_category);
 
+            root = $(R.id.ll_root);
             title = $(R.id.title);
             icon = $(R.id.icon);
             items = $(R.id.items);
             items.setLayoutManager(new LinearLayoutManager(_mActivity));
             DividerDecoration itemDecoration = new DividerDecoration(ContextCompat.getColor(getActivity(), R.color.comm_list_divider_color), DensityUtil.dip2px(getActivity(), 0.5f), 0, 0);
             items.addItemDecoration(itemDecoration);
-
 
         }
 
@@ -224,6 +222,14 @@ public class MedicineTreeFragment extends BaseFragment {
                           return new MedCategoryViewHolder(parent);
                       }
                   };
+
+                itemAdapter.setOnItemClickListener(position -> {
+
+                    MedicineCategory category=mAdapter.getItem(position);
+                    MedicineListFragment.launchForResult(_mActivity,category.id,category.name);
+                    _mActivity.finish();
+
+                });
                 items.setAdapter(itemAdapter);
                 itemAdapter.addAll(data.medicineCategorys);
 

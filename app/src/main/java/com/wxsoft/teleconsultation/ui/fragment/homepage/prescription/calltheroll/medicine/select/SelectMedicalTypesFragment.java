@@ -176,26 +176,6 @@ public class SelectMedicalTypesFragment extends BaseFragment {
     }
 
     private void loadData() {
-//        String organizationId = mHospital == null ? (hospitalId==null?"":hospitalId) : mHospital.getId();
-//        ApiFactory.getClinicManagerApi().getDepartmentByOrganizationId(organizationId)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<BaseResp<List<Department>>>() {
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        ViewUtil.showMessage(e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onNext(BaseResp<List<Department>> resp) {
-//                        processResponse(resp);
-//                    }
-//                });
     }
 
     private void showRefreshing(final boolean refresh) {
@@ -218,44 +198,8 @@ public class SelectMedicalTypesFragment extends BaseFragment {
 
         mAdapter.clear();
         mAdapter.addAll(departments);
-//        if (isShowHospiatal) {
-//            mAdapter.addHeader(new RecyclerArrayAdapter.ItemView() {
-//                @Override
-//                public View onCreateView(ViewGroup parent) {
-//                    return View.inflate(_mActivity, R.layout.comm_item_hospital, null);
-//                }
-//
-//                @Override
-//                public void onBindView(View headerView) {
-//
-//                    ImageView coverView = ButterKnife.findById(headerView, R.id.iv_cover);
-//                    RequestManager glide = Glide.with(SelectMedicalTypesFragment.this);
-//                    RequestOptions options = new RequestOptions()
-//                            .centerCrop()
-//                            .dontAnimate();
-//
-//                    glide.setDefaultRequestOptions(options.placeholder(R.drawable.ic_hospital_placeholder))
-//                            .load(mHospital.getImageUrl())
-//                            .into(coverView);
-//
-//                    ((TextView) ButterKnife.findById(headerView, R.id.tv_name)).setText(mHospital.getName());
-//                    ((TextView) ButterKnife.findById(headerView, R.id.tv_level)).setText(mHospital.getLevel());
-//                    ((TextView) ButterKnife.findById(headerView, R.id.tv_address)).setText(mHospital.getAddress());
-//                    headerView.setOnClickListener(view -> {
-//                        HospitalIntroductionFragment.launch(_mActivity, mHospital);
-//                    });
-//                }
-//            });
-//        }
     }
 
-    private void finish(Department department) {
-        Intent intent = new Intent();
-//        intent.putExtra(KEY_HOSPITAL, mHospital);
-        intent.putExtra(KEY_DEPARTMENT, department);
-        _mActivity.setResult(RESULT_OK, intent);
-        _mActivity.finish();
-    }
 
     private class DepartmentViewHolder extends BaseViewHolder<Department> {
 

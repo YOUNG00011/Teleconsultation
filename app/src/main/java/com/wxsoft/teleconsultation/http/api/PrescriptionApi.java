@@ -1,10 +1,13 @@
 package com.wxsoft.teleconsultation.http.api;
 
+import com.wxsoft.teleconsultation.AppConstant;
 import com.wxsoft.teleconsultation.entity.BaseResp;
+import com.wxsoft.teleconsultation.entity.CommEnum;
 import com.wxsoft.teleconsultation.entity.PatientManagerTag;
 import com.wxsoft.teleconsultation.entity.prescription.Medicine;
 import com.wxsoft.teleconsultation.entity.prescription.MedicineCategory;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
+import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 
@@ -27,12 +30,20 @@ public interface PrescriptionApi {
 	Observable<BaseResp<OnlinePrescription>> savePrescription(@Body OnlinePrescription onlinePrescription);
 
 	/**
+	 * 保存处方申请
+	 * @param onlinePrescription 处方
+	 * @return
+	 */
+	@POST("api/Prescription/SavePrescriptionWithOutAttachment?isMobile=true")
+	Observable<BaseResp<OnlinePrescription>> savePrescriptionWithOutAttach(@Body OnlinePrescription onlinePrescription);
+
+	/**
 	 * 保存诊断和开药信息
 	 * @param onlinePrescription 处方
 	 * @return
 	 */
 	@POST("api/Prescription/SavePrescriptionRecipe?isMobile=true")
-	Observable<BaseResp<List<PatientManagerTag>>> savePrescriptionRecipe(@Body OnlinePrescription onlinePrescription);
+	Observable<BaseResp<OnlinePrescription>> savePrescriptionRecipe(@Body OnlinePrescription onlinePrescription);
 
 	/**
 	 * 保存药师审批结果
@@ -40,7 +51,7 @@ public interface PrescriptionApi {
 	 * @return
 	 */
 	@POST("api/Prescription/SavePrescription_PharmacistAudit?isMobile=true")
-	Observable<BaseResp<List<PatientManagerTag>>> pharmacistPrescription(@Body OnlinePrescription onlinePrescription);
+	Observable<BaseResp<OnlinePrescription>> pharmacistPrescription(@Body OnlinePrescription onlinePrescription);
 
 	/**
 	 * 查询处方列表
@@ -48,7 +59,7 @@ public interface PrescriptionApi {
 	 * @return
 	 */
 	@POST("api/Prescription/QueryPrescription?isMobile=true")
-	Observable<BaseResp<QueryResponseData<OnlinePrescription>>> queryDiseaseCounseling(@Body QueryRequestBody body);
+	Observable<BaseResp<QueryResponseData<OnlinePrescription>>> getPrescriptions(@Body QueryRequestBody body);
 
 	/**
 	 * 获取处方详情
@@ -89,4 +100,76 @@ public interface PrescriptionApi {
 	 */
 	@GET("api/Prescription/GetCommonMedicine?isMobile=true")
 	Observable<BaseResp<List<Medicine>>> getCommonMedicines(@Query("doctorId") String doctorId);
+
+
+	/**
+	 * 往下的实现没有调试
+	 */
+
+	/**
+	 * 获取咨询列表
+	 * @param body
+	 * @return
+	 */
+	@POST("api/Prescription/QueryMedicationConsultation?isMobile=true")
+	Observable<BaseResp<QueryResponseData<PrescriptionCon>>> getConsultation(@Body QueryRequestBody body);
+
+	/**
+	 * 获取咨询详情
+	 * @param couId 咨询id
+	 * @return
+	 */
+	@GET("api/Prescription/GetMedicationConsultationById?isMobile=true")
+	Observable<BaseResp<OnlinePrescription>> getConsultationDetail(@Query("couId") String couId);
+
+	/**
+	 * 保存咨询信息
+	 * @param onlinePrescription 处方 修改status就好
+	 * @return
+	 */
+	@POST("api/Prescription/SaveMedicationConsultation?isMobile=true")
+	Observable<BaseResp<List<PatientManagerTag>>> saveConsultation(@Body OnlinePrescription onlinePrescription);
+
+
+	/**
+	 * 保存咨询信息
+	 * @param onlinePrescription 处方 修改status就好
+	 * @return
+	 */
+	@POST("api/Prescription/SaveMedicationConsultationWithOutAttachment?isMobile=true")
+	Observable<BaseResp<List<PatientManagerTag>>> saveConsultationWithOutAttach(@Body OnlinePrescription onlinePrescription);
+
+
+	/**
+	 * 取消
+	 * @param id 咨询id
+	 * @return
+	 */
+	@GET("api/Prescription/CancelMedicationConsultation?isMobile=true")
+	Observable<BaseResp<OnlinePrescription>> cancelConsultation(@Query("id") String id,@Query("reason")String reason);
+
+	/**
+	 * 拒绝
+	 * @param id 咨询id
+	 * @return
+	 */
+	@GET("api/Prescription/RefuseMedicationConsultation?isMobile=true")
+	Observable<BaseResp<OnlinePrescription>> refuseConsultation(@Query("id") String id,@Query("reason")String reason);
+
+	/**
+	 * 完成
+	 * @param id 咨询id
+	 * @return
+	 */
+	@GET("api/Prescription/CompleteMedicationConsultation?isMobile=true")
+	Observable<BaseResp<OnlinePrescription>> completeConsultation(@Query("id") String id);
+
+	/**
+	 * 获取指定类型的字典表
+	 * @return
+	 */
+	@GET("api/platform/GetDictWithItemsByName?isMobile=true")
+	Observable<BaseResp<List<CommEnum>>> getMedicalInsurances(@Query("name") String name);
+
+
 }

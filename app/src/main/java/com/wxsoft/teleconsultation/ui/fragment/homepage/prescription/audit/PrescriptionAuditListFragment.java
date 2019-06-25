@@ -1,6 +1,5 @@
-package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription;
+package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.audit;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -30,8 +29,6 @@ import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
-import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
-import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.PrescriptionCallTheRollFragment;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
@@ -48,40 +45,33 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class PrescriptionListFragment extends BaseFragment {
+public class PrescriptionAuditListFragment extends BaseFragment {
 
-
-
-    public static void launch(Activity from) {
-        FragmentArgs args = new FragmentArgs();
-        args.add(EXTRAS_KEY_POSITION, 1);
-        args.add(ALLOW_AUDIT, true);
-        FragmentContainerActivity.launch(from, PrescriptionListFragment.class, args);
-    }
-
-    public static PrescriptionListFragment newInstance(int position) {
+    public static PrescriptionAuditListFragment newInstance(int position) {
         Bundle args = new Bundle();
         args.putInt(EXTRAS_KEY_POSITION, position);
-        PrescriptionListFragment fragment = new PrescriptionListFragment();
+        PrescriptionAuditListFragment fragment = new PrescriptionAuditListFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     private List<String> statuses=new ArrayList<>();
     private static final String EXTRAS_KEY_POSITION = "EXTRAS_KEY_POSITION";
-    private static final String ALLOW_AUDIT = "ALLOW_AUDIT";
-    private boolean allowAudit = false;
+
     @BindView(R.id.recycler_view)
     EasyRecyclerView mRecyclerView;
 
     private RecyclerArrayAdapter<OnlinePrescription> mAdapter;
     private int mCurrentPosition = 0;
-
+    private int statusIndex = 0;
     private int mPage = 1;
     String[] filters ;
 
     private RequestManager mGlide;
     private RequestOptions mOptions;
+
+    private static final String ALLOW_AUDIT = "ALLOW_AUDIT";
+    private boolean allowAudit = false;
 
     @Override
     protected int getLayoutId() {
@@ -115,7 +105,6 @@ public class PrescriptionListFragment extends BaseFragment {
                 getString(R.string.transfer_treatment_list_filter_text_6)
         };
         mCurrentPosition = getArguments().getInt(EXTRAS_KEY_POSITION);
-        allowAudit = getArguments().getBoolean(ALLOW_AUDIT,false);
         org.greenrobot.eventbus.EventBus.getDefault().register(this);
         setupRecyclerView();
     }
@@ -159,7 +148,7 @@ public class PrescriptionListFragment extends BaseFragment {
 
         mAdapter.setOnItemClickListener(position -> {
 
-            PrescriptionCallTheRollFragment.launch(_mActivity,mAdapter.getItem(position),allowAudit);
+            PrescriptionCallTheRollFragment.launch(_mActivity,mAdapter.getItem(position),true);
 
         });
 

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:scrollbars="none">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp"
+          android:id="@+id/lr_medicine"
+          android:gravity="center_vertical"
+          android:background="@color/white"
+            android:orientation="horizontal">
+            <TextView
+
+              android:textSize="16sp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+                android:text="@string/text_prescription_row1"/>
+
+            <TextView
+
+              android:textSize="16sp"
+              android:gravity="right"
+              android:id="@+id/tv_med_name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              tools:text="阿莫西林"/>
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+
+
+        <LinearLayout
+          android:id="@+id/ll_hz"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:orientation="horizontal"
+          android:background="@color/white"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp">
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:text="用药频次"
+              android:layout_marginRight="10dp"
+              android:textSize="16sp" />
+
+            <TextView
+              android:id="@+id/tv_hz"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@id/tv_doctor_title"
+              android:layout_toLeftOf="@id/iv_arrow_right1"
+              android:maxLines="1"
+              android:layout_weight="1"
+              android:ellipsize="end"
+              tools:text="qa"
+              android:textColor="@color/black"
+              android:gravity="right" />
+
+            <ImageView
+              android:id="@+id/iv_arrow_right1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/lr_taking_way"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/string_prescription_thing_row3"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_taking_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/create_prescription_diagnosis_input_hint"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:gravity="right" />
+
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+          android:id="@+id/lr_dose"
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/white"
+          android:paddingRight="16dp"
+          android:paddingLeft="16dp"
+          android:orientation="horizontal">
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="48dp"
+              android:text="@string/string_prescription_row4"
+              android:gravity="center_vertical"
+              android:background="@color/white"
+              android:textSize="16sp" />
+
+            <TextView
+              android:id="@+id/tv_dose"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:hint="剂量"
+              android:layout_weight="1"
+              android:background="@color/white"
+              android:textSize="14sp"
+              android:gravity="right"
+              android:textColor="@color/black" />
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+          android:visibility="gone"
+          android:id="@+id/lr_days"
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          android:background="@color/white"
+          android:layout_marginTop="10dp"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp">
+
+            <TextView
+              android:id="@+id/tv_preliminary_diagnosis_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:text="开药天数"
+              android:layout_marginRight="10dp"
+              android:textSize="16sp" />
+
+
+
+            <TextView
+              android:id="@+id/tv_days"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toRightOf="@id/tv_preliminary_diagnosis_title"
+              android:layout_toLeftOf="@id/iv_arrow_right"
+              android:hint="请选择开药天数"
+              android:maxLines="1"
+              android:layout_weight="1"
+              android:ellipsize="end"
+              android:layout_centerVertical="true"
+              android:textColor="@color/black"
+              android:gravity="right" />
+
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/white"
+          android:id="@+id/lr_count"
+          android:gravity="center_vertical"
+          android:paddingLeft="16dp"
+          android:paddingRight="16dp"
+          android:orientation="horizontal">
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="48dp"
+              android:text="开药总数"
+              android:gravity="center_vertical"
+              android:background="@color/white"
+              android:textSize="16sp" />
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:hint=""
+              android:id="@+id/tv_count"
+              android:layout_weight="1"
+              android:background="@color/white"
+              android:textSize="14sp"
+              android:padding="8dp"
+              android:gravity="right"
+              android:textColor="@color/black" />
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/ic_arrow_right"
+              android:layout_alignParentRight="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="16dp" />
+        </LinearLayout>
+
+
+
+        <include layout="@layout/comm_horizontal_line"/>
+
+        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+          android:layout_marginTop="10dp"
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:hint="请选择常用或者输入备注"
+          android:id="@+id/tv_momo"
+          android:background="@color/white"
+          android:textSize="14sp"
+          android:padding="8dp"
+          android:gravity="center_vertical"
+          android:textColor="@color/black" />
+
+        <com.jude.easyrecyclerview.EasyRecyclerView
+          android:layout_width="match_parent"
+          android:background="@color/white"
+          android:id="@+id/recycler_view"
+          android:layout_height="60dp"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/primary_btn_bg"
+            android:text="@string/ok_button_text"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

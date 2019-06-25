@@ -1,6 +1,8 @@
 package com.wxsoft.teleconsultation.entity;
 
-public class CommEnum {
+import java.io.Serializable;
+
+public class CommEnum implements Serializable {
 
     private String id;
     private String memo;
@@ -9,6 +11,11 @@ public class CommEnum {
     private String enumDictId;
     private boolean isEnable;
 
+    public CommEnum(){}
+    public CommEnum(String enumDict,String itemName){
+        this.enumDict=enumDict;
+        this.itemName=itemName;
+    }
     public String getId() {
         return id;
     }

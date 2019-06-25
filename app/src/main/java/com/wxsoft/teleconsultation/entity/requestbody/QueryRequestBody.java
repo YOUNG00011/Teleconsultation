@@ -134,6 +134,25 @@ public class QueryRequestBody implements Serializable {
         return body;
     }
 
+    public static QueryRequestBody getPrescriptionConRequestBody(String doctId,
+                                                         int sizeOfPage,
+                                                         int currentPage) {
+        QueryRequestBody body = getCommBody(sizeOfPage, currentPage);
+        body.conditions.add(new Condition("DoctorId", doctId));
+        return body;
+    }
+
+    public static QueryRequestBody getPrescriptionRequestBody(String doctId,
+                                                                 boolean done,
+                                                                 int sizeOfPage,
+                                                                 int currentPage) {
+        QueryRequestBody body = getCommBody(sizeOfPage, currentPage);
+        body.conditions.add(new Condition("DoctorId", doctId));
+        body.conditions.add(new Condition("SheetIndex", done?"1":"0"));
+        return body;
+    }
+
+
     public static QueryRequestBody getRegisterRequestBody(String doctId,
                                                          String queryType,
                                                          String status,

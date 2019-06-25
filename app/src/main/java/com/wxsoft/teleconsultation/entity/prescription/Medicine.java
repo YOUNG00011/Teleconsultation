@@ -1,6 +1,8 @@
 package com.wxsoft.teleconsultation.entity.prescription;
 
-public class Medicine {
+import java.io.Serializable;
+
+public class Medicine  implements Serializable {
 		public String medicineCategoryId;
 		public String productName;
 		public String commonName;
@@ -9,7 +11,7 @@ public class Medicine {
 		public String cjdm;
 		public String cjmc;
 		public String zfbz;
-		public int zfbl;
+		public float zfbl;
 		public String medicineSpecification;
 		public String createdDate;
 		public String modifiedDate;

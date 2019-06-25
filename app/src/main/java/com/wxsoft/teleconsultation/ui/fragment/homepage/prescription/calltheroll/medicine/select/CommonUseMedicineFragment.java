@@ -1,15 +1,9 @@
 package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.medicine.select;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,13 +15,12 @@ import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
+import com.wxsoft.teleconsultation.AppContext;
 import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.prescription.Medicine;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
-import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
-import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
@@ -38,24 +31,18 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MedicineSearchFragment extends BaseFragment {
+public class CommonUseMedicineFragment extends BaseFragment {
 
-    public static void launch(Activity from) {
-        FragmentArgs args = new FragmentArgs();
-        args.add(FRAGMENT_ARGS_HAS_RESULT, false);
-        FragmentContainerActivity.launch(from, MedicineSearchFragment.class, args);
+
+    public static CommonUseMedicineFragment newInstance() {
+        CommonUseMedicineFragment fragment = new CommonUseMedicineFragment();
+        return fragment;
     }
-
-    public static void launchForResult(Fragment from) {
-        FragmentArgs args = new FragmentArgs();
-        args.add(FRAGMENT_ARGS_HAS_RESULT, true);
-        FragmentContainerActivity.launchForResult(from, MedicineSearchFragment.class, args, REQUEST_SEARCH_MEDICINE);
-    }
-
-    private boolean need;
     private static final String FRAGMENT_ARGS_HAS_RESULT = "FRAGMENT_ARGS_HAS_RESULT";
     public static final int REQUEST_SEARCH_MEDICINE = 131;
     public static final String KEY_MEDICINE = "KEY_MEDICINE";
+    public static final String KEY_TYPE = "KEY_TYPE";
+    public static final String KEY_TYPE_NAME = "KEY_TYPE_NAME";
 
     private static final String FRAGMENT_ARGS_NEED_SURE = "FRAGMENT_ARGS_NEED_SURE";
 
@@ -63,9 +50,8 @@ public class MedicineSearchFragment extends BaseFragment {
     @BindView(R.id.recycler_view)
     EasyRecyclerView mRecyclerView;
 
+
     private RecyclerArrayAdapter<Medicine> mAdapter;
-    private String mQueryText;
-    private boolean hasResult;
 
     @Override
     protected int getLayoutId() {
@@ -74,56 +60,26 @@ public class MedicineSearchFragment extends BaseFragment {
 
     @Override
     protected void setupViews(View view, Bundle savedInstanceState) {
-        hasResult = getArguments().getBoolean(FRAGMENT_ARGS_HAS_RESULT);
-        need = getArguments().getBoolean(FRAGMENT_ARGS_NEED_SURE);
-        setupToolbar();
+
+//        setupToolbar();
         setupRecyclerView();
-    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_search, menu);
-        MenuItem menuItem = menu.findItem( R.id.search);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint(getString(R.string.select__medicine_search_input_hint));
-        searchView.setIconified(false);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                mQueryText = query;
-                mRecyclerView.showProgress();
-                searchPatient();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-        super.onCreateOptionsMenu(menu, inflater);
+        loadData();
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_SEARCH_MEDICINE) {
-                if (data != null) {
-                    Intent intent = new Intent();
-                    _mActivity.setResult(RESULT_OK, intent);
-                    _mActivity.finish();
-                }
-            }
-        }
-    }
-
-    private void setupToolbar() {
-        FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        activity.getSupportActionBar().setTitle("");
-        setHasOptionsMenu(true);
-    }
+//
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK) {
+//            if (requestCode == REQUEST_SEARCH_MEDICINE) {
+//                if (data != null) {
+//                    Intent intent = new Intent();
+//                    _mActivity.setResult(RESULT_OK, intent);
+//                    _mActivity.finish();
+//                }
+//            }
+//        }
+//    }
 
     private void setupRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
@@ -140,8 +96,8 @@ public class MedicineSearchFragment extends BaseFragment {
         mRecyclerView.showEmpty();
     }
 
-    private void searchPatient() {
-        ApiFactory.getPrescriptionApi().getMedicinesByKey(mQueryText)
+    private void loadData() {
+        ApiFactory.getPrescriptionApi().getCommonMedicines(AppContext.getUser().getDoctId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<List<Medicine>>>() {

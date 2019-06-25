@@ -1409,7 +1409,7 @@ public class ChatActivity extends BaseActivity
         record.diseaseCounselingId=diseaseCounselingId;
         record.msgDirectionType="309-0001";
         record.weChatAccountId=diseaseCounseling.weChatAccountId;
-        record.weChatNickName=diseaseCounseling.weChatAccount.nickName;
+        record.weChatNickName=diseaseCounseling.weChatAccount.nickname;
 
         record.doctorId=AppContext.getUser().getDoctId();
         record.doctorName=AppContext.getUser().getName();

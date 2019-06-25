@@ -655,4 +655,7 @@
 	<string name="create_prescription_memo">备注</string>
 	<string name="title_common_medicine">常用药品</string>
 	<string name="select__medicine_search_input_hint">请输入药品名</string>
+	<string name="string_prescription_thing_row3">用药途径</string>
+	<string name="string_prescription_row4">每次剂量</string>
+	<string name="home_menu_audit_prescription">在线审方</string>
 </resources>

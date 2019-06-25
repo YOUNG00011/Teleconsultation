@@ -14,21 +14,11 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.wxsoft.teleconsultation.R;
-import com.wxsoft.teleconsultation.entity.BaseResp;
-import com.wxsoft.teleconsultation.entity.CommEnum;
-import com.wxsoft.teleconsultation.entity.Duty;
-import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
 import com.wxsoft.teleconsultation.util.DensityUtil;
-import com.wxsoft.teleconsultation.util.ViewUtil;
-
-import java.util.List;
 
 import butterknife.BindView;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class SelectMedicalFragment extends BaseFragment {
 

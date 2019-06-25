@@ -63,6 +63,7 @@ public class PrescriptionSelectManageFragment extends BaseFragment {
         switch (item.getItemId()){
             case R.id.search:
                 MedicineSearchFragment.launch(_mActivity);
+                _mActivity.finish();
                 return true;
 
             default:
@@ -115,8 +116,8 @@ public class PrescriptionSelectManageFragment extends BaseFragment {
 
         private  final String[] TABS = {
           getString(R.string.title_all_medicine_type)
-//          ,
-//          getString(R.string.title_common_medicine)
+          ,
+          getString(R.string.title_common_medicine)
         };
 
         public PageAdapter(FragmentManager fm) {
@@ -130,7 +131,12 @@ public class PrescriptionSelectManageFragment extends BaseFragment {
 
         @Override
         public Fragment getItem(int position) {
-            return MedicineTreeFragment.newInstance();
+
+            if(position==0) {
+                return MedicineTreeFragment.newInstance();
+            }else{
+                return CommonUseMedicineFragment.newInstance();
+            }
         }
 
         @Override

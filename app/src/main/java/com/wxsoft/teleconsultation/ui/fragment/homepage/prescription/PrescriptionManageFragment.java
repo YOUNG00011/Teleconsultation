@@ -131,7 +131,7 @@ public class PrescriptionManageFragment extends BaseFragment {
 
         @Override
         public Fragment getItem(int position) {
-            return PrescriptionListFragment.newInstance(position);
+             return PrescriptionListFragment.newInstance(position);
         }
 
         @Override

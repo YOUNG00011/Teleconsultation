@@ -1,6 +1,5 @@
 package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -18,20 +17,18 @@ import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
+import com.wxsoft.teleconsultation.App;
 import com.wxsoft.teleconsultation.AppConstant;
 import com.wxsoft.teleconsultation.AppContext;
 import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
-import com.wxsoft.teleconsultation.entity.WeChatAccount;
-import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
-import com.wxsoft.teleconsultation.entity.prescription.Recipe;
+import com.wxsoft.teleconsultation.entity.Patient;
+import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
-import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
-import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.PrescriptionCallTheRollFragment;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
@@ -39,7 +36,6 @@ import com.wxsoft.teleconsultation.util.ViewUtil;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,40 +44,29 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class PrescriptionListFragment extends BaseFragment {
-
-
-
-    public static void launch(Activity from) {
-        FragmentArgs args = new FragmentArgs();
-        args.add(EXTRAS_KEY_POSITION, 1);
-        args.add(ALLOW_AUDIT, true);
-        FragmentContainerActivity.launch(from, PrescriptionListFragment.class, args);
-    }
-
-    public static PrescriptionListFragment newInstance(int position) {
+public class PrescriptionConListFragment extends BaseFragment {
+    private RequestManager mGlide;
+    private RequestOptions mOptions;
+    public static PrescriptionConListFragment newInstance(int position) {
         Bundle args = new Bundle();
         args.putInt(EXTRAS_KEY_POSITION, position);
-        PrescriptionListFragment fragment = new PrescriptionListFragment();
+        PrescriptionConListFragment fragment = new PrescriptionConListFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     private List<String> statuses=new ArrayList<>();
     private static final String EXTRAS_KEY_POSITION = "EXTRAS_KEY_POSITION";
-    private static final String ALLOW_AUDIT = "ALLOW_AUDIT";
-    private boolean allowAudit = false;
+
     @BindView(R.id.recycler_view)
     EasyRecyclerView mRecyclerView;
 
-    private RecyclerArrayAdapter<OnlinePrescription> mAdapter;
+    private RecyclerArrayAdapter<PrescriptionCon> mAdapter;
     private int mCurrentPosition = 0;
-
+    private int statusIndex = 0;
     private int mPage = 1;
     String[] filters ;
 
-    private RequestManager mGlide;
-    private RequestOptions mOptions;
 
     @Override
     protected int getLayoutId() {
@@ -97,7 +82,6 @@ public class PrescriptionListFragment extends BaseFragment {
         mOptions = new RequestOptions()
           .centerCrop()
           .dontAnimate();
-
         statuses.add(null);
         statuses.add("602-0001");
         statuses.add("602-0002");
@@ -115,7 +99,6 @@ public class PrescriptionListFragment extends BaseFragment {
                 getString(R.string.transfer_treatment_list_filter_text_6)
         };
         mCurrentPosition = getArguments().getInt(EXTRAS_KEY_POSITION);
-        allowAudit = getArguments().getBoolean(ALLOW_AUDIT,false);
         org.greenrobot.eventbus.EventBus.getDefault().register(this);
         setupRecyclerView();
     }
@@ -139,7 +122,7 @@ public class PrescriptionListFragment extends BaseFragment {
         mRecyclerView.addItemDecoration(itemDecoration);
 
         mRecyclerView.setRefreshingColor(ContextCompat.getColor(_mActivity, R.color.colorPrimary));
-        mRecyclerView.setAdapterWithProgress(mAdapter = new RecyclerArrayAdapter<OnlinePrescription>(_mActivity) {
+        mRecyclerView.setAdapterWithProgress(mAdapter = new RecyclerArrayAdapter<PrescriptionCon>(_mActivity) {
             @Override
             public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
                 return new MyApplyViewHolder(parent, _mActivity);
@@ -158,22 +141,20 @@ public class PrescriptionListFragment extends BaseFragment {
         });
 
         mAdapter.setOnItemClickListener(position -> {
-
-            PrescriptionCallTheRollFragment.launch(_mActivity,mAdapter.getItem(position),allowAudit);
-
         });
 
         loadData();
     }
 
     private void loadData() {
-        boolean done = mCurrentPosition==1;
+        String queryType = mCurrentPosition==0?"0":"1";
+        String status = statuses.get(statusIndex);
         String doctId = AppContext.getUser().getDoctId();
-        QueryRequestBody body = QueryRequestBody.getPrescriptionRequestBody(doctId, done, AppConstant.SIZE_OF_PAGE, mPage);
-        ApiFactory.getPrescriptionApi().getPrescriptions(body)
+        QueryRequestBody body = QueryRequestBody.getPrescriptionConRequestBody(doctId,AppConstant.SIZE_OF_PAGE, mPage);
+        ApiFactory.getPrescriptionApi().getConsultation(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BaseResp<QueryResponseData< OnlinePrescription>>>() {
+                .subscribe(new Observer<BaseResp<QueryResponseData<PrescriptionCon>>>() {
                     @Override
                     public void onCompleted() {
 
@@ -195,7 +176,7 @@ public class PrescriptionListFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onNext(BaseResp<QueryResponseData<OnlinePrescription>> resp) {
+                    public void onNext(BaseResp<QueryResponseData<PrescriptionCon>> resp) {
                         showRefreshing(false);
 //                        String s=resp.getData().toString();
 //                        Log.i(s,s);
@@ -204,7 +185,7 @@ public class PrescriptionListFragment extends BaseFragment {
                 });
     }
 
-    private void processResponse(BaseResp<QueryResponseData<OnlinePrescription>> resp) {
+    private void processResponse(BaseResp<QueryResponseData<PrescriptionCon>> resp) {
         showRefreshing(false);
         if (!resp.isSuccess()) {
             if (mAdapter.getAllData().isEmpty()) {
@@ -219,7 +200,7 @@ public class PrescriptionListFragment extends BaseFragment {
             return;
         }else{
 
-            List<OnlinePrescription> clinics = resp.getData().getResultData();
+            List<PrescriptionCon> clinics = resp.getData().getResultData();
             if (clinics == null || clinics.isEmpty()) {
                 if (mAdapter.getAllData().isEmpty()) {
                     mRecyclerView.getEmptyView().setOnClickListener(v -> {
@@ -240,23 +221,13 @@ public class PrescriptionListFragment extends BaseFragment {
             }
 
 
-            List<OnlinePrescription> targetClinics = new ArrayList<>();
+            List<PrescriptionCon> targetClinics = new ArrayList<>();
             if (mPage > 1 && !mAdapter.getAllData().isEmpty()) {
                 targetClinics.addAll(mAdapter.getAllData());
             }
 
             targetClinics.addAll(clinics);
 
-
-            Collections.sort(targetClinics,(obj1,obj2)->{
-
-                int i=obj1.status.compareTo(obj2.status);
-                if(i==0){
-                    return -1*(obj1.createdDate.compareTo(obj2.createdDate));
-                }else{
-                    return i;
-                }
-            });
             mRecyclerView.showRecycler();
             mAdapter.clear();
             mAdapter.addAll(targetClinics);
@@ -273,7 +244,7 @@ public class PrescriptionListFragment extends BaseFragment {
         });
     }
 
-    private class MyApplyViewHolder extends BaseViewHolder<OnlinePrescription> {
+    private class MyApplyViewHolder extends BaseViewHolder<PrescriptionCon> {
 
         private TextView mGroupTitleView;
         private ImageView mAvatarView;
@@ -307,40 +278,32 @@ public class PrescriptionListFragment extends BaseFragment {
         }
 
         @Override
-        public void setData(OnlinePrescription data) {
+        public void setData(PrescriptionCon data) {
             super.setData(data);
 
             try {
 
-                WeChatAccount account = data.weChatAccount;
-                mNameView.setText(account.name);
+                Patient patient = data.patientInfo;
+                mNameView.setText(patient.getName());
 
-                mGlide.setDefaultRequestOptions(mOptions.error(account.sex==1 ? R.drawable.ic_patient_man : R.drawable.ic_patient_women))
-                  .load(account.headimgurl)
+                mGlide.setDefaultRequestOptions(mOptions.error(patient.getFriendlySex().equals(App.getApplication().getString(R.string.male)) ? R.drawable.ic_patient_man : R.drawable.ic_patient_women))
+                  .load(patient.avatar)
                   .into(mAvatarView);
-
-                if(mCurrentPosition==0) {
-                    mDescribeView.setText(data.diseaseDescription);
-
-                }else if(mCurrentPosition==1){
-                    if (data.recipes!=null && data.recipes.size()>0){
-                        Recipe recipe=data.recipes.get(0);
-                        mDescribeView.setText(recipe.medicineProductName);
-                    }else{
-                        mDescribeView.setText(data.diseaseDescription);
-                    }
-                }
-
-                mTimeView.setText(data.createdDate.replace("T", " ").substring(5,16));
-                mStatusView.setText(data.statusName);
+                mGenderView.setText(patient.getFriendlySex());
+                mAgeView.setText(String.valueOf(patient.getAge()));
+                mHealthView.setText(patient.getMedicalInsuranceName());
+                mDescribeView.setText(data.describe);
+                mTimeView.setText(data.createdDate.replace("T"," "));
+                mStatusView.setText(data.getStatusName());
 
             } catch (Exception e) {
                 e.printStackTrace();
+                int i = 0;
             }
-
 
         }
     }
+
 
 
 }

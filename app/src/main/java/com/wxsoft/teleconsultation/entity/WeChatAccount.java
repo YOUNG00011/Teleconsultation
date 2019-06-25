@@ -7,7 +7,7 @@ import java.util.List;
 public class WeChatAccount extends Entity {
 
     public String openId;
-    public String nickName;
+    public String nickname;
     public int sex;
     public String province;
     public String city;

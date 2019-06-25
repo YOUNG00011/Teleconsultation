@@ -1,26 +1,26 @@
 package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.entity.LocalMedia;
@@ -30,11 +30,10 @@ import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.BusinessType;
 import com.wxsoft.teleconsultation.entity.Diagnosis;
-import com.wxsoft.teleconsultation.entity.EMRTab;
 import com.wxsoft.teleconsultation.entity.Patient;
-import com.wxsoft.teleconsultation.entity.PatientTag;
-import com.wxsoft.teleconsultation.entity.Photo;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
+import com.wxsoft.teleconsultation.entity.prescription.Recipe;
+import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.activity.SelectPhotoCategoryActivity;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
@@ -45,16 +44,20 @@ import com.wxsoft.teleconsultation.ui.fragment.homepage.PatientSearchFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.clinic.PrimaryDiagnosisFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.clinic.SelectPatientFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.medicine.select.PrescriptionSelectManageFragment;
-import com.wxsoft.teleconsultation.util.AppUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
-import java.io.File;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * 会诊申请
@@ -65,16 +68,26 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
         FragmentContainerActivity.launch(from, PrescriptionCallTheRollFragment.class, null);
     }
 
-    public static void launch(Activity from, OnlinePrescription clinic) {
+    public static void launch(Activity from, OnlinePrescription onlinePrescription,boolean allowAudit) {
         FragmentArgs args = new FragmentArgs();
-        args.add(FRAGMENT_ARGS_CLINIC, clinic);
+        args.add(FRAGMENT_ARGS_CLINIC, onlinePrescription);
+        args.add(ALLOW_AUDIT, allowAudit);
         FragmentContainerActivity.launch(from, PrescriptionCallTheRollFragment.class, args);
     }
-
+    private static final String ALLOW_AUDIT = "ALLOW_AUDIT";
+    private boolean allowAudit;
     private static final String FRAGMENT_ARGS_CLINIC = "FRAGMENT_ARGS_CLINIC";
+    @BindView(R.id.ll_root)
+    LinearLayout mRootView;
+
+    @BindView(R.id.ll_2th_action)
+    LinearLayout mActionView;
 
     @BindView(R.id.tv_select_patient)
     TextView mSelectPatientView;
+
+    @BindView(R.id.tv_status)
+    TextView mStatusView;
 
     @BindView(R.id.ll_patient)
     LinearLayout mPatientView;
@@ -96,40 +109,59 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
     TextView mAddMed;
 
     @BindView(R.id.recycler_view)
-    EasyRecyclerView mPhotoRecyclerView;
+    EasyRecyclerView mRecyclerView;
 
-    private OnlinePrescription mClinic;
+    @BindView(R.id.btn_save)
+    Button btnSubmit;
 
-    // 患者
-    private Patient mPatient;
+    private OnlinePrescription onlinePrescription;
+    private String preId;
+
+    private RecyclerArrayAdapter<Recipe> mAdapter;
+
+
     // 疾病
     private Diagnosis mDiagnosis;
-
-
-    @OnClick(R.id.tv_select_patient)
+    private RequestManager mGlide;
+    private RequestOptions mOptions;@OnClick(R.id.tv_status)
     void clickPatient() {
         SelectPatientFragment.launch(this,BusinessType.PRESCRIPTION);
     }
 
     @OnClick(R.id.rl_preliminary_diagnosis)
     void diagnosisClick() {
-        PrimaryDiagnosisFragment.launch(this);
+
+        if(onlinePrescription!=null&& onlinePrescription.status.equals("901-0001"))
+            PrimaryDiagnosisFragment.launch(this);
     }
 
     @OnClick(R.id.med_type)
     void medTypeClick() {
-        SelectMedicalFragment.launch(this);
+
+        if(onlinePrescription!=null&& onlinePrescription.status.equals("901-0001"))
+            SelectMedicalFragment.launch(this);
     }
 
     @OnClick(R.id.tv_add_med)
     void medSelectClick() {
-        PrescriptionSelectManageFragment.launch(_mActivity);
+        if(onlinePrescription!=null&& onlinePrescription.status.equals("901-0001"))
+            PrescriptionSelectManageFragment.launch(_mActivity);
     }
 
-//    @OnClick(R.id.btn_save)
-//    void saveClick() {
-//        commit();
-//    }
+    @OnClick(R.id.btn_save)
+    void saveClick() {
+        commit();
+    }
+
+    @OnClick(R.id.tv_double_action_1)
+    void saveClick1() {
+        pharmacist("901-0004");
+    }
+
+    @OnClick(R.id.tv_double_action_2)
+    void saveClick2() {
+        pharmacist("901-0003");
+    }
 
     @Override
     protected int getLayoutId() {
@@ -138,18 +170,88 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
 
     @Override
     protected void setupViews(View view, Bundle savedInstanceState) {
-        if (getArguments() != null) {
-            mClinic = (OnlinePrescription) getArguments().getSerializable(FRAGMENT_ARGS_CLINIC);
-        }
+        EventBus.getDefault().register(this);
 
+        mGlide = Glide.with(this);
+
+
+        mOptions = new RequestOptions()
+          .centerCrop()
+          .dontAnimate();
         setupToolbar();
-        if (mClinic != null) {
-
+        mRecyclerView.setBackgroundResource(R.color.white);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
+        mRecyclerView.setRefreshingColorResources(R.color.colorPrimary);
+        mRecyclerView.setAdapter(mAdapter = new RecyclerArrayAdapter<Recipe>(_mActivity) {
+            @Override
+            public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
+                return new RecipeViewHolder(parent);
+            }
+        });
+        if (onlinePrescription != null && onlinePrescription.recipes!=null) {
+            mAdapter.addAll(onlinePrescription.recipes);
         }else{
             ((TextView) ButterKnife.findById(view, R.id.tv_position)).setText(AppContext.getUser().getHospitalName()+"  "+
               AppContext.getUser().getDepartmentName());
         }
 
+
+        if (getArguments() != null) {
+            preId =( (OnlinePrescription) getArguments().getSerializable(FRAGMENT_ARGS_CLINIC)).id;
+            allowAudit = getArguments().getBoolean(ALLOW_AUDIT,false);
+
+            loadData();
+
+        }
+
+    }
+
+    @Subscribe
+    public void onEvent(Recipe recipe) {
+
+        if(onlinePrescription !=null ){
+            if(onlinePrescription.recipes==null){
+                onlinePrescription.recipes=new ArrayList();
+            }else {
+                for (Recipe re : onlinePrescription.recipes) {
+                    if (re.medicineId == recipe.medicineId)
+                        return;
+                }
+            }
+
+            onlinePrescription.recipes.add(recipe);
+            mAdapter.add(recipe);
+        }
+    }
+
+
+    private void loadData() {
+        ApiFactory.getPrescriptionApi().getPrescription(preId)
+          .subscribeOn(Schedulers.io())
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe(new Observer<BaseResp< OnlinePrescription>>() {
+              @Override
+              public void onCompleted() {
+
+              }
+
+              @Override
+              public void onError(Throwable e) {
+                  ViewUtil.showMessage(e.getMessage());
+              }
+
+              @Override
+              public void onNext(BaseResp< OnlinePrescription> resp) {
+
+                  processResponse(resp);
+              }
+          });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -160,14 +262,10 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
                     requestCode == PatientSearchFragment.REQUEST_SEARCH_PATIENT ||
                     requestCode == PatientAddFragment.REQUEST_ADD_PATIENT) {
                 if (data != null) {
-                    if (mSelectPatientView.getVisibility() == View.VISIBLE) {
-                        mSelectPatientView.setVisibility(View.GONE);
-                    }
-
-
                     Patient patient = (Patient) data.getSerializableExtra(SelectPatientFragment.KEY_PATIENT);
 
-                    updatePatientView(patient);
+//                    updatePatientView(patient);
+
                 }
             } else if (requestCode == PrimaryDiagnosisFragment.REQUEST_SELECT_PRIMARY_DIAGNOSIS) {
                 if (data != null) {
@@ -199,23 +297,45 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
         activity.getSupportActionBar().setTitle(R.string.create_prescription_title);
     }
 
-    private void processResponse(BaseResp<List<EMRTab>> resp) {
-        if (!resp.isSuccess()) {
+    private void processResponse(BaseResp<OnlinePrescription> resp) {
+        if (resp.isSuccess()) {
+            onlinePrescription=resp.getData();
+            if(onlinePrescription.status.compareTo("901-0002")<0) {
+                ((FragmentContainerActivity) getActivity()).getSupportActionBar().setTitle(R.string.create_prescription_title);
+            }else{
+                ((FragmentContainerActivity) getActivity()).getSupportActionBar().setTitle(R.string.prescription_detail);
+            }
+            if(onlinePrescription.weChatAccount!=null )
+                updatePatientView(onlinePrescription);
+            mPreliminaryDiagnosisView.setText(onlinePrescription.diagnosis);
+            if(onlinePrescription.memo!=null)
+                mClinicExplainView.setText(onlinePrescription.memo);
+            if(onlinePrescription.recipes!=null) {
+                mAdapter.clear();
+                mAdapter.addAll(onlinePrescription.recipes);
+            }
+
+            mStatusView.setText(onlinePrescription.statusName);
+            btnSubmit.setVisibility(onlinePrescription.status.compareTo("901-0002")<0 ?View.VISIBLE:View.GONE);
+            if(mRootView.getVisibility()==View.GONE)
+                mRootView.setVisibility(View.VISIBLE);
+
+            if(onlinePrescription.status.compareTo("901-0002")==0 && allowAudit){
+                mActionView.setVisibility(View.VISIBLE);
+            }else{
+                mActionView.setVisibility(View.GONE);
+            }
+
+        }else{
             ViewUtil.showMessage(resp.getMessage());
-            return;
         }
 
-        List<EMRTab> emrTabs = resp.getData();
-        if (emrTabs == null || emrTabs.isEmpty()) {
-            ViewUtil.showMessage("获取类型失败");
-            return;
-        }
 
-        App.mEMRTabs.addAll(emrTabs);
+
     }
 
-    private void updatePatientView(Patient patient) {
-        mPatient = patient;
+    private void updatePatientView(OnlinePrescription patient) {
+//        mPatient = patient;
 
         if (mSelectPatientView.getVisibility() == View.VISIBLE) {
             mSelectPatientView.setVisibility(View.GONE);
@@ -233,102 +353,98 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(size, size);
         params.setMargins(0, marginTop, marginRight, 0);
         avatarView.setLayoutParams(params);
-
-        avatarView.setImageResource(mPatient.getAvatarDrawableRes());
-        ((TextView) ButterKnife.findById(patientView, R.id.tv_patient_name)).setText(mPatient.getName());
-        ((TextView) ButterKnife.findById(patientView, R.id.tv_gender)).setText(mPatient.getFriendlySex());
-        ((TextView) ButterKnife.findById(patientView, R.id.tv_age)).setText(String.valueOf(mPatient.getAge()));
-        ((TextView) ButterKnife.findById(patientView, R.id.tv_health)).setText(mPatient.getMedicalInsuranceName());
+        mGlide .load(patient.weChatAccount.headimgurl)
+          .into(avatarView);
+//        avatarView.setImageResource(patient.weChatAccount..getAvatarDrawableRes());
+        ((TextView) ButterKnife.findById(patientView, R.id.tv_patient_name)).setText(patient.weChatAccount.name);
+        ((TextView) ButterKnife.findById(patientView, R.id.tv_gender)).setText(patient.weChatAccount.sex==1?"男":"女");
+//        ((TextView) ButterKnife.findById(patientView, R.id.tv_age)).setText(String.valueOf(patient.weChatAccount.getAge()));
+//        ((TextView) ButterKnife.findById(patientView, R.id.tv_health)).setText(mPatient.getMedicalInsuranceName());
         ButterKnife.findById(patientView, R.id.tv_emr).setVisibility(View.GONE);
-        LinearLayout mTagView = ButterKnife.findById(patientView, R.id.ll_tag);
 
-        if(mPatient.getPatientTags()!=null) {
-            for (PatientTag patientTag : mPatient.getPatientTags()) {
-                mTagView.addView(AppUtil.getTagTextView(_mActivity, patientTag.getTagName()));
-            }
-        }
 
         ButterKnife.findById(patientView, R.id.iv_arrow_right).setVisibility(View.VISIBLE);
-
-        patientView.setOnClickListener(view -> {
-            SelectPatientFragment.launch(this,BusinessType.CONSULTATION);
-        });
 
         mPatientView.addView(patientView);
     }
 
-    private void commit() {
-        if (mPatient == null) {
-            ViewUtil.showMessage("请选择需要会诊的患者");
-            return;
-        }
-        String patientId = mPatient.getId();
-        String patientName = mPatient.getName();
 
+    private void commit() {
+
+        ApiFactory.getPrescriptionApi().savePrescriptionRecipe(onlinePrescription)
+          .subscribeOn(Schedulers.io())
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe(new Observer<BaseResp< OnlinePrescription>>() {
+              @Override
+              public void onCompleted() {
+
+              }
+
+              @Override
+              public void onError(Throwable e) {
+                  ViewUtil.showMessage(e.getMessage());
+              }
+
+              @Override
+              public void onNext(BaseResp<OnlinePrescription> resp) {
+
+                  processResponse(resp);
+              }
+          });
     }
 
-    private static class ClinicPhotoViewHolder extends BaseViewHolder<Photo> {
+    private void pharmacist(String status) {
+        onlinePrescription.status=status;
+        onlinePrescription.pharmacistId= AppContext.getUser().getDoctId();
+        onlinePrescription.pharmacistName= AppContext.getUser().getName();
+        ApiFactory.getPrescriptionApi().pharmacistPrescription(onlinePrescription)
+          .subscribeOn(Schedulers.io())
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe(new Observer<BaseResp< OnlinePrescription>>() {
+              @Override
+              public void onCompleted() {
 
-        interface OnPhotoRemoveListener {
+              }
 
-            void remove(String localPath);
-        }
+              @Override
+              public void onError(Throwable e) {
+                  ViewUtil.showMessage(e.getMessage());
+              }
 
-        private ImageView mPhotoView;
-        private ImageView mRemoveView;
-        private TextView mCategoryView;
+              @Override
+              public void onNext(BaseResp<OnlinePrescription> resp) {
 
-        private RequestManager mGlide;
-        private int mImageSize;
-        private RequestOptions options;
+                  processResponse(resp);
+              }
+          });
+    }
+    private static class RecipeViewHolder extends BaseViewHolder<Recipe> {
 
-        private OnPhotoRemoveListener mOnPhotoRemoveListener;
+        private TextView name;
+        private TextView detail;
+        private TextView count;
+        private TextView memo;
 
-        public ClinicPhotoViewHolder(ViewGroup parent, Context context, RequestManager requestManager, int columnNumber, OnPhotoRemoveListener onPhotoRemoveListener) {
-            super(parent, R.layout.item_clinic_photo);
-            mPhotoView = $(R.id.iv_photo);
-            mRemoveView = $(R.id.iv_remove);
-            mCategoryView = $(R.id.tv_category);
 
-            this.mGlide = requestManager;
+        public RecipeViewHolder(ViewGroup parent) {
+            super(parent, R.layout.item_prescription_recipe);
+            name = $(R.id.med_name);
+            detail = $(R.id.detail);
+            count = $(R.id.count);
+            memo = $(R.id.memo);
 
-            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-            DisplayMetrics metrics = new DisplayMetrics();
-            wm.getDefaultDisplay().getMetrics(metrics);
-            int widthPixels = metrics.widthPixels;
-            mImageSize = widthPixels / columnNumber;
 
-            options = new RequestOptions();
-            options.centerCrop()
-                    .dontAnimate()
-                    .override(mImageSize, mImageSize);
-
-            mOnPhotoRemoveListener = onPhotoRemoveListener;
         }
 
         @Override
-        public void setData(Photo data) {
+        public void setData(Recipe data) {
             super.setData(data);
-            if (TextUtils.isEmpty(data.getLocalPath())) {
-                mPhotoView.setImageResource(R.drawable.ic_add_photo);
-                mRemoveView.setVisibility(View.GONE);
-                mCategoryView.setVisibility(View.GONE);
-            } else {
-                mGlide.setDefaultRequestOptions(options)
-                        .load(new File(data.getLocalPath()))
-                        .thumbnail(0.5f)
-                        .into(mPhotoView);
 
-                mRemoveView.setVisibility(View.VISIBLE);
-                mCategoryView.setVisibility(View.VISIBLE);
-                mCategoryView.setText(data.getCategory());
+            name.setText(data.medicineProductName);
+            detail.setText(data.usage);
+            count.setText(data.count+data.saleUnit);
+            memo.setText(data.tags);
 
-                mRemoveView.setOnClickListener(v -> {
-                    if (mOnPhotoRemoveListener != null) {
-                        mOnPhotoRemoveListener.remove(data.getLocalPath());
-                    }
-                });
-            }
         }
     }
 }

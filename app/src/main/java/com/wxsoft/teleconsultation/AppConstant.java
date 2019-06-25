@@ -6,6 +6,7 @@ public class AppConstant {
     //public static final String BASE_URL = "http://218.22.27.205:8008/";
 //  public static final String BASE_URL = "http://hz.xjwnsoft.com:7000/";
     // 明成
+//    public static final String BASE_URL = "http://192.168.0.192:49927/";
     public static final String BASE_URL = "http://192.168.0.192:8001/";
 
     public static final String USER_AVATAR_FILE_NAME = "avatar.jpg";
@@ -66,5 +67,11 @@ public class AppConstant {
         public static final String JOIN_DOCTOR_STATUS_FINISHED  = "108-0006";
         // 已取消
         public static final String JOIN_DOCTOR_STATUS_CANCEL = "108-0007";
+        public static final String MEDICAINE_HZ = "902";
+        public static final String MEDICAINE_USING = "903";
+        public static final String MEDICAINE_USING_COUNT_DAYLY = "904";
+        public static final String MEDICAINE_USING_COUNT_DAYS = "MEDICAINE_USING_COUNT_DAYS";
+        public static final String MEDICAINE_USING_AMOUNT = "MEDICAINE_USING_AMOUNT";
+        public static final String MEDICAINE_COMMON_MEMO = "905";
     }
 }

@@ -43,6 +43,7 @@ import com.wxsoft.teleconsultation.ui.fragment.homepage.diseasecounseling.Diseas
 import com.wxsoft.teleconsultation.ui.fragment.homepage.diseasecounseling.DiseaseCounselingManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.live.LiveListFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.patientmanager.PatientManagerFragment;
+import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.PrescriptionListFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.PrescriptionManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.register.RegisterManageFragment;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.transfertreatment.TransferTreatmentDetailFragment;
@@ -281,6 +282,8 @@ public class HomePageContentFragment extends BaseFragment {
                         RegisterManageFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_PRESCRIPTION){
                         PrescriptionManageFragment.launch(_mActivity);
+                    }else if(action==Item.ACTION_AUDITPRESCRIPTION){
+                        PrescriptionListFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_TRANSFER_TREATMENT){
                         TransferTreatmentManageFragment.launch(_mActivity);
                     }else if(action==Item.ACTION_TRANSFER_LIVE){
@@ -490,6 +493,9 @@ public class HomePageContentFragment extends BaseFragment {
         Item itemPre = new Item(R.drawable.ic_register, getString(R.string.home_menu_prescription), Item.ACTION_PRESCRIPTION);
         items.add(itemPre);
 
+        Item itemPre1 = new Item(R.drawable.ic_register, getString(R.string.home_menu_audit_prescription), Item.ACTION_AUDITPRESCRIPTION);
+        items.add(itemPre1);
+
         return items;
     }
 
@@ -590,6 +596,7 @@ public class HomePageContentFragment extends BaseFragment {
         public static final int ACTION_TRANSFER_TREATMENT = 6;
         public static final int ACTION_TRANSFER_LIVE = 7;
         public static final int ACTION_PRESCRIPTION = 8;
+        public static final int ACTION_AUDITPRESCRIPTION = 9;
 
         private int drawableRes;
         private String title;

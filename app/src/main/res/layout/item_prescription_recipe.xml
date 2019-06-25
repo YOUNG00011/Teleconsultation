@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@color/white"
+  android:paddingLeft="16dp"
+  android:paddingRight="16dp"
+  android:paddingTop="8dp"
+  android:paddingBottom="8dp">
+
+
+        <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical">
+
+            <TextView
+              android:id="@+id/med_name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="10dp"
+              tools:text="硝苯地平控释片"
+              android:textColor="@color/black"
+              android:textSize="16sp" />
+
+
+            <TextView
+              android:id="@+id/count"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              tools:text="12：23"
+              android:layout_alignParentRight="true"
+              android:layout_alignBaseline="@id/med_name"
+              android:textSize="12sp"
+              android:layout_marginTop="3dp"
+              android:layout_marginRight="5dp" />
+
+            <TextView
+              android:id="@+id/detail"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              tools:text="12：23"
+              android:layout_below="@id/med_name"
+              android:textSize="12sp"
+              android:layout_marginTop="3dp"
+              android:layout_marginRight="5dp" />
+
+          <TextView
+            android:id="@+id/memo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12：23"
+            android:layout_below="@id/detail"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp" />
+        </RelativeLayout>
+</LinearLayout>

@@ -6,10 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -38,24 +34,22 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MedicineSearchFragment extends BaseFragment {
+public class MedicineListFragment extends BaseFragment {
 
-    public static void launch(Activity from) {
+
+    public static void launchForResult(Activity from, String type, String typeName) {
         FragmentArgs args = new FragmentArgs();
-        args.add(FRAGMENT_ARGS_HAS_RESULT, false);
-        FragmentContainerActivity.launch(from, MedicineSearchFragment.class, args);
+        args.add(KEY_TYPE, type);
+        args.add(KEY_TYPE_NAME, typeName);
+        FragmentContainerActivity.launchForResult(from, MedicineListFragment.class, args, REQUEST_SEARCH_MEDICINE);
     }
 
-    public static void launchForResult(Fragment from) {
-        FragmentArgs args = new FragmentArgs();
-        args.add(FRAGMENT_ARGS_HAS_RESULT, true);
-        FragmentContainerActivity.launchForResult(from, MedicineSearchFragment.class, args, REQUEST_SEARCH_MEDICINE);
-    }
-
-    private boolean need;
+    private String type,typeName;
     private static final String FRAGMENT_ARGS_HAS_RESULT = "FRAGMENT_ARGS_HAS_RESULT";
     public static final int REQUEST_SEARCH_MEDICINE = 131;
     public static final String KEY_MEDICINE = "KEY_MEDICINE";
+    public static final String KEY_TYPE = "KEY_TYPE";
+    public static final String KEY_TYPE_NAME = "KEY_TYPE_NAME";
 
     private static final String FRAGMENT_ARGS_NEED_SURE = "FRAGMENT_ARGS_NEED_SURE";
 
@@ -64,8 +58,6 @@ public class MedicineSearchFragment extends BaseFragment {
     EasyRecyclerView mRecyclerView;
 
     private RecyclerArrayAdapter<Medicine> mAdapter;
-    private String mQueryText;
-    private boolean hasResult;
 
     @Override
     protected int getLayoutId() {
@@ -74,34 +66,12 @@ public class MedicineSearchFragment extends BaseFragment {
 
     @Override
     protected void setupViews(View view, Bundle savedInstanceState) {
-        hasResult = getArguments().getBoolean(FRAGMENT_ARGS_HAS_RESULT);
-        need = getArguments().getBoolean(FRAGMENT_ARGS_NEED_SURE);
+        type = getArguments().getString(KEY_TYPE);
+        typeName = getArguments().getString(KEY_TYPE_NAME);
         setupToolbar();
         setupRecyclerView();
-    }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_search, menu);
-        MenuItem menuItem = menu.findItem( R.id.search);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setQueryHint(getString(R.string.select__medicine_search_input_hint));
-        searchView.setIconified(false);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                mQueryText = query;
-                mRecyclerView.showProgress();
-                searchPatient();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-        super.onCreateOptionsMenu(menu, inflater);
+        loadData();
     }
 
     @Override
@@ -121,7 +91,7 @@ public class MedicineSearchFragment extends BaseFragment {
     private void setupToolbar() {
         FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        activity.getSupportActionBar().setTitle("");
+        activity.getSupportActionBar().setTitle(typeName);
         setHasOptionsMenu(true);
     }
 
@@ -140,8 +110,8 @@ public class MedicineSearchFragment extends BaseFragment {
         mRecyclerView.showEmpty();
     }
 
-    private void searchPatient() {
-        ApiFactory.getPrescriptionApi().getMedicinesByKey(mQueryText)
+    private void loadData() {
+        ApiFactory.getPrescriptionApi().getMedicines(type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp<List<Medicine>>>() {

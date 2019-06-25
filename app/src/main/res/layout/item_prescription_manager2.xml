@@ -58,36 +58,15 @@
               android:layout_toRightOf="@id/tv_patient_name"
               android:layout_alignBottom="@id/tv_patient_name" />
 
-            <LinearLayout
+            <TextView
+              android:id="@+id/tv_gender"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              android:gravity="center_vertical"
-              android:background="@drawable/black_desc_bg"
+              android:text="男"
               android:layout_below="@id/tv_patient_name"
+              android:textSize="12sp"
               android:layout_marginTop="3dp"
-              android:layout_marginRight="5dp">
-            <TextView
-              android:id="@+id/iv_gender"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textSize="12sp"
-              android:paddingLeft="8dp"
-              android:textColor="@color/white"
               android:layout_marginRight="5dp" />
-
-            <TextView
-              android:id="@+id/tv_age"
-              android:layout_width="wrap_content"
-              android:layout_height="20dp"
-              android:text="23"
-              android:layout_toRightOf="@id/tv_gender"
-              android:textColor="@color/white"
-              android:textSize="12sp"
-              android:paddingLeft="8dp"
-              android:paddingRight="8dp"
-              android:gravity="center" />
-            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 
