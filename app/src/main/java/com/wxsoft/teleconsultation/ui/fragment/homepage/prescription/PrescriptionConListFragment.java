@@ -1,5 +1,6 @@
 package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -29,7 +30,10 @@ import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
+import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
+import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
 import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.calltheroll.PrescriptionCallTheRollFragment;
+import com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.diseasecounse.DiseaseCounselingDetailFragment;
 import com.wxsoft.teleconsultation.util.DensityUtil;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
@@ -53,6 +57,11 @@ public class PrescriptionConListFragment extends BaseFragment {
         PrescriptionConListFragment fragment = new PrescriptionConListFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public static void launch(Activity from) {
+        FragmentArgs args = new FragmentArgs();
+        FragmentContainerActivity.launch(from, PrescriptionConListFragment.class, args);
     }
 
     private List<String> statuses=new ArrayList<>();
@@ -141,6 +150,8 @@ public class PrescriptionConListFragment extends BaseFragment {
         });
 
         mAdapter.setOnItemClickListener(position -> {
+
+            DiseaseCounselingDetailFragment.launch(_mActivity,mAdapter.getItem(position).id);
         });
 
         loadData();

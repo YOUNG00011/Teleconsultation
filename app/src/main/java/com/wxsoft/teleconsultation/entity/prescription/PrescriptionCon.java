@@ -4,6 +4,8 @@ import com.wxsoft.teleconsultation.entity.DoctorInfo;
 import com.wxsoft.teleconsultation.entity.Entity2;
 import com.wxsoft.teleconsultation.entity.Patient;
 import com.wxsoft.teleconsultation.entity.WeChatAccount;
+import com.wxsoft.teleconsultation.entity.diseasecounseling.Attachment;
+import com.wxsoft.teleconsultation.entity.responsedata.LoginResp;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,11 +22,11 @@ public class PrescriptionCon extends Entity2 {
 	 public String doctorId;
 	 public String patientId;
 	 public String patientHeadImage;
-	 public List<String> medicationConsultationAttachments;
-	 public List<String> medicationCounselingChatRecords;
+	 public List<Attachment> medicationConsultationAttachments;
+	 public List<ChatRecord> medicationCounselingChatRecords;
 	 public WeChatAccount weChatAccount;
 	 public DoctorInfo doctorInfoMap;
-	 public String doctorJMessageAccount;
+	 public LoginResp.JMessagAccount doctorJMessageAccount;
 	 public Patient  patientInfo;
 
 	 public String getStatusName(){

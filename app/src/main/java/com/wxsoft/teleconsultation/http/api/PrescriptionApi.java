@@ -4,6 +4,7 @@ import com.wxsoft.teleconsultation.AppConstant;
 import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.CommEnum;
 import com.wxsoft.teleconsultation.entity.PatientManagerTag;
+import com.wxsoft.teleconsultation.entity.prescription.ChatRecord;
 import com.wxsoft.teleconsultation.entity.prescription.Medicine;
 import com.wxsoft.teleconsultation.entity.prescription.MedicineCategory;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
@@ -120,7 +121,7 @@ public interface PrescriptionApi {
 	 * @return
 	 */
 	@GET("api/Prescription/GetMedicationConsultationById?isMobile=true")
-	Observable<BaseResp<OnlinePrescription>> getConsultationDetail(@Query("couId") String couId);
+	Observable<BaseResp<PrescriptionCon>> getConsultationDetail(@Query("couId") String couId);
 
 	/**
 	 * 保存咨询信息
@@ -163,6 +164,14 @@ public interface PrescriptionApi {
 	 */
 	@GET("api/Prescription/CompleteMedicationConsultation?isMobile=true")
 	Observable<BaseResp<OnlinePrescription>> completeConsultation(@Query("id") String id);
+
+	/**
+	 * 保存咨询信息
+	 * @param record 消息实体
+	 * @return
+	 */
+	@POST("api/Prescription/SaveMedicationConsultationChatRecord?isMobile=true")
+	Observable<BaseResp> saveChatRecord(@Body ChatRecord record);
 
 	/**
 	 * 获取指定类型的字典表
