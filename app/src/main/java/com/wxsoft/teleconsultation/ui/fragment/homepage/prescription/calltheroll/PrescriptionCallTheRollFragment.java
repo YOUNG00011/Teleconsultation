@@ -33,6 +33,7 @@ import com.wxsoft.teleconsultation.entity.Diagnosis;
 import com.wxsoft.teleconsultation.entity.Patient;
 import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
 import com.wxsoft.teleconsultation.entity.prescription.Recipe;
+import com.wxsoft.teleconsultation.event.UpdatePrescriptionStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.activity.SelectPhotoCategoryActivity;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
@@ -358,8 +359,6 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
 //        avatarView.setImageResource(patient.weChatAccount..getAvatarDrawableRes());
         ((TextView) ButterKnife.findById(patientView, R.id.tv_patient_name)).setText(patient.weChatAccount.name);
         ((TextView) ButterKnife.findById(patientView, R.id.tv_gender)).setText(patient.weChatAccount.sex==1?"男":"女");
-//        ((TextView) ButterKnife.findById(patientView, R.id.tv_age)).setText(String.valueOf(patient.weChatAccount.getAge()));
-//        ((TextView) ButterKnife.findById(patientView, R.id.tv_health)).setText(mPatient.getMedicalInsuranceName());
         ButterKnife.findById(patientView, R.id.tv_emr).setVisibility(View.GONE);
 
 
@@ -388,6 +387,7 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
               @Override
               public void onNext(BaseResp<OnlinePrescription> resp) {
 
+                  EventBus.getDefault().post(new UpdatePrescriptionStatusEvent());
                   processResponse(resp);
               }
           });

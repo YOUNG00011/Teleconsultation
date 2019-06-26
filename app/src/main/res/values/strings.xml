@@ -664,6 +664,7 @@
 	<string name="string_prescription_row4">每次剂量</string>
     <string name="home_menu_audit_prescription">在线审方</string>
 	<string name="home_menu_audit_prescription_con">用药咨询</string>
+	<string name="title_prescription_con">用药咨询</string>
 
 
 </resources>

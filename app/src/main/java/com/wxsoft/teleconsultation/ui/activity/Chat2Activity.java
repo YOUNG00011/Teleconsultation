@@ -37,7 +37,7 @@ import com.wxsoft.teleconsultation.entity.conversation.EventType;
 import com.wxsoft.teleconsultation.entity.prescription.ChatRecord;
 import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
 import com.wxsoft.teleconsultation.event.ImageEvent;
-import com.wxsoft.teleconsultation.event.UpdateDiseaseCounselingStatusEvent;
+import com.wxsoft.teleconsultation.event.UpdatePrescriptionConStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.adapter.ChattingListAdapter;
 import com.wxsoft.teleconsultation.ui.base.BaseActivity;
@@ -187,7 +187,7 @@ public class Chat2Activity extends BaseActivity
 
     @OnClick(R.id.jmui_complate)
     void complateClick() {
-        if(con.status.equals("303-0003")) {
+        if(con.status.equals("906-0002")) {
             new MaterialDialog.Builder(this)
                     .title("咨询24小时后自动完成。")
                     .content("已解决患者问题，提前完成？")
@@ -213,7 +213,7 @@ public class Chat2Activity extends BaseActivity
                                     public void onNext(BaseResp<String> resp) {
                                         ViewUtil.dismissProgressDialog();
                                         if (resp.isSuccess()) {
-                                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdateDiseaseCounselingStatusEvent(diseaseCounselingId,"303-0006"));
+                                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"906-0003"));
                                             stateView("303-0006");
                                         } else {
 
@@ -227,15 +227,15 @@ public class Chat2Activity extends BaseActivity
                         dialog.dismiss();
                     })
                     .show();
-        }else if(con.status.equals("303-0002")){
+        }else if(con.status.equals("906-0002")){
             DiseaseCounselingRefuseFragment.launch(this,diseaseCounselingId);
         }
     }
 
     @Subscribe
     public void onEvent(Object object) {
-        if (object instanceof UpdateDiseaseCounselingStatusEvent) {
-            UpdateDiseaseCounselingStatusEvent event=(UpdateDiseaseCounselingStatusEvent)object;
+        if (object instanceof UpdatePrescriptionConStatusEvent) {
+            UpdatePrescriptionConStatusEvent event=(UpdatePrescriptionConStatusEvent)object;
             if(diseaseCounselingId.equals(event.id)){
                 con.status=event.status;
                 stateView(event.status);
@@ -382,7 +382,7 @@ public class Chat2Activity extends BaseActivity
             if(con!=null && con.status.equals("303-0002")){
                 start(mcgContent);
             }
-                //EventBus.getDefault().post(new UpdateDiseaseCounselingStatusEvent(diseaseCounselingId,"303-0003"));
+                //EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"303-0003"));
             ekBar.getEtChat().setText("");
             if (mAtList != null) {
                 mAtList.clear();
@@ -1375,7 +1375,7 @@ public class Chat2Activity extends BaseActivity
                     public void onNext(BaseResp resp) {
                         ViewUtil.dismissProgressDialog();
                         if (resp.isSuccess()) {
-                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdateDiseaseCounselingStatusEvent(diseaseCounselingId,"303-0003"));
+                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"303-0003"));
 
                         } else {
                             ViewUtil.showMessage(resp.getMessage());

@@ -38,6 +38,7 @@ import com.wxsoft.teleconsultation.entity.diseasecounseling.Attachment;
 import com.wxsoft.teleconsultation.entity.diseasecounseling.CallComment;
 import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
 import com.wxsoft.teleconsultation.event.UpdateDiseaseCounselingStatusEvent;
+import com.wxsoft.teleconsultation.event.UpdatePrescriptionConStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.activity.Chat2Activity;
 import com.wxsoft.teleconsultation.ui.activity.ChatActivity;
@@ -204,7 +205,7 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
 
     @Subscribe
     public void onEvent(Object object) {
-        if (object instanceof UpdateDiseaseCounselingStatusEvent) {
+        if (object instanceof UpdatePrescriptionConStatusEvent) {
             loadData();
         }
     }

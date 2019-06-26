@@ -28,6 +28,7 @@ import com.wxsoft.teleconsultation.entity.prescription.Recipe;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
+import com.wxsoft.teleconsultation.event.UpdatePrescriptionStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
@@ -67,7 +68,6 @@ public class PrescriptionListFragment extends BaseFragment {
         return fragment;
     }
 
-    private List<String> statuses=new ArrayList<>();
     private static final String EXTRAS_KEY_POSITION = "EXTRAS_KEY_POSITION";
     private static final String ALLOW_AUDIT = "ALLOW_AUDIT";
     private boolean allowAudit = false;
@@ -98,22 +98,6 @@ public class PrescriptionListFragment extends BaseFragment {
           .centerCrop()
           .dontAnimate();
 
-        statuses.add(null);
-        statuses.add("602-0001");
-        statuses.add("602-0002");
-        statuses.add("602-0003");
-        statuses.add("602-0004");
-        statuses.add("602-0005");
-
-
-        filters= new String[]{
-                getString(R.string.transfer_treatment_list_filter_text_1),
-                getString(R.string.transfer_treatment_list_filter_text_2),
-                getString(R.string.transfer_treatment_list_filter_text_3),
-                getString(R.string.transfer_treatment_list_filter_text_4),
-                getString(R.string.transfer_treatment_list_filter_text_5),
-                getString(R.string.transfer_treatment_list_filter_text_6)
-        };
         mCurrentPosition = getArguments().getInt(EXTRAS_KEY_POSITION);
         allowAudit = getArguments().getBoolean(ALLOW_AUDIT,false);
         org.greenrobot.eventbus.EventBus.getDefault().register(this);
@@ -123,7 +107,7 @@ public class PrescriptionListFragment extends BaseFragment {
 
     @Subscribe
     public void load(Object object){
-        if(object instanceof TreatMentStateChangeEvent)
+        if(object instanceof UpdatePrescriptionStatusEvent)
             loadData();
     }
 

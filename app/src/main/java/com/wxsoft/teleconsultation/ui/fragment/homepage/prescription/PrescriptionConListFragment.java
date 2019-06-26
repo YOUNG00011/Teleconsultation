@@ -28,6 +28,7 @@ import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
 import com.wxsoft.teleconsultation.entity.requestbody.QueryRequestBody;
 import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import com.wxsoft.teleconsultation.event.TreatMentStateChangeEvent;
+import com.wxsoft.teleconsultation.event.UpdatePrescriptionConStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
@@ -84,9 +85,8 @@ public class PrescriptionConListFragment extends BaseFragment {
 
     @Override
     protected void setupViews(View view, Bundle savedInstanceState) {
-
+        setupToolbar();
         mGlide = Glide.with(this);
-
 
         mOptions = new RequestOptions()
           .centerCrop()
@@ -114,9 +114,10 @@ public class PrescriptionConListFragment extends BaseFragment {
 
 
     @Subscribe
-    public void load(Object object){
-        if(object instanceof TreatMentStateChangeEvent)
+    public void onEvent(Object object) {
+        if (object instanceof UpdatePrescriptionConStatusEvent) {
             loadData();
+        }
     }
 
     @Override
@@ -124,6 +125,8 @@ public class PrescriptionConListFragment extends BaseFragment {
         super.onDestroy();
         org.greenrobot.eventbus.EventBus.getDefault().unregister(this);
     }
+
+
 
     private void setupRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
@@ -253,6 +256,13 @@ public class PrescriptionConListFragment extends BaseFragment {
         mRecyclerView.getSwipeToRefresh().post(() -> {
             mRecyclerView.getSwipeToRefresh().setRefreshing(refresh);
         });
+    }
+
+    private void setupToolbar() {
+        FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        activity.getSupportActionBar().setTitle(R.string.title_prescription_con);
+        setHasOptionsMenu(true);
     }
 
     private class MyApplyViewHolder extends BaseViewHolder<PrescriptionCon> {
