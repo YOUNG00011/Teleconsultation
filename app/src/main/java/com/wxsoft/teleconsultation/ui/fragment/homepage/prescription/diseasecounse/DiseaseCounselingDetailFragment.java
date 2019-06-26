@@ -1,9 +1,7 @@
 package com.wxsoft.teleconsultation.ui.fragment.homepage.prescription.diseasecounse;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,31 +21,24 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
-import com.tbruyelle.rxpermissions.RxPermissions;
-import com.wxsoft.teleconsultation.App;
 import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
 import com.wxsoft.teleconsultation.entity.diseasecounseling.Attachment;
 import com.wxsoft.teleconsultation.entity.diseasecounseling.CallComment;
 import com.wxsoft.teleconsultation.entity.prescription.PrescriptionCon;
-import com.wxsoft.teleconsultation.event.UpdateDiseaseCounselingStatusEvent;
 import com.wxsoft.teleconsultation.event.UpdatePrescriptionConStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
 import com.wxsoft.teleconsultation.ui.activity.Chat2Activity;
-import com.wxsoft.teleconsultation.ui.activity.ChatActivity;
 import com.wxsoft.teleconsultation.ui.activity.PreviewPhotoActivity;
-import com.wxsoft.teleconsultation.ui.activity.chat.MessageListActivity;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
 import com.wxsoft.teleconsultation.ui.base.FragmentContainerActivity;
-import com.wxsoft.teleconsultation.ui.fragment.homepage.diseasecounseling.DiseaseCounselingRefuseFragment;
 import com.wxsoft.teleconsultation.util.ViewUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -266,81 +257,31 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
     }
     @OnClick(R.id.tv_single_action)
     void singleActionClick() {
-//        if(con.type.equals("302-0001")
-//                &&con.status.equals("303-0002")
-//                &&con.weChatAccount!=null
-//                &&con.weChatAccount.jMessagAccount!=null
-//                &&con.weChatAccount.jMessagAccount.getjUserName()!=null) {
-//            Intent intent = new Intent(_mActivity, ChatActivity.class);
-//            intent.putExtra(ChatActivity.EXTRA_KEY_CONV_TITLE, "咨询详情");
-//            intent.putExtra(ChatActivity.EXTRA_KEY_DISEASECOUNSELING_ID, diseaseCounselingId);
-//            intent.putExtra(ChatActivity.EXTRA_KEY_SINGE, true);
-//            intent.putExtra(ChatActivity.TARGET_APP_ALLOW_EDIT,con.status.equals("303-0002"));
-//            startActivity(intent);
-//        }else if(con.type.equals("302-0002")
-//                &&con.status.equals("303-0002")){
-//            new MaterialDialog.Builder(_mActivity)
-//                    .title(R.string.phone_call)
-//                    .content(con.patientInfo.getName())
-//                    .positiveText("呼叫")
-//                    .negativeText("取消")
-//                    .onPositive((dialog, which) -> {
-//                        new RxPermissions(_mActivity)
-//                                .request(Manifest.permission.CALL_PHONE)
-//                                .subscribe(granted -> {
-//                                    if (granted) {
-//                                        Intent intent = new Intent(Intent.ACTION_CALL);
-//                                        Uri data = Uri.parse("tel:"+con.patientInfo.getPhone());
-//                                        intent.setData(data);
-//                                        startActivity(intent);
-//                                    } else {
-//                                        ViewUtil.showMessage("授权已取消");
-//                                    }
-//                                });
-//                    }).show();
-//        }
     }
 
     private void setupToolbar() {
         FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        activity.getSupportActionBar().setTitle("");
+        activity.getSupportActionBar().setTitle("用药咨询");
         setHasOptionsMenu(true);
     }
 
     Menu themenu;
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_phonecall,menu);
+        inflater.inflate(R.menu.menu_refuse,menu);
         themenu=menu;
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     public void prepare() {
-        MenuItem call = themenu.findItem(R.id.call);
-        MenuItem text = themenu.findItem(R.id.text);
+
         MenuItem refuse = themenu.findItem(R.id.refuse);
 
-        if (con.status.equals("303-0002")||con.status.equals("303-0003")) {
-            text.setVisible(false);
+        if (con.status.compareTo("906-0002")<=0) {
             refuse.setVisible(true);
-            call.setVisible(false);
-        } else if(con.status.equals("303-0004")||con.status.equals("303-0005")
-                ||con.status.equals("303-0008")) {
-            text.setVisible(false);
+        } else{
             refuse.setVisible(false);
-            call.setVisible(false);
-        }else{
-
-//            if (con.type.equals("302-0001")) {
-//                text.setVisible(true);
-//                refuse.setVisible(false);
-//                call.setVisible(false);
-//            } else {
-//                call.setVisible(true);
-//                refuse.setVisible(false);
-//                text.setVisible(false);
-//            }
         }
     }
 
@@ -351,37 +292,6 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
 
             case R.id.refuse:
                 DiseaseCounselingRefuseFragment.launch(_mActivity,diseaseCounselingId);
-                return true;
-            case R.id.text:
-                if(!con.status.equals("906-0001")&&con.weChatAccount!=null&&con.weChatAccount.jMessagAccount!=null &&con.weChatAccount.jMessagAccount.getjUserName()!=null) {
-
-
-                }else{
-                    ViewUtil.showMessage("无法创建会话");
-                }
-                return true;
-
-            case R.id.call:
-
-                new MaterialDialog.Builder(_mActivity)
-                        .title(R.string.phone_call)
-                        .content(con.patientInfo.getName())
-                        .positiveText("呼叫")
-                        .negativeText("取消")
-                        .onPositive((dialog, which) -> {
-                            new RxPermissions(_mActivity)
-                                    .request(Manifest.permission.CALL_PHONE)
-                                    .subscribe(granted -> {
-                                        if (granted) {
-                                            Intent intent = new Intent(Intent.ACTION_CALL);
-                                            Uri data = Uri.parse("tel:"+con.patientInfo.getPhone());
-                                            intent.setData(data);
-                                            startActivity(intent);
-                                        } else {
-                                            ViewUtil.showMessage("授权已取消");
-                                        }
-                                    });
-                        }).show();
                 return true;
             default:
                 return true;
@@ -465,7 +375,7 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
 
 
     private void setupViews() {
-        ((FragmentContainerActivity) getActivity()).getSupportActionBar().setTitle(con.patientName);
+//        ((FragmentContainerActivity) getActivity()).getSupportActionBar().setTitle(con.patientName);
         if (mRootView.getVisibility() == View.GONE) {
             mRootView.setVisibility(View.VISIBLE);
         }

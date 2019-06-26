@@ -104,6 +104,15 @@ public class PrescriptionListFragment extends BaseFragment {
         setupRecyclerView();
     }
 
+    private void setupToolbar() {
+
+        if(allowAudit) {
+            FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
+            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            activity.getSupportActionBar().setTitle(getString(R.string.home_menu_audit_prescription));
+        }
+    }
+
 
     @Subscribe
     public void load(Object object){

@@ -181,7 +181,14 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
           .dontAnimate();
         setupToolbar();
         mRecyclerView.setBackgroundResource(R.color.white);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity){
+            @Override
+            public boolean canScrollVertically() {
+                // 直接禁止垂直滑动
+                return false;
+            }
+
+        });
         mRecyclerView.setRefreshingColorResources(R.color.colorPrimary);
         mRecyclerView.setAdapter(mAdapter = new RecyclerArrayAdapter<Recipe>(_mActivity) {
             @Override

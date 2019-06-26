@@ -155,7 +155,7 @@ public interface PrescriptionApi {
 	 * @return
 	 */
 	@GET("api/Prescription/RefuseMedicationConsultation?isMobile=true")
-	Observable<BaseResp<OnlinePrescription>> refuseConsultation(@Query("id") String id,@Query("reason")String reason);
+	Observable<BaseResp> refuseConsultation(@Query("id") String id,@Query("reason")String reason);
 
 	/**
 	 * 完成
