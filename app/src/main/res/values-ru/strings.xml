@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">分级诊疗系统</string>
 
-    <string name="sign_up">注册</string>
+    <string name="sign_up">регистрация</string>
     <string name="sign_out">账户退出</string>
     <string name="ok">确定</string>
     <string name="ok_button_text">确&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;定</string>
@@ -183,7 +183,7 @@
     <string name="create_consultation_diagnosis">初步诊断</string>
     <string name="create_consultation_diagnosis_input_hint">输入对患者的初步诊断</string>
     <string name="create_consultation_explain">会诊说明</string>
-    <string name="consultation_time">会诊时间:</string>
+    <string name="consultation_time">время сеанса:</string>
     <string name="create_consultation_explain_input_hint">可以输入患者的病情症状和本次会诊的目的</string>
     <string name="create_consultation_expected_time">期望时间</string>
     <string name="create_consultation_upload_pictures">上传图片资料</string>
@@ -657,5 +657,10 @@
 	<string name="home_menu_audit_prescription">在线审方</string>
 	<string name="home_menu_audit_prescription_con">用药咨询</string>
 	<string name="title_prescription_con">用药咨询</string>
+    <string name="chat_send_button_text">发送</string>
+    <string name="create_prescription_title">创建处方</string>
+    <string name="prescription_detail">处方详情</string>
+    <string name="title_all_medicine_type">全部类目</string>
+    <string name="text_prescription_row1">药品名称</string>
 
 </resources>

@@ -1,661 +1,666 @@
 <resources>
-    <string name="app_name">分级诊疗系统</string>
-
-    <string name="sign_up">注册</string>
-    <string name="sign_out">账户退出</string>
-    <string name="ok">确定</string>
-    <string name="ok_button_text">确&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;定</string>
-    <string name="cancel">取消</string>
-    <string name="save">保存</string>
-    <string name="save_button_text">保&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;存</string>
-    <string name="male">男</string>
-    <string name="female">女</string>
-    <string name="gender">性别</string>
-    <string name="job_title">职称</string>
-    <string name="duty">职务</string>
-    <string name="idcard">证件号</string>
-    <string name="password">密码</string>
-    <string name="confirm_password">确认密码</string>
-    <string name="new_password">新密码</string>
-    <string name="confirm_new_password">确认新密码</string>
-    <string name="phone">手机号码</string>
-    <string name="medicare_card">医保卡</string>
-    <string name="birthday">出生日期</string>
-    <string name="name">姓名</string>
-    <string name="remove">刪除</string>
-    <string name="save_to_gallery">保存到相册</string>
-    <string name="save_picture">保存图片</string>
-    <string name="detail">详情</string>
-    <string name="search">搜&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;索</string>
-    <string name="unlimited">不限</string>
-    <string name="system_message">系统消息</string>
-    <string name="dynamic">个人动态</string>
-    <string name="introduction">个人介绍</string>
-    <string name="good_at">擅长领域</string>
-    <string name="achievement">成果荣誉</string>
-
-    <!-- 登陆 -->
-    <string name="sign_in">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
-    <string name="forget_password">忘记密码？</string>
-    <string name="input_phone">输入手机号</string>
-    <string name="input_password">输入用户密码</string>
-
-    <!-- 验证手机号 -->
-    <string name="verify_phone_recover_password">找回密码</string>
-    <string name="verify_phone_input_phone">输入手机号</string>
-    <string name="verify_phone_input_valid_code">输入验证码</string>
-    <string name="verify_phone_valid_code_obtain">获取验证码</string>
-
-    <!-- 注册 -->
-    <string name="register_title">完善信息</string>
-    <string name="register_hint">请完善您的个人信息，信息提交后，将不可更改</string>
-    <string name="register_hospital">医院</string>
-    <string name="register_department">专科</string>
-    <string name="register_job_title">职称</string>
-
-    <!-- 按医院查找 -->
-    <string name="find_by_hospital_title">按医院查找</string>
-
-    <!-- 选择职称 -->
-    <string name="select_department_title">选择科室</string>
-
-    <!-- 选择职称 -->
-    <string name="select_job_title_title">选择职称</string>
-
-    <!-- 选择职务 -->
-    <string name="select_duty_title">选择职务</string>
-
-    <!-- 重置密码 -->
-    <string name="reset_password_title">重置密码</string>
-
-    <!-- 主界面 -->
-    <string name="home_tab_text_1">首页</string>
-    <string name="home_tab_text_2">消息</string>
-    <string name="home_tab_text_3">我的</string>
-
-    <!-- 首页 -->
-    <string name="home_menu_advisory">咨询</string>
-    <string name="home_menu_clinic">会诊</string>
-    <string name="home_menu_register">预约</string>
-    <string name="home_menu_cloud_clinic">云门诊</string>
-    <string name="home_menu_trsnsfer_treatment">转诊</string>
-    <string name="home_menu_patient">患者管理</string>
-    <string name="home_todo">待处理任务(%1$d)</string>
-    <string name="home_task_item_explain">会诊说明:%1$s</string>
-
-    <!-- 我的 -->
-    <string name="user_my_sign">我的签名</string>
-    <string name="user_settings">基础设置</string>
-    <string name="patient_integration">患者评价</string>
-
-    <!-- 个人信息 -->
-    <string name="information_title">个人信息</string>
-    <string name="information_avatar">头像</string>
-    <string name="information_personal">个人信息</string>
-    <string name="information_name">姓名</string>
-    <string name="information_id_card">证件号码</string>
-    <string name="information_email">电子邮箱</string>
-    <string name="information_education">最高学历</string>
-    <string name="information_working_years">工作年份</string>
-    <string name="information_practice_information">执业信息</string>
-    <string name="information_hospital">医院名称</string>
-    <string name="information_department">专科</string>
-    <string name="email_input">输入邮箱</string>
-    <string name="information_input_content">请输入内容...</string>
-
-    <!-- 设置 -->
-    <string name="setting">设置</string>
-    <string name="setting_no_disturb">免打扰</string>
-    <string name="setting_features">功能介绍</string>
-    <string name="setting_language">多语言</string>
-    <string name="setting_modify_password">修改密码</string>
-    <string name="setting_clear_cache">清除缓存</string>
-    <string name="setting_feedback">意见反馈</string>
-    <string name="setting_contact">联系我们</string>
-    <string name="setting_clear_cache_hint">确定要清除缓存吗？</string>
-    <string name="setting_clear_cache_option">立即清除</string>
-    <string name="setting_input_old_password">输入旧密码</string>
-    <string name="setting_input_new_password">输入新密码</string>
-    <string name="setting_input_new_password_again">再次输入新密码</string>
-
-    <!-- 我的签名 -->
-    <string name="sign_title">我的签名</string>
-    <string name="sign_verify_password">验证密码</string>
-    <string name="sign_verify_password_hint">为了确保您的帐户安全，请先输入您的登录密码</string>
-    <string name="sign_input_error_hint">请输入正确的密码</string>
-    <string name="sign_forget_password">忘记密码</string>
-    <string name="sign_your_signature">您的签名</string>
-    <string name="sign_resign">重新签名</string>
-    <string name="sign_hint">签名代表您的个人签名，在回复会诊意见时使用，具有法律效益。</string>
-    <string name="sign_modify_title">写入签名</string>
-    <string name="sign_clear">清除</string>
-    <string name="sign_commit">提交签名</string>
-
-    <!-- 多语言 -->
-    <string name="language_title">多语言</string>
-
-    <!-- 患者管理 -->
-    <string name="patient_manager_title">患者管理</string>
-
-    <!-- 新的患者 -->
-    <string name="new_patient_title">新的患者</string>
-
-    <!-- 患者详情 -->
-    <string name="patient_detail_add_tags">+添加标签</string>
-    <string name="patient_detail_emr">电子病历</string>
-    <string name="patient_detail_patient_description">患者描述</string>
-    <string name="patient_detail_no_description">暂无描述</string>
-
-    <!-- 修改描述 -->
-    <string name="modify_desc_title">修改描述</string>
-    <string name="modify_desc_input_hint">请输入患者描述...</string>
-
-    <!-- 我的标签 -->
-    <string name="my_tags_title">我的标签</string>
-
-    <!-- 添加标签 -->
-    <string name="add_tags_title">添加标签</string>
-    <string name="add_tags_input_hint">输入标签名称</string>
-    <string name="add_tags_recommend_text">推荐标签</string>
-
-    <!-- 病历列表 -->
-    <string name="emr_list_title">%1$s的病历</string>
-    <string name="emr_list_create_title">新建病历</string>
-    <string name="emr_list_create_input_hint">输入病历的名称</string>
-
-    <!-- 会诊管理 -->
-    <string name="consultation_manager_title">会诊管理</string>
-    <string name="consultation_manager_tab_text_1">我的申请</string>
-    <string name="consultation_manager_tab_text_2">我的会诊</string>
-    <string name="consultation_list_filter_text_1">全部</string>
-    <string name="consultation_list_filter_text_2">未处理</string>
-    <string name="consultation_list_filter_text_3">会诊中</string>
-    <string name="consultation_list_filter_text_4">已完成</string>
-    <string name="consultation_list_item_describe">描述:</string>
-    <string name="consultation_list_item_join_doctor">邀请医生:</string>
-    <string name="consultation_list_item_my_status">会诊状态:</string>
-    <string name="consultation_list_menu_text_1">点名会诊</string>
-    <string name="consultation_list_menu_text_2">会诊中心</string>
-
-    <string name="create_consultation_title">会诊申请</string>
-    <string name="create_consultation_select_patient">选择患者</string>
-    <string name="create_consultation_select_doctor">邀请会诊医生</string>
-    <string name="create_consultation_diagnosis">初步诊断</string>
-    <string name="create_consultation_diagnosis_input_hint">输入对患者的初步诊断</string>
-    <string name="create_consultation_explain">会诊说明</string>
-    <string name="consultation_time">会诊时间:</string>
-    <string name="create_consultation_explain_input_hint">可以输入患者的病情症状和本次会诊的目的</string>
-    <string name="create_consultation_expected_time">期望时间</string>
-    <string name="create_consultation_upload_pictures">上传图片资料</string>
-    <string name="create_consultation_upload_pictures_explain">(病症部位、检查报告或其他病情资料)</string>
-    <string name="create_consultation_emr_text">电子病历:%1$s</string>
-    <string name="create_consultation_emr_system_create_text">电子病历:系统创建一张新病历</string>
-    <string name="create_consultation_expected_department">期望科室</string>
-    <string name="create_consultation_doctor_job_title">医生职称</string>
-
-    <!-- 选择患者 -->
-    <string name="select_patient_history">历史患者</string>
-    <string name="select_patient_search_input_hint">输入患者姓名</string>
-
-    <!-- 患者信息确认 -->
-    <string name="patient_confirm_title">患者信息确认</string>
-    <string name="patient_confirm_hint">请核对信息，无误直接确认，有错误先修改，再确认</string>
-    <string name="patient_confirm_select_emr_title">选择病历</string>
-    <string name="patient_confirm_select_emr_hint">是否选择一份已经存在的病历?</string>
-
-    <!-- 选择医生 -->
-    <string name="select_doctor_title">选择医生</string>
-    <string name="select_doctor_common">常用医生</string>
-    <string name="select_doctor_search_by_condition">按条件查找医生</string>
-    <string name="select_doctor_my_focus">我关注的医生</string>
-    <string name="select_doctor_search_by_hospital">按医院查找医生</string>
-
-    <!-- 按条件查找医生 -->
-    <string name="search_doctor_by_condition_title">搜索医生</string>
-    <string name="search_doctor_by_condition_input_doctor_name_hint">输入医生的姓名</string>
-    <string name="search_doctor_by_condition_goodat">擅长疾病</string>
-    <string name="search_doctor_by_condition_input_goodat_hint">输入医生擅长的疾病</string>
-
-    <!-- 省市选择 -->
-    <string name="select_city_title">省市选择</string>
-
-    <!-- 按医院查找 -->
-    <string name="select_doctor_search_by_hospital_title">按医院查找</string>
-
-    <!-- 医院主页 -->
-    <string name="hospital_home_title">医院主页</string>
-    <string name="hospital_home_introduction">医院简介</string>
-
-    <!-- 搜索疾病 -->
-    <string name="primary_diagnosis_input_hint">输入疾病名称或首字母</string>
-    <string name="primary_diagnosis_undiagnosed">未确诊</string>
-
-    <!-- 选择图片类型 -->
-    <string name="select_picture_type_title">选择图片类型</string>
-    <string name="select_picture_type_text">选择类型</string>
-
-    <!-- 搜索医院 -->
-    <string name="search_hospital_title">搜索医院</string>
-    <string name="search_hospital_input_hint">输入医院名称</string>
-
-    <!-- 期望科室 -->
-    <string name="expected_department_title">期望科室</string>
-    <string name="expected_department_add_hint">添加期望科室(最多选择5个)</string>
-    <string name="expected_department_add_button_text">继续添加</string>
-
-    <!-- 会诊单详情 -->
-    <string name="consultation_details_title">会诊单详情</string>
-    <string name="consultation_details_group">讨论组</string>
-    <string name="consultation_details_status">状态:&#160;</string>
-    <string name="consultation_details_patient_info">患者信息</string>
-    <string name="consultation_details_diagnosis">初步诊断</string>
-    <string name="consultation_details_explain">会诊说明</string>
-    <string name="consultation_details_look_at_more_emr">查看更多病历资料&#160;&#160;>></string>
-    <string name="consultation_details_arrange">会诊安排</string>
-    <string name="consultation_details_time">会诊时间</string>
-    <string name="consultation_details_department">会诊专科</string>
-    <string name="consultation_details_apply_doctor">申请医生</string>
-    <string name="consultation_details_join_doctor">参与医生</string>
-    <string name="consultation_details_video_account">视频账号</string>
-    <string name="consultation_details_select_account">选择账号</string>
-    <string name="consultation_details_none">无</string>
-    <string name="consultation_details_translator">翻译人员</string>
-    <string name="consultation_details_refuse_reason">拒绝原因</string>
-    <string name="consultation_details_cancel">取消会诊</string>
-    <string name="consultation_details_end">结束会诊</string>
-    <string name="consultation_details_look_at_advice">查看会诊意见</string>
-    <string name="consultation_details_refuse">拒绝</string>
-    <string name="consultation_details_reply">回复会诊意见</string>
-    <string name="consultation_details_re_consultation">重新会诊</string>
-    <string name="consultation_details_cancel_hint">确定取消本次会诊吗？</string>
-
-    <!-- 结束会诊 -->
-    <string name="end_consultation_title">结束会诊</string>
-    <string name="end_consultation_progress">会诊进展</string>
-    <string name="end_consultation_input_title">致未回复的医师</string>
-    <string name="end_consultation_input_hint">请将原因告知尚未回复的医师，以避免造成不必要的误会</string>
-
-    <!-- 回复会诊意见 -->
-    <string name="reply_title">回复会诊意见</string>
-    <string name="reply_input_title">输入会诊意见:</string>
-
-    <!-- 拒绝会诊 -->
-    <string name="refuse_title">拒绝会诊</string>
-    <string name="refuse_input_title">输入拒绝会诊的原因:</string>
-
-    <!-- 查看会诊意见 -->
-    <string name="view_comments_title">查看会诊意见</string>
-    <string name="view_comments_evaluate">评价</string>
-    <string name="view_comments_view_evaluate">查看评价</string>
-
-    <!-- 会诊评价 -->
-    <string name="evaluate_edit_title">评价内容</string>
-    <string name="evaluate_edit_situation_title">治疗情况及处理情况</string>
-    <string name="evaluate_edit_situation_input_hint">会诊医生给出的会诊意见对于患者治疗的效果</string>
-    <string name="evaluate_edit_condition_title">目前病情(康复情况)</string>
-    <string name="evaluate_edit_condition_input_hint">目前患者如何？是否有好转？具体现状描述</string>
-    <string name="evaluate_edit_advice_title">本次会诊的意见或建议</string>
-    <string name="evaluate_edit_advice_input_hint">对于本次会诊你认为有没有可以改进的地方？</string>
-    <string name="evaluate_edit_gone_title">病人去向</string>
-    <string name="evaluate_edit_gone_input_hint">目前病人的去向，是治疗康复？回家后续定期复查？还是其他？</string>
-
-    <!-- 医生详细 -->
-    <string name="doctor_detail_title">%1$s医生</string>
-    <string name="doctor_detail_follow">关注</string>
-    <string name="doctor_detail_unfollow">取消关注</string>
-    <string name="doctor_detail_education">学历&#160;&#160;%1$s</string>
-    <string name="doctor_detail_work_year">从业经验&#160;&#160;%1$d年</string>
-
-    <string name="comm_loading_msg">正在加载中...</string>
-    <string name="comm_load_more">正在载入...</string>
-    <string name="comm_no_more">没有更多了</string>
-    <string name="comm_empty_msg">抱歉,暂未获取到数据!\n请点击屏幕重试~</string>
-    <string name="comm_error_msg">抱歉,系统出错了!\n请点击屏幕重试~</string>
-    <string name="comm_no_network_msg">暂未连接上网络!\n请连接后点击屏幕重试~</string>
-
-    <string name="language_auto">跟随系统</string>
-    <string name="language_cn">中文(简体)</string>
-    <string name="language_en">EngLish</string>
-    <string name="language_ru">Русский</string>
-    <string name="language_ar">لغة عربية</string>
-
-    <string name="jmui_time_format_accuracy">yyyy-MM-dd HH:mm:ss </string>
-
-    <string name="jmui_monday">周一</string>
-    <string name="jmui_tuesday">周二</string>
-    <string name="jmui_wednesday">周三</string>
-    <string name="jmui_thursday">周四</string>
-    <string name="jmui_friday">周五</string>
-    <string name="jmui_saturday">周六</string>
-    <string name="jmui_sunday">周日</string>
-
-    <string name="jmui_resend_message_hint">重发该消息？</string>
-    <string name="jmui_resend_commit">重发</string>
-    <string name="jmui_cancel">取消</string>
-    <string name="btn_send">发送</string>
-    <string name="btn_text_speak">按住录音</string>
-    <string name="group">群聊</string>
-
-    <string name="picker_image_error">获取图片出错</string>
-    <string name="type_picture">[图片]</string>
-    <string name="group_notification">[群组消息]</string>
-    <string name="draft">[草稿]</string>
-    <string name="jmui_delete_conv">删除该消息</string>
-
-    <string name="inaccessible">对方不可达</string>
-    <string name="cancelled">呼叫被取消</string>
-    <string name="oppositebusying">对方正忙…</string>
-    <string name="bereject">呼叫被拒绝</string>
-    <string name="callfailed">呼叫结束</string>
-    <string name="voipstatusnoreply">对方无应答</string>
-    <string name="voipstatusnocnt">暂时无法接通</string>
-    <string name="errorcall">呼叫失败</string>
-    <string name="msg_tip">消息提示</string>
-    <string name="certificate_error">证书认证失败</string>
-    <string name="accountnum_overlimit">登陆用户已达上限</string>
-    <string name="network_off">网络已断开</string>
-    <string name="limit_login_prompt">版本下载错误，请下载TE Mobile</string>
-    <string name="viawifi">请连接WiFi网络使用TE Mobile</string>
-    <string name="connect_error">连接服务器失败，请检查网络设置</string>
-    <string name="module_error_1">服务器处理失败，请重试或联系管理员解决</string>
-    <string name="etimeout">超时，请检查网络！</string>
-    <string name="module_error_4">终端请求消息异常</string>
-    <string name="account_error">帐号或密码错误</string>
-    <string name="module_error_1login">与服务器连接失败，请重试或联系管理员解决</string>
-    <string name="callover">通话结束</string>
-
-    <string name="hide_video_window">关闭画中画</string>
-    <string name="show_video_window">显示画中画</string>
-    <string name="switch_audio">视频转音频</string>
-    <string name="switch_local_camera">切换本地摄像头</string>
-    <string name="close_local_camera">关闭本地摄像头</string>
-    <string name="camera_bad">Can not get camera</string>
-    <string name="set_camera_angle">Set camera angle</string>
-    <string name="set_local_video_angle">Set local video angle</string>
-    <string name="zero_begin_time">00:00:00</string>
-    <string name="remote_number">Remote number:</string>
-    <string name="video_upgrade_failure_try_again">Video call switch request failed. please retry later</string>
-    <string name="retry">Retry</string>
-    <string name="low_bw_update_fail">Low band width,can not turn to video</string>
-    <string name="oper_failure">Operation failed</string>
-    <string name="ntf_upgrade_videocall">Accept request to switch to video call</string>
-    <string name="accept">Accept</string>
-    <string name="refuse">Refuse</string>
-    <string name="cancel_video_update">Video call switch request canceled</string>
-    <string name="input_call_number">Input call number</string>
-    <string name="open_local_camera">打开本地摄像头</string>
-    <string name="audio_answer">Audio answer</string>
-    <string name="video_answer">Video answer</string>
-    <string name="reject">Reject</string>
-
-    <!-- 咨询 -->
-    <string name="diseasecounseling_manager_title">咨询</string>
-    <string name="diseasecounseling_manager_tab_text_1">未完成</string>
-    <string name="diseasecounseling_manager_tab_text_2">已结束</string>
-    <string name="discription_item_disease_counseling"><![CDATA[<font color=#000000>病情概要：</font>]]></string>
-    <string name="discription_disease_counseling_detail">病情概要：</string>
-    <string name="str_disease_counseling_complate">完成咨询</string>
-
-
-    <string name="service_setting">业务设置</string>
-    <string name="setting_diseasecounseling_title">图文咨询</string>
-    <string name="setting_phonecall_title">电话咨询</string>
-    <string name="setting_diseasecounseling_discription">以文本形式向患者停工实时咨询服务</string>
-    <string name="setting_phonecall_discription">在约定时间内向患者提供电话咨询服务</string>
-    <string name="str_recommend">预约</string>
-    <string name="str_transfer_treatment">转诊</string>
-
-    <!-- 拒绝咨询 -->
-    <string name="refuse_dis_title">拒绝咨询</string>
-    <string name="refuse_dis_input_title">输入拒绝咨询的原因:</string>
-
-    <!--  -->
-    <string name="register_manager_title">预约</string>
-    <string name="register_list_filter_text_1">全部</string>
-    <string name="register_list_filter_text_2">待就诊</string>
-    <string name="register_list_filter_text_3">已就诊</string>
-    <string name="register_list_filter_text_4">今日就诊</string>
-    <string name="register_list_filter_text_5">明日就诊</string>
-    <string name="register_list_filter_text_6">7日内就诊</string>
-    <string name="register_list_filter_text_7">7日后就诊</string>
-
-
-    <string name="bank_0001">中国工商银行</string>
-    <string name="bank_0002">中国建设银行</string>
-    <string name="bank_0003">中国农业银行</string>
-    <string name="bank_0004">交通银行</string>
-    <string name="bank_0005">中国银行</string>
-    <string name="bank_0006">招商银行</string>
-    <string name="bank_0007">中国邮政储蓄银行</string>
-
-    <!-- 星期信息 -->
-    <string name="mon">周一</string>
-    <string name="tue">周二</string>
-    <string name="wen">周三</string>
-    <string name="thu">周四</string>
-    <string name="fri">周五</string>
-    <string name="san">周六</string>
-    <string name="sun">周日</string>
-
-    <!-- 时间信息 -->
-    <string name="date_day">天</string>
-    <string name="date_hour">时</string>
-    <string name="date_minute">分</string>
-
-
-    <!-- 确认挂号 -->
-    <string name="register_type">挂号类型</string>
-    <string name="register_dept">就诊科室</string>
-    <string name="register_doc">医生姓名</string>
-    <string name="register_time">就诊时间</string>
-    <string name="register_clinc_type">门诊类型</string>
-    <string name="register_money_short">挂号费：</string>
-    <string name="register_patient">就诊病人</string>
-    <string name="choose_schude_item">选择号源</string>
-    <string name="dollar">元</string>
-    <string name="register_list_item_describe">预约时间</string>
-
-    <!-- 预约详情 -->
-    <string name="register_detail_doctor1">就诊医生</string>
-    <string name="register_detail_doctor2">接诊医生</string>
-    <string name="register_detail_hospital">接诊地点</string>
-    <string name="register_detail_time">接诊时间</string>
-    <string name="register_detail_cost">诊疗费用</string>
-    <string name="register_detail_title">预约单详情</string>
-    <string name="register_new_title">预约挂号</string>
-    <string name="register_detail">预约信息</string>
-    <string name="register_manager_tab_text_2">发给我的</string>
-    <string name="register_manager_tab_text_1">我发起的</string>
-    <string name="toast_no_patient">请选择患者</string>
-
-    <!-- 转诊列表 -->
-
-    <string name="create_treatment_title">住院转诊申请</string>
-    <string name="receive_treatment_title">接收转诊</string>
-    <string name="transfer_treatment_manager_title">转诊</string>
-    <string name="transfer_treatment_list_filter_text_1">全部</string>
-    <string name="transfer_treatment_list_filter_text_2">待处理</string>
-    <string name="transfer_treatment_list_filter_text_3">已接收</string>
-    <string name="transfer_treatment_list_filter_text_4">已取消</string>
-    <string name="transfer_treatment_list_filter_text_5">已拒绝</string>
-    <string name="transfer_treatment_list_filter_text_6">已就诊</string>
-
-    <string name="transfer_treatment_transto">转往:</string>
-    <string name="transfer_treatment_doc">转往医生</string>
-    <string name="treatment_details_explain">转诊说明</string>
-    <string name="treatment_detail_title">住院转诊单详情</string>
-    <string name="create_treatment_explain_input_hint">可以输入患者的病情症状和本次转诊的目的</string>
-    <string name="create_treatment_explain">转诊说明</string>
-    <string name="create_treatment_select_doctor">选择转诊医生</string>
-    <string name="workout">下班</string>
-    <string name="working">开诊</string>
-    <string name="history">历史</string>
-    <string name="cloud_menu_current">今日门诊</string>
-    <string name="cloud_menu_next">预约门诊</string>
-    <string name="str_cloudclinc_history_text1">申请记录</string>
-    <string name="str_cloudclinc_history_text2">接诊记录</string>
-    <string name="status_310_0001">已转账</string>
-    <string name="status_502_0000">全部</string>
-    <string name="status_502_0001">待支付</string>
-    <string name="status_502_0002">待接收</string>
-    <string name="status_502_0003">待就诊</string>
-    <string name="status_502_0004">已结束</string>
-
-    <string name="status_602_0000">全部</string>
-    <string name="status_602_0001">待处理</string>
-    <string name="status_602_0002">已接收</string>
-    <string name="status_602_0003">已取消</string>
-    <string name="status_602_0004">已拒绝</string>
-    <string name="status_602_0005">已就诊</string>
-
-    <string name="action_602_0001_mine">取消转诊</string>
-    <string name="action_602_0001_tome_2">接收</string>
-    <string name="action_602_0001_tome_1">拒绝</string>
-    <string name="action_602_0002">已接收</string>
-    <string name="action_602_0002_tome">完成</string>
-    <string name="action_602_0003_mine">重新转诊</string>
-    <string name="action_602_0004">已拒绝</string>
-    <string name="action_602_0005">已就诊</string>
-    <string name="string_item_cloud_clinc_pname">就诊患者</string>
-    <string name="string_item_cloud_clinc_dname">目标医生</string>
-    <string name="submit_transfer_input_title">请输入转诊小结</string>
-    <string name="refuse_transfer_input_title">请输入取消原因</string>
-    <string name="setting_transfertreatment_title">转诊业务</string>
-    <string name="setting_clinc_title">会诊业务</string>
-    <string name="setting_cloudclinc_title">云门诊业务</string>
-    <string name="setting_transfertreatment_discription">接收其他医疗机构的转诊申请</string>
-    <string name="setting_clinc_discription">接收其他医疗机构的会诊申请</string>
-    <string name="setting_cloudclinc_discription">向患者提供线上门诊服务</string>
-    <string name="transfer_treatment_type">转诊类别</string>
-    <string name="transfer_treatment_type_1">住院转诊</string>
-    <string name="receive_treatment_select_dept">入院科室</string>
-    <string name="receive_treatment_select_doc">主治医生</string>
-    <string name="receive_treatment_date">入院日期</string>
-    <string name="transfer_treatment_suggest">建议预交金(元)</string>
-    <string name="transfer_treatment_suggest_money">5000</string>
-    <string name="receive_surgery_date">手术日期</string>
-    <string name="receive_treatment_message">给申请医生留言</string>
-    <string name="receive_treatment_message_input_hint">如果有需要请给申请医生留言</string>
-    <string name="receive_treatment_more_detail">更多选项</string>
-    <string name="check_l1_tilte">就近收治</string>
-    <string name="check_r1_tilte">入院检查项目</string>
-    <string name="check_l2_tilte">需要手术</string>
-    <string name="check_r2_tilte">住院检查项目</string>
-
-    <!-- 拒绝会诊 -->
-    <string name="treatment_submit_title">完成转诊</string>
-    <!--<string name="refuse_input_title">输入拒绝会诊的原因:</string>-->
-    <string name="btn_new_model_text">添加为模板</string>
-    <string name="integration_count">评价</string>
-    <string name="evaluater_name_unkown">未知</string>
-    <string name="evaluate_title">患者评价</string>
-    <string name="integral_title">我的积分</string>
-    <string name="integral_in_history">累计记录</string>
-    <string name="integral_out_history">兑换记录</string>
-    <string name="integral_out">我要兑换</string>
-    <string name="item_integral_history_in_title">积分流水记录</string>
-    <string name="item_integral_history_time1">获取时间：</string>
-    <string name="item_integral_history_money1">获取金额：</string>
-    <string name="item_integral_history_person">收取人：</string>
-    <string name="item_integral_history_out_title">兑换记录</string>
-    <string name="item_integral_out_history_time">兑换时间：</string>
-    <string name="item_integral_out_history_type">兑换类型</string>
-    <string name="item_integral_out_history_money1">兑换数额：</string>
-    <string name="item_integral_history_account">提现账号 ：</string>
-    <string name="item_integral_history_bank">提现账户 ：</string>
-    <string name="menu_integral_card">银行卡</string>
-    <string name="menu_integral_new_card">添加</string>
-    <string name="f_bank_account_add_text1">持卡人</string>
-    <string name="f_bank_account_add_text2">银行卡号</string>
-    <string name="f_bank_account_add_text3">开户银行</string>
-    <string name="f_bank_account_add_text4">开户网点</string>
-    <string name="f_bank_account_add_hint3">请输入您本人银行卡开户行</string>
-    <string name="f_bank_account_add_hint2">请输入您本人银行卡卡号</string>
-    <string name="f_bank_account_add_hint4">请输入您本人银行卡开户网点</string>
-    <string name="new_bank_account_title">添加银行卡</string>
-    <string name="bank_type_list_title">选择银行卡</string>
-    <string name="integral_my_bank_account_title">我的银行卡</string>
-    <string name="integral_in_title">累计积分纪录</string>
-    <string name="string_mm_dd">MM月dd日</string>
-    <string name="string_mm_dd_hh_mm">MM月dd日 hh:mm</string>
-    <string name="integral_out_title">兑换积分纪录</string>
-    <string name="integral_out_type1">积分兑换</string>
-    <string name="f_draw_money_add_text1">请选择兑换积分的银行卡</string>
-    <string name="f_draw_money_add_text2">预计5～10个工作日到账</string>
-    <string name="f_draw_money_add_hint2">请输入需要兑换的积分数量</string>
-    <string name="draw_button_text">兑 换</string>
-    <string name="f_draw_money_add_text4">兑换比例：1积分=1元</string>
-    <string name="f_draw_money_add_text3">可兑换积分数：</string>
-    <string name="draw_money_title">积分兑换</string>
-    <string name="week_day_1">星期一</string>
-    <string name="week_day_2">星期二</string>
-    <string name="week_day_3">星期三</string>
-    <string name="week_day_4">星期四</string>
-    <string name="week_day_5">星期五</string>
-    <string name="week_day_6">星期六</string>
-    <string name="week_day_7">星期日</string>
-    <string name="treatment_receive_get_model">选择模板</string>
-    <string name="edit">编辑</string>
-    <string name="model_list_title">我的模板</string>
-    <string name="live_list_title">直播</string>
-    <string name="home_menu_live">视频教学</string>
-    <string name="live_detail_text1">主讲人：</string>
-    <string name="live_detail_text2">直播介绍</string>
-    <string name="live_detail_text3">发 布</string>
-    <string name="live_detail_text4">删 除</string>
-    <string name="live_detail_text5">开始直播</string>
-    <string name="live_detail_text6">结束直播</string>
-    <string name="live_detail_text7">取 消</string>
-    <string name="live_detail_title">直播详情</string>
-    <string name="delete_live_title">删除直播</string>
-    <string name="delete_live_content">是否删除直播？</string>
-    <string name="stop_live_content">是否结束直播</string>
-    <string name="stop_live_title">结束直播</string>
-    <string name="live_title">直播名称</string>
-    <string name="live_content">直播描述</string>
-    <string name="live_date">直播日期</string>
-    <string name="live_price">观看价格</string>
-    <string name="live_timestamp">预计时长</string>
-    <string name="live_notifyable">是否需要通知关注的病人</string>
-    <string name="live_bg">选择直播封面</string>
-    <string name="save_live_button_text">保存直播</string>
-    <string name="live_title_hint">请输入直播名称</string>
-    <string name="live_timestamp_hint">预计开播时长</string>
-    <string name="live_price_hint">观看直播的价格</string>
-    <string name="live_date_hint">请选择直接开始时间</string>
-    <string name="live_content_hint">请输入直播描述</string>
-    <string name="create_live_title">新建直播</string>
-    <string name="call">拨打电话</string>
-    <string name="phone_call">拨打电话</string>
-    <string name="treatment_detail_hospital">就诊医院</string>
-    <string name="treatment_detail_time">就诊时间</string>
-    <string name="treatment_detail_memo">医生留言</string>
-    <string name="input_phone2">手机号</string>
-    <string name="input_password2">验证码</string>
-    <string name="send_code">发送验证码</string>
-    <string name="use_code">使用短信验证码登陆</string>
-    <string name="no_score_to_draw">您没有可以兑换的积分</string>
-    <string name="score">积分</string>
-    <string name="create_consultation_follow_patient">我关注的患者</string>
-    <string name="str_dis_reply">回复</string>
-    <string name="str_dis_calling">拨打电话</string>
-    <string name="submit_cloud_clinc_input_title">请输入 小结</string>
-    <string name="cloud_clinc_submit_title">门诊小结</string>
-    <string name="refuse_dis_coun_title">拒绝咨询</string>
+	<string name="app_name">分级诊疗系统</string>
+
+	<string name="sign_up">مسجلة</string>
+	<string name="sign_out">账户退出</string>
+	<string name="ok">确定</string>
+	<string name="ok_button_text">确&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;定</string>
+	<string name="cancel">取消</string>
+	<string name="save">保存</string>
+	<string name="save_button_text">保&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;存</string>
+	<string name="male">男</string>
+	<string name="female">女</string>
+	<string name="gender">性别</string>
+	<string name="job_title">职称</string>
+	<string name="duty">职务</string>
+	<string name="idcard">证件号</string>
+	<string name="password">密码</string>
+	<string name="confirm_password">确认密码</string>
+	<string name="new_password">新密码</string>
+	<string name="confirm_new_password">确认新密码</string>
+	<string name="phone">手机号码</string>
+	<string name="medicare_card">医保卡</string>
+	<string name="birthday">出生日期</string>
+	<string name="name">姓名</string>
+	<string name="remove">刪除</string>
+	<string name="save_to_gallery">保存到相册</string>
+	<string name="save_picture">保存图片</string>
+	<string name="detail">详情</string>
+	<string name="search">搜&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;索</string>
+	<string name="unlimited">不限</string>
+	<string name="system_message">系统消息</string>
+	<string name="dynamic">个人动态</string>
+	<string name="introduction">个人介绍</string>
+	<string name="good_at">擅长领域</string>
+	<string name="achievement">成果荣誉</string>
+
+	<!-- 登陆 -->
+	<string name="sign_in">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
+	<string name="forget_password">忘记密码？</string>
+	<string name="input_phone">输入手机号</string>
+	<string name="input_password">输入用户密码</string>
+
+	<!-- 验证手机号 -->
+	<string name="verify_phone_recover_password">找回密码</string>
+	<string name="verify_phone_input_phone">输入手机号</string>
+	<string name="verify_phone_input_valid_code">输入验证码</string>
+	<string name="verify_phone_valid_code_obtain">获取验证码</string>
+
+	<!-- 注册 -->
+	<string name="register_title">完善信息</string>
+	<string name="register_hint">请完善您的个人信息，信息提交后，将不可更改</string>
+	<string name="register_hospital">医院</string>
+	<string name="register_department">专科</string>
+	<string name="register_job_title">职称</string>
+
+	<!-- 按医院查找 -->
+	<string name="find_by_hospital_title">按医院查找</string>
+
+	<!-- 选择职称 -->
+	<string name="select_department_title">选择科室</string>
+
+	<!-- 选择职称 -->
+	<string name="select_job_title_title">选择职称</string>
+
+	<!-- 选择职务 -->
+	<string name="select_duty_title">选择职务</string>
+
+	<!-- 重置密码 -->
+	<string name="reset_password_title">重置密码</string>
+
+	<!-- 主界面 -->
+	<string name="home_tab_text_1">首页</string>
+	<string name="home_tab_text_2">消息</string>
+	<string name="home_tab_text_3">我的</string>
+
+	<!-- 首页 -->
+	<string name="home_menu_advisory">咨询</string>
+	<string name="home_menu_clinic">会诊</string>
+	<string name="home_menu_register">预约</string>
+	<string name="home_menu_cloud_clinic">云门诊</string>
+	<string name="home_menu_trsnsfer_treatment">转诊</string>
+	<string name="home_menu_patient">患者管理</string>
+	<string name="home_todo">待处理任务(%1$d)</string>
+	<string name="home_task_item_explain">会诊说明:%1$s</string>
+
+	<!-- 我的 -->
+	<string name="user_my_sign">我的签名</string>
+	<string name="user_settings">基础设置</string>
+	<string name="patient_integration">患者评价</string>
+
+	<!-- 个人信息 -->
+	<string name="information_title">个人信息</string>
+	<string name="information_avatar">头像</string>
+	<string name="information_personal">个人信息</string>
+	<string name="information_name">姓名</string>
+	<string name="information_id_card">证件号码</string>
+	<string name="information_email">电子邮箱</string>
+	<string name="information_education">最高学历</string>
+	<string name="information_working_years">工作年份</string>
+	<string name="information_practice_information">执业信息</string>
+	<string name="information_hospital">医院名称</string>
+	<string name="information_department">专科</string>
+	<string name="email_input">输入邮箱</string>
+	<string name="information_input_content">请输入内容...</string>
+
+	<!-- 设置 -->
+	<string name="setting">设置</string>
+	<string name="setting_no_disturb">免打扰</string>
+	<string name="setting_features">功能介绍</string>
+	<string name="setting_language">多语言</string>
+	<string name="setting_modify_password">修改密码</string>
+	<string name="setting_clear_cache">清除缓存</string>
+	<string name="setting_feedback">意见反馈</string>
+	<string name="setting_contact">联系我们</string>
+	<string name="setting_clear_cache_hint">确定要清除缓存吗？</string>
+	<string name="setting_clear_cache_option">立即清除</string>
+	<string name="setting_input_old_password">输入旧密码</string>
+	<string name="setting_input_new_password">输入新密码</string>
+	<string name="setting_input_new_password_again">再次输入新密码</string>
+
+	<!-- 我的签名 -->
+	<string name="sign_title">我的签名</string>
+	<string name="sign_verify_password">验证密码</string>
+	<string name="sign_verify_password_hint">为了确保您的帐户安全，请先输入您的登录密码</string>
+	<string name="sign_input_error_hint">请输入正确的密码</string>
+	<string name="sign_forget_password">忘记密码</string>
+	<string name="sign_your_signature">您的签名</string>
+	<string name="sign_resign">重新签名</string>
+	<string name="sign_hint">签名代表您的个人签名，在回复会诊意见时使用，具有法律效益。</string>
+	<string name="sign_modify_title">写入签名</string>
+	<string name="sign_clear">清除</string>
+	<string name="sign_commit">提交签名</string>
+
+	<!-- 多语言 -->
+	<string name="language_title">多语言</string>
+
+	<!-- 患者管理 -->
+	<string name="patient_manager_title">患者管理</string>
+
+	<!-- 新的患者 -->
+	<string name="new_patient_title">新的患者</string>
+
+	<!-- 患者详情 -->
+	<string name="patient_detail_add_tags">+添加标签</string>
+	<string name="patient_detail_emr">电子病历</string>
+	<string name="patient_detail_patient_description">患者描述</string>
+	<string name="patient_detail_no_description">暂无描述</string>
+
+	<!-- 修改描述 -->
+	<string name="modify_desc_title">修改描述</string>
+	<string name="modify_desc_input_hint">请输入患者描述...</string>
+
+	<!-- 我的标签 -->
+	<string name="my_tags_title">我的标签</string>
+
+	<!-- 添加标签 -->
+	<string name="add_tags_title">添加标签</string>
+	<string name="add_tags_input_hint">输入标签名称</string>
+	<string name="add_tags_recommend_text">推荐标签</string>
+
+	<!-- 病历列表 -->
+	<string name="emr_list_title">%1$s的病历</string>
+	<string name="emr_list_create_title">新建病历</string>
+	<string name="emr_list_create_input_hint">输入病历的名称</string>
+
+	<!-- 会诊管理 -->
+	<string name="consultation_manager_title">会诊管理</string>
+	<string name="consultation_manager_tab_text_1">我的申请</string>
+	<string name="consultation_manager_tab_text_2">我的会诊</string>
+	<string name="consultation_list_filter_text_1">全部</string>
+	<string name="consultation_list_filter_text_2">未处理</string>
+	<string name="consultation_list_filter_text_3">会诊中</string>
+	<string name="consultation_list_filter_text_4">已完成</string>
+	<string name="consultation_list_item_describe">描述:</string>
+	<string name="consultation_list_item_join_doctor">邀请医生:</string>
+	<string name="consultation_list_item_my_status">会诊状态:</string>
+	<string name="consultation_list_menu_text_1">点名会诊</string>
+	<string name="consultation_list_menu_text_2">会诊中心</string>
+
+	<string name="create_consultation_title">会诊申请</string>
+	<string name="create_consultation_select_patient">选择患者</string>
+	<string name="create_consultation_select_doctor">邀请会诊医生</string>
+	<string name="create_consultation_diagnosis">初步诊断</string>
+	<string name="create_consultation_diagnosis_input_hint">输入对患者的初步诊断</string>
+	<string name="create_consultation_explain">会诊说明</string>
+	<string name="consultation_time">会诊时间:</string>
+	<string name="create_consultation_explain_input_hint">可以输入患者的病情症状和本次会诊的目的</string>
+	<string name="create_consultation_expected_time">期望时间</string>
+	<string name="create_consultation_upload_pictures">上传图片资料</string>
+	<string name="create_consultation_upload_pictures_explain">(病症部位、检查报告或其他病情资料)</string>
+	<string name="create_consultation_emr_text">电子病历:%1$s</string>
+	<string name="create_consultation_emr_system_create_text">电子病历:系统创建一张新病历</string>
+	<string name="create_consultation_expected_department">期望科室</string>
+	<string name="create_consultation_doctor_job_title">医生职称</string>
+
+	<!-- 选择患者 -->
+	<string name="select_patient_history">历史患者</string>
+	<string name="select_patient_search_input_hint">输入患者姓名</string>
+
+	<!-- 患者信息确认 -->
+	<string name="patient_confirm_title">患者信息确认</string>
+	<string name="patient_confirm_hint">请核对信息，无误直接确认，有错误先修改，再确认</string>
+	<string name="patient_confirm_select_emr_title">选择病历</string>
+	<string name="patient_confirm_select_emr_hint">是否选择一份已经存在的病历?</string>
+
+	<!-- 选择医生 -->
+	<string name="select_doctor_title">选择医生</string>
+	<string name="select_doctor_common">常用医生</string>
+	<string name="select_doctor_search_by_condition">按条件查找医生</string>
+	<string name="select_doctor_my_focus">我关注的医生</string>
+	<string name="select_doctor_search_by_hospital">按医院查找医生</string>
+
+	<!-- 按条件查找医生 -->
+	<string name="search_doctor_by_condition_title">搜索医生</string>
+	<string name="search_doctor_by_condition_input_doctor_name_hint">输入医生的姓名</string>
+	<string name="search_doctor_by_condition_goodat">擅长疾病</string>
+	<string name="search_doctor_by_condition_input_goodat_hint">输入医生擅长的疾病</string>
+
+	<!-- 省市选择 -->
+	<string name="select_city_title">省市选择</string>
+
+	<!-- 按医院查找 -->
+	<string name="select_doctor_search_by_hospital_title">按医院查找</string>
+
+	<!-- 医院主页 -->
+	<string name="hospital_home_title">医院主页</string>
+	<string name="hospital_home_introduction">医院简介</string>
+
+	<!-- 搜索疾病 -->
+	<string name="primary_diagnosis_input_hint">输入疾病名称或首字母</string>
+	<string name="primary_diagnosis_undiagnosed">未确诊</string>
+
+	<!-- 选择图片类型 -->
+	<string name="select_picture_type_title">选择图片类型</string>
+	<string name="select_picture_type_text">选择类型</string>
+
+	<!-- 搜索医院 -->
+	<string name="search_hospital_title">搜索医院</string>
+	<string name="search_hospital_input_hint">输入医院名称</string>
+
+	<!-- 期望科室 -->
+	<string name="expected_department_title">期望科室</string>
+	<string name="expected_department_add_hint">添加期望科室(最多选择5个)</string>
+	<string name="expected_department_add_button_text">继续添加</string>
+
+	<!-- 会诊单详情 -->
+	<string name="consultation_details_title">会诊单详情</string>
+	<string name="consultation_details_group">讨论组</string>
+	<string name="consultation_details_status">状态:&#160;</string>
+	<string name="consultation_details_patient_info">患者信息</string>
+	<string name="consultation_details_diagnosis">初步诊断</string>
+	<string name="consultation_details_explain">会诊说明</string>
+	<string name="consultation_details_look_at_more_emr">查看更多病历资料&#160;&#160;>></string>
+	<string name="consultation_details_arrange">会诊安排</string>
+	<string name="consultation_details_time">会诊时间</string>
+	<string name="consultation_details_department">会诊专科</string>
+	<string name="consultation_details_apply_doctor">申请医生</string>
+	<string name="consultation_details_join_doctor">参与医生</string>
+	<string name="consultation_details_video_account">视频账号</string>
+	<string name="consultation_details_select_account">选择账号</string>
+	<string name="consultation_details_none">无</string>
+	<string name="consultation_details_translator">翻译人员</string>
+	<string name="consultation_details_refuse_reason">拒绝原因</string>
+	<string name="consultation_details_cancel">取消会诊</string>
+	<string name="consultation_details_end">结束会诊</string>
+	<string name="consultation_details_look_at_advice">查看会诊意见</string>
+	<string name="consultation_details_refuse">拒绝</string>
+	<string name="consultation_details_reply">回复会诊意见</string>
+	<string name="consultation_details_re_consultation">重新会诊</string>
+	<string name="consultation_details_cancel_hint">确定取消本次会诊吗？</string>
+
+	<!-- 结束会诊 -->
+	<string name="end_consultation_title">结束会诊</string>
+	<string name="end_consultation_progress">会诊进展</string>
+	<string name="end_consultation_input_title">致未回复的医师</string>
+	<string name="end_consultation_input_hint">请将原因告知尚未回复的医师，以避免造成不必要的误会</string>
+
+	<!-- 回复会诊意见 -->
+	<string name="reply_title">回复会诊意见</string>
+	<string name="reply_input_title">输入会诊意见:</string>
+
+	<!-- 拒绝会诊 -->
+	<string name="refuse_title">拒绝会诊</string>
+	<string name="refuse_input_title">输入拒绝会诊的原因:</string>
+
+	<!-- 查看会诊意见 -->
+	<string name="view_comments_title">查看会诊意见</string>
+	<string name="view_comments_evaluate">评价</string>
+	<string name="view_comments_view_evaluate">查看评价</string>
+
+	<!-- 会诊评价 -->
+	<string name="evaluate_edit_title">评价内容</string>
+	<string name="evaluate_edit_situation_title">治疗情况及处理情况</string>
+	<string name="evaluate_edit_situation_input_hint">会诊医生给出的会诊意见对于患者治疗的效果</string>
+	<string name="evaluate_edit_condition_title">目前病情(康复情况)</string>
+	<string name="evaluate_edit_condition_input_hint">目前患者如何？是否有好转？具体现状描述</string>
+	<string name="evaluate_edit_advice_title">本次会诊的意见或建议</string>
+	<string name="evaluate_edit_advice_input_hint">对于本次会诊你认为有没有可以改进的地方？</string>
+	<string name="evaluate_edit_gone_title">病人去向</string>
+	<string name="evaluate_edit_gone_input_hint">目前病人的去向，是治疗康复？回家后续定期复查？还是其他？</string>
+
+	<!-- 医生详细 -->
+	<string name="doctor_detail_title">%1$s医生</string>
+	<string name="doctor_detail_follow">关注</string>
+	<string name="doctor_detail_unfollow">取消关注</string>
+	<string name="doctor_detail_education">学历&#160;&#160;%1$s</string>
+	<string name="doctor_detail_work_year">从业经验&#160;&#160;%1$d年</string>
+
+	<string name="comm_loading_msg">正在加载中...</string>
+	<string name="comm_load_more">正在载入...</string>
+	<string name="comm_no_more">没有更多了</string>
+	<string name="comm_empty_msg">抱歉,暂未获取到数据!\n请点击屏幕重试~</string>
+	<string name="comm_error_msg">抱歉,系统出错了!\n请点击屏幕重试~</string>
+	<string name="comm_no_network_msg">暂未连接上网络!\n请连接后点击屏幕重试~</string>
+
+	<string name="language_auto">跟随系统</string>
+	<string name="language_cn">中文(简体)</string>
+	<string name="language_en">EngLish</string>
+	<string name="language_ru">Русский</string>
+	<string name="language_ar">لغة عربية</string>
+
+	<string name="jmui_time_format_accuracy">yyyy-MM-dd HH:mm:ss </string>
+
+	<string name="jmui_monday">周一</string>
+	<string name="jmui_tuesday">周二</string>
+	<string name="jmui_wednesday">周三</string>
+	<string name="jmui_thursday">周四</string>
+	<string name="jmui_friday">周五</string>
+	<string name="jmui_saturday">周六</string>
+	<string name="jmui_sunday">周日</string>
+
+	<string name="jmui_resend_message_hint">重发该消息？</string>
+	<string name="jmui_resend_commit">重发</string>
+	<string name="jmui_cancel">取消</string>
+	<string name="btn_send">发送</string>
+	<string name="btn_text_speak">按住录音</string>
+	<string name="group">群聊</string>
+
+	<string name="picker_image_error">获取图片出错</string>
+	<string name="type_picture">[图片]</string>
+	<string name="group_notification">[群组消息]</string>
+	<string name="draft">[草稿]</string>
+	<string name="jmui_delete_conv">删除该消息</string>
+
+	<string name="inaccessible">对方不可达</string>
+	<string name="cancelled">呼叫被取消</string>
+	<string name="oppositebusying">对方正忙…</string>
+	<string name="bereject">呼叫被拒绝</string>
+	<string name="callfailed">呼叫结束</string>
+	<string name="voipstatusnoreply">对方无应答</string>
+	<string name="voipstatusnocnt">暂时无法接通</string>
+	<string name="errorcall">呼叫失败</string>
+	<string name="msg_tip">消息提示</string>
+	<string name="certificate_error">证书认证失败</string>
+	<string name="accountnum_overlimit">登陆用户已达上限</string>
+	<string name="network_off">网络已断开</string>
+	<string name="limit_login_prompt">版本下载错误，请下载TE Mobile</string>
+	<string name="viawifi">请连接WiFi网络使用TE Mobile</string>
+	<string name="connect_error">连接服务器失败，请检查网络设置</string>
+	<string name="module_error_1">服务器处理失败，请重试或联系管理员解决</string>
+	<string name="etimeout">超时，请检查网络！</string>
+	<string name="module_error_4">终端请求消息异常</string>
+	<string name="account_error">帐号或密码错误</string>
+	<string name="module_error_1login">与服务器连接失败，请重试或联系管理员解决</string>
+	<string name="callover">通话结束</string>
+
+	<string name="hide_video_window">关闭画中画</string>
+	<string name="show_video_window">显示画中画</string>
+	<string name="switch_audio">视频转音频</string>
+	<string name="switch_local_camera">切换本地摄像头</string>
+	<string name="close_local_camera">关闭本地摄像头</string>
+	<string name="camera_bad">Can not get camera</string>
+	<string name="set_camera_angle">Set camera angle</string>
+	<string name="set_local_video_angle">Set local video angle</string>
+	<string name="zero_begin_time">00:00:00</string>
+	<string name="remote_number">Remote number:</string>
+	<string name="video_upgrade_failure_try_again">Video call switch request failed. please retry later</string>
+	<string name="retry">Retry</string>
+	<string name="low_bw_update_fail">Low band width,can not turn to video</string>
+	<string name="oper_failure">Operation failed</string>
+	<string name="ntf_upgrade_videocall">Accept request to switch to video call</string>
+	<string name="accept">Accept</string>
+	<string name="refuse">Refuse</string>
+	<string name="cancel_video_update">Video call switch request canceled</string>
+	<string name="input_call_number">Input call number</string>
+	<string name="open_local_camera">打开本地摄像头</string>
+	<string name="audio_answer">Audio answer</string>
+	<string name="video_answer">Video answer</string>
+	<string name="reject">Reject</string>
+
+	<!-- 咨询 -->
+	<string name="diseasecounseling_manager_title">咨询</string>
+	<string name="diseasecounseling_manager_tab_text_1">未完成</string>
+	<string name="diseasecounseling_manager_tab_text_2">已结束</string>
+	<string name="discription_item_disease_counseling"><![CDATA[<font color=#000000>病情概要：</font>]]></string>
+	<string name="discription_disease_counseling_detail">病情概要：</string>
+	<string name="str_disease_counseling_complate">完成咨询</string>
+
+
+	<string name="service_setting">业务设置</string>
+	<string name="setting_diseasecounseling_title">图文咨询</string>
+	<string name="setting_phonecall_title">电话咨询</string>
+	<string name="setting_diseasecounseling_discription">以文本形式向患者停工实时咨询服务</string>
+	<string name="setting_phonecall_discription">在约定时间内向患者提供电话咨询服务</string>
+	<string name="str_recommend">预约</string>
+	<string name="str_transfer_treatment">转诊</string>
+
+	<!-- 拒绝咨询 -->
+	<string name="refuse_dis_title">拒绝咨询</string>
+	<string name="refuse_dis_input_title">输入拒绝咨询的原因:</string>
+
+	<!--  -->
+	<string name="register_manager_title">预约</string>
+	<string name="register_list_filter_text_1">全部</string>
+	<string name="register_list_filter_text_2">待就诊</string>
+	<string name="register_list_filter_text_3">已就诊</string>
+	<string name="register_list_filter_text_4">今日就诊</string>
+	<string name="register_list_filter_text_5">明日就诊</string>
+	<string name="register_list_filter_text_6">7日内就诊</string>
+	<string name="register_list_filter_text_7">7日后就诊</string>
+
+
+	<string name="bank_0001">中国工商银行</string>
+	<string name="bank_0002">中国建设银行</string>
+	<string name="bank_0003">中国农业银行</string>
+	<string name="bank_0004">交通银行</string>
+	<string name="bank_0005">中国银行</string>
+	<string name="bank_0006">招商银行</string>
+	<string name="bank_0007">中国邮政储蓄银行</string>
+
+	<!-- 星期信息 -->
+	<string name="mon">周一</string>
+	<string name="tue">周二</string>
+	<string name="wen">周三</string>
+	<string name="thu">周四</string>
+	<string name="fri">周五</string>
+	<string name="san">周六</string>
+	<string name="sun">周日</string>
+
+	<!-- 时间信息 -->
+	<string name="date_day">天</string>
+	<string name="date_hour">时</string>
+	<string name="date_minute">分</string>
+
+
+	<!-- 确认挂号 -->
+	<string name="register_type">挂号类型</string>
+	<string name="register_dept">就诊科室</string>
+	<string name="register_doc">医生姓名</string>
+	<string name="register_time">就诊时间</string>
+	<string name="register_clinc_type">门诊类型</string>
+	<string name="register_money_short">挂号费：</string>
+	<string name="register_patient">就诊病人</string>
+	<string name="choose_schude_item">选择号源</string>
+	<string name="dollar">元</string>
+	<string name="register_list_item_describe">预约时间</string>
+
+	<!-- 预约详情 -->
+	<string name="register_detail_doctor1">就诊医生</string>
+	<string name="register_detail_doctor2">接诊医生</string>
+	<string name="register_detail_hospital">接诊地点</string>
+	<string name="register_detail_time">接诊时间</string>
+	<string name="register_detail_cost">诊疗费用</string>
+	<string name="register_detail_title">预约单详情</string>
+	<string name="register_new_title">预约挂号</string>
+	<string name="register_detail">预约信息</string>
+	<string name="register_manager_tab_text_2">发给我的</string>
+	<string name="register_manager_tab_text_1">我发起的</string>
+	<string name="toast_no_patient">请选择患者</string>
+
+	<!-- 转诊列表 -->
+
+	<string name="create_treatment_title">住院转诊申请</string>
+	<string name="receive_treatment_title">接收转诊</string>
+	<string name="transfer_treatment_manager_title">转诊</string>
+	<string name="transfer_treatment_list_filter_text_1">全部</string>
+	<string name="transfer_treatment_list_filter_text_2">待处理</string>
+	<string name="transfer_treatment_list_filter_text_3">已接收</string>
+	<string name="transfer_treatment_list_filter_text_4">已取消</string>
+	<string name="transfer_treatment_list_filter_text_5">已拒绝</string>
+	<string name="transfer_treatment_list_filter_text_6">已就诊</string>
+
+	<string name="transfer_treatment_transto">转往:</string>
+	<string name="transfer_treatment_doc">转往医生</string>
+	<string name="treatment_details_explain">转诊说明</string>
+	<string name="treatment_detail_title">住院转诊单详情</string>
+	<string name="create_treatment_explain_input_hint">可以输入患者的病情症状和本次转诊的目的</string>
+	<string name="create_treatment_explain">转诊说明</string>
+	<string name="create_treatment_select_doctor">选择转诊医生</string>
+	<string name="workout">下班</string>
+	<string name="working">开诊</string>
+	<string name="history">历史</string>
+	<string name="cloud_menu_current">今日门诊</string>
+	<string name="cloud_menu_next">预约门诊</string>
+	<string name="str_cloudclinc_history_text1">申请记录</string>
+	<string name="str_cloudclinc_history_text2">接诊记录</string>
+	<string name="status_310_0001">已转账</string>
+	<string name="status_502_0000">全部</string>
+	<string name="status_502_0001">待支付</string>
+	<string name="status_502_0002">待接收</string>
+	<string name="status_502_0003">待就诊</string>
+	<string name="status_502_0004">已结束</string>
+
+	<string name="status_602_0000">全部</string>
+	<string name="status_602_0001">待处理</string>
+	<string name="status_602_0002">已接收</string>
+	<string name="status_602_0003">已取消</string>
+	<string name="status_602_0004">已拒绝</string>
+	<string name="status_602_0005">已就诊</string>
+
+	<string name="action_602_0001_mine">取消转诊</string>
+	<string name="action_602_0001_tome_2">接收</string>
+	<string name="action_602_0001_tome_1">拒绝</string>
+	<string name="action_602_0002">已接收</string>
+	<string name="action_602_0002_tome">完成</string>
+	<string name="action_602_0003_mine">重新转诊</string>
+	<string name="action_602_0004">已拒绝</string>
+	<string name="action_602_0005">已就诊</string>
+	<string name="string_item_cloud_clinc_pname">就诊患者</string>
+	<string name="string_item_cloud_clinc_dname">目标医生</string>
+	<string name="submit_transfer_input_title">请输入转诊小结</string>
+	<string name="refuse_transfer_input_title">请输入取消原因</string>
+	<string name="setting_transfertreatment_title">转诊业务</string>
+	<string name="setting_clinc_title">会诊业务</string>
+	<string name="setting_cloudclinc_title">云门诊业务</string>
+	<string name="setting_transfertreatment_discription">接收其他医疗机构的转诊申请</string>
+	<string name="setting_clinc_discription">接收其他医疗机构的会诊申请</string>
+	<string name="setting_cloudclinc_discription">向患者提供线上门诊服务</string>
+	<string name="transfer_treatment_type">转诊类别</string>
+	<string name="transfer_treatment_type_1">住院转诊</string>
+	<string name="receive_treatment_select_dept">入院科室</string>
+	<string name="receive_treatment_select_doc">主治医生</string>
+	<string name="receive_treatment_date">入院日期</string>
+	<string name="transfer_treatment_suggest">建议预交金(元)</string>
+	<string name="transfer_treatment_suggest_money">5000</string>
+	<string name="receive_surgery_date">手术日期</string>
+	<string name="receive_treatment_message">给申请医生留言</string>
+	<string name="receive_treatment_message_input_hint">如果有需要请给申请医生留言</string>
+	<string name="receive_treatment_more_detail">更多选项</string>
+	<string name="check_l1_tilte">就近收治</string>
+	<string name="check_r1_tilte">入院检查项目</string>
+	<string name="check_l2_tilte">需要手术</string>
+	<string name="check_r2_tilte">住院检查项目</string>
+
+	<!-- 拒绝会诊 -->
+	<string name="treatment_submit_title">完成转诊</string>
+	<!--<string name="refuse_input_title">输入拒绝会诊的原因:</string>-->
+	<string name="btn_new_model_text">添加为模板</string>
+	<string name="integration_count">评价</string>
+	<string name="evaluater_name_unkown">未知</string>
+	<string name="evaluate_title">患者评价</string>
+	<string name="integral_title">我的积分</string>
+	<string name="integral_in_history">累计记录</string>
+	<string name="integral_out_history">兑换记录</string>
+	<string name="integral_out">我要兑换</string>
+	<string name="item_integral_history_in_title">积分流水记录</string>
+	<string name="item_integral_history_time1">获取时间：</string>
+	<string name="item_integral_history_money1">获取金额：</string>
+	<string name="item_integral_history_person">收取人：</string>
+	<string name="item_integral_history_out_title">兑换记录</string>
+	<string name="item_integral_out_history_time">兑换时间：</string>
+	<string name="item_integral_out_history_type">兑换类型</string>
+	<string name="item_integral_out_history_money1">兑换数额：</string>
+	<string name="item_integral_history_account">提现账号 ：</string>
+	<string name="item_integral_history_bank">提现账户 ：</string>
+	<string name="menu_integral_card">银行卡</string>
+	<string name="menu_integral_new_card">添加</string>
+	<string name="f_bank_account_add_text1">持卡人</string>
+	<string name="f_bank_account_add_text2">银行卡号</string>
+	<string name="f_bank_account_add_text3">开户银行</string>
+	<string name="f_bank_account_add_text4">开户网点</string>
+	<string name="f_bank_account_add_hint3">请输入您本人银行卡开户行</string>
+	<string name="f_bank_account_add_hint2">请输入您本人银行卡卡号</string>
+	<string name="f_bank_account_add_hint4">请输入您本人银行卡开户网点</string>
+	<string name="new_bank_account_title">添加银行卡</string>
+	<string name="bank_type_list_title">选择银行卡</string>
+	<string name="integral_my_bank_account_title">我的银行卡</string>
+	<string name="integral_in_title">累计积分纪录</string>
+	<string name="string_mm_dd">MM月dd日</string>
+	<string name="string_mm_dd_hh_mm">MM月dd日 hh:mm</string>
+	<string name="integral_out_title">兑换积分纪录</string>
+	<string name="integral_out_type1">积分兑换</string>
+	<string name="f_draw_money_add_text1">请选择兑换积分的银行卡</string>
+	<string name="f_draw_money_add_text2">预计5～10个工作日到账</string>
+	<string name="f_draw_money_add_hint2">请输入需要兑换的积分数量</string>
+	<string name="draw_button_text">兑 换</string>
+	<string name="f_draw_money_add_text4">兑换比例：1积分=1元</string>
+	<string name="f_draw_money_add_text3">可兑换积分数：</string>
+	<string name="draw_money_title">积分兑换</string>
+	<string name="week_day_1">星期一</string>
+	<string name="week_day_2">星期二</string>
+	<string name="week_day_3">星期三</string>
+	<string name="week_day_4">星期四</string>
+	<string name="week_day_5">星期五</string>
+	<string name="week_day_6">星期六</string>
+	<string name="week_day_7">星期日</string>
+	<string name="treatment_receive_get_model">选择模板</string>
+	<string name="edit">编辑</string>
+	<string name="model_list_title">我的模板</string>
+	<string name="live_list_title">直播</string>
+	<string name="home_menu_live">视频教学</string>
+	<string name="live_detail_text1">主讲人：</string>
+	<string name="live_detail_text2">直播介绍</string>
+	<string name="live_detail_text3">发 布</string>
+	<string name="live_detail_text4">删 除</string>
+	<string name="live_detail_text5">开始直播</string>
+	<string name="live_detail_text6">结束直播</string>
+	<string name="live_detail_text7">取 消</string>
+	<string name="live_detail_title">直播详情</string>
+	<string name="delete_live_title">删除直播</string>
+	<string name="delete_live_content">是否删除直播？</string>
+	<string name="stop_live_content">是否结束直播</string>
+	<string name="stop_live_title">结束直播</string>
+	<string name="live_title">直播名称</string>
+	<string name="live_content">直播描述</string>
+	<string name="live_date">直播日期</string>
+	<string name="live_price">观看价格</string>
+	<string name="live_timestamp">预计时长</string>
+	<string name="live_notifyable">是否需要通知关注的病人</string>
+	<string name="live_bg">选择直播封面</string>
+	<string name="save_live_button_text">保存直播</string>
+	<string name="live_title_hint">请输入直播名称</string>
+	<string name="live_timestamp_hint">预计开播时长</string>
+	<string name="live_price_hint">观看直播的价格</string>
+	<string name="live_date_hint">请选择直接开始时间</string>
+	<string name="live_content_hint">请输入直播描述</string>
+	<string name="create_live_title">新建直播</string>
+	<string name="call">拨打电话</string>
+	<string name="phone_call">拨打电话</string>
+	<string name="treatment_detail_hospital">就诊医院</string>
+	<string name="treatment_detail_time">就诊时间</string>
+	<string name="treatment_detail_memo">医生留言</string>
+	<string name="input_phone2">手机号</string>
+	<string name="input_password2">验证码</string>
+	<string name="send_code">发送验证码</string>
+	<string name="use_code">使用短信验证码登陆</string>
+	<string name="no_score_to_draw">您没有可以兑换的积分</string>
+	<string name="score">积分</string>
+	<string name="create_consultation_follow_patient">我关注的患者</string>
+	<string name="str_dis_reply">回复</string>
+	<string name="str_dis_calling">拨打电话</string>
+	<string name="submit_cloud_clinc_input_title">请输入 小结</string>
+	<string name="cloud_clinc_submit_title">门诊小结</string>
+	<string name="refuse_dis_coun_title">拒绝咨询</string>
 	<string name="prescription_manager_tab_text_1">咨询</string>
 	<string name="prescription_manager_tab_text_2">处方</string>
 	<string name="home_menu_prescription">电子处方</string>
 	<string name="prescription_manager_title">电子处方</string>
 	<string name="create_prescription_select_work_studio">执业点</string>
-    <string name="create_prescription_diagnosis">诊断</string>
-    <string name="create_prescription_diagnosis_input_hint">请选择确诊疾病</string>
-    <string name="create_prescription_memo">备注</string>
+	<string name="create_prescription_diagnosis">诊断</string>
+	<string name="create_prescription_diagnosis_input_hint">请选择确诊疾病</string>
+	<string name="create_prescription_memo">备注</string>
 	<string name="title_common_medicine">常用药品</string>
 	<string name="select__medicine_search_input_hint">请输入药品名</string>
 	<string name="string_prescription_thing_row3">用药途径</string>
-    <string name="string_prescription_row4">每次剂量</string>
+	<string name="string_prescription_row4">每次剂量</string>
 	<string name="home_menu_audit_prescription">在线审方</string>
 	<string name="home_menu_audit_prescription_con">用药咨询</string>
 	<string name="title_prescription_con">用药咨询</string>
+	<string name="chat_send_button_text">发送</string>
+	<string name="create_prescription_title">创建处方</string>
+	<string name="prescription_detail">处方详情</string>
+	<string name="title_all_medicine_type">全部类目</string>
+	<string name="text_prescription_row1">药品名称</string>
 
 </resources>
