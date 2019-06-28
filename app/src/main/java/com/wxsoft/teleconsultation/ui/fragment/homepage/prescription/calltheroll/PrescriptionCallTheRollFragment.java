@@ -24,7 +24,6 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.entity.LocalMedia;
-import com.wxsoft.teleconsultation.App;
 import com.wxsoft.teleconsultation.AppContext;
 import com.wxsoft.teleconsultation.R;
 import com.wxsoft.teleconsultation.entity.BaseResp;
@@ -108,6 +107,15 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
 
     @BindView(R.id.tv_add_med)
     TextView mAddMed;
+
+    @BindView(R.id.create_time)
+    TextView tvCreateTimeView;
+
+    @BindView(R.id.tv_doctor)
+    TextView tvDoctorView;
+
+    @BindView(R.id.sign)
+    LinearLayout mSignLayout;
 
     @BindView(R.id.recycler_view)
     EasyRecyclerView mRecyclerView;
@@ -333,6 +341,14 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
             }else{
                 mActionView.setVisibility(View.GONE);
             }
+            if(onlinePrescription.doctorName!=null)
+                tvDoctorView.setText(onlinePrescription.doctorName);
+
+            if(onlinePrescription.createdDate!=null){
+                tvCreateTimeView.setText("开具时间:("+onlinePrescription.createdDate.substring(0,19).replace("T"," ")+")");
+            }
+
+            mSignLayout.setVisibility(onlinePrescription.status.compareTo("901-0001")>0?View.VISIBLE:View.GONE);
 
         }else{
             ViewUtil.showMessage(resp.getMessage());

@@ -224,7 +224,7 @@
 				android:layout_height="48dp"
 				android:text="添加药品"
 				android:gravity="center_vertical"
-				android:drawableRight="@drawable/ic_arrow_right"
+				android:drawableRight="@drawable/icon_add_nomal"
 				android:textSize="16sp"
 				android:paddingRight="16dp"
 				android:paddingLeft="16dp"
@@ -241,6 +241,59 @@
 			android:paddingLeft="16dp"
 			android:paddingRight="16dp"
 			android:scrollbars="none"/>
+
+		<LinearLayout
+			android:id="@+id/sign"
+			android:visibility="gone"
+			android:paddingRight="16dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="8dp"
+			android:paddingBottom="8dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:orientation="vertical">
+
+			<include layout="@layout/comm_horizontal_line"/>
+
+			<TextView
+				android:paddingRight="16dp"
+				android:paddingLeft="16dp"
+				android:paddingTop="8dp"
+				android:id="@+id/create_time"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingTop="8dp"
+					android:paddingBottom="8dp"
+					android:layout_marginRight="8dp"
+					android:text="医生签名"/>
+
+				<TextView
+					android:id="@+id/tv_doctor"
+					android:background="@drawable/bg_prescription_doctor"
+					android:paddingLeft="8dp"
+					android:textColor="#60000000"
+					android:paddingRight="8dp"
+					android:paddingTop="4dp"
+					android:paddingBottom="4dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+			</LinearLayout>
+
+
+		</LinearLayout>
 <!--		android:layout_height="120dp"-->
 
 		<Button

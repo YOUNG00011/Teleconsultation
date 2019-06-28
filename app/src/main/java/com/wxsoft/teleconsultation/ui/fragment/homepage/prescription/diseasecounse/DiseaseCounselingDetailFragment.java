@@ -390,7 +390,11 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
 //        mAgeView.setText(String.valueOf(con.patientInfo.getAge()));
         mDiagnosisView.setText(con.describe);
         mStatusView.setText(con.getStatusName());
-        mDoubleActionLayout.setVisibility(View.VISIBLE);
+        if(con.status.compareTo("906-0002")<=0) {
+            mDoubleActionLayout.setVisibility(View.VISIBLE);
+        }else{
+            mDoubleActionLayout.setVisibility(View.GONE);
+        }
 
     }
 
