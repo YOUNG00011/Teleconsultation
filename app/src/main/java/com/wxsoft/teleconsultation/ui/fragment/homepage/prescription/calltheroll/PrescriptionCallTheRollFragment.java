@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
@@ -34,6 +38,7 @@ import com.wxsoft.teleconsultation.entity.prescription.OnlinePrescription;
 import com.wxsoft.teleconsultation.entity.prescription.Recipe;
 import com.wxsoft.teleconsultation.event.UpdatePrescriptionStatusEvent;
 import com.wxsoft.teleconsultation.http.ApiFactory;
+import com.wxsoft.teleconsultation.ui.activity.Chat2Activity;
 import com.wxsoft.teleconsultation.ui.activity.SelectPhotoCategoryActivity;
 import com.wxsoft.teleconsultation.ui.base.BaseFragment;
 import com.wxsoft.teleconsultation.ui.base.FragmentArgs;
@@ -58,6 +63,8 @@ import butterknife.OnClick;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+
+import static com.wxsoft.teleconsultation.ui.activity.Chat2Activity.EXTRA_KEY_DISEASECOUNSELING_ID;
 
 /**
  * 会诊申请
@@ -237,6 +244,7 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
 
             onlinePrescription.recipes.add(recipe);
             mAdapter.add(recipe);
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -306,11 +314,26 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
             }
         }
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(preId ==  null || preId.equals("")) return false;
+        switch (item.getItemId()) {
+            case R.id.text:
+                Intent intent = new Intent(_mActivity, Chat2Activity.class);
+                intent.putExtra(Chat2Activity.EXTRA_KEY_CONV_TITLE, "咨询详情");
+                intent.putExtra(EXTRA_KEY_DISEASECOUNSELING_ID, preId);
+                intent.putExtra(Chat2Activity.EXTRA_KEY_SINGE, true);
+                intent.putExtra(Chat2Activity.EXTRA_KEY_MODULE, "KaiFang");
+                startActivity(intent);
+                return true;
+        }
+        return  false;
+    }
     private void setupToolbar() {
         FragmentContainerActivity activity = (FragmentContainerActivity) getActivity();
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         activity.getSupportActionBar().setTitle(R.string.create_prescription_title);
+        setHasOptionsMenu(true);
     }
 
     private void processResponse(BaseResp<OnlinePrescription> resp) {
@@ -349,6 +372,7 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
             }
 
             mSignLayout.setVisibility(onlinePrescription.status.compareTo("901-0001")>0?View.VISIBLE:View.GONE);
+
 
         }else{
             ViewUtil.showMessage(resp.getMessage());
@@ -411,7 +435,10 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
               public void onNext(BaseResp<OnlinePrescription> resp) {
 
                   EventBus.getDefault().post(new UpdatePrescriptionStatusEvent());
-                  processResponse(resp);
+                  Toast.makeText(getActivity(),"保存成功",Toast.LENGTH_SHORT).show();
+                  _mActivity.finish();
+//                  processResponse(resp);
+
               }
           });
     }
@@ -469,5 +496,13 @@ public class PrescriptionCallTheRollFragment extends BaseFragment {
             memo.setText(data.tags);
 
         }
+    }
+
+    Menu menuCall;
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_call,menu);
+        menuCall =menu;
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

@@ -61,7 +61,6 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
     private String diseaseCounselingId;
     private PrescriptionCon con;
     private RecyclerArrayAdapter<Attachment> mPhotoAdapter;
-//    private RecyclerArrayAdapter<CallComment> mCommentAdapter;
 
     public static void launch(Activity from,String diseaseCounselingId) {
         FragmentArgs args = new FragmentArgs();
@@ -208,52 +207,8 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
         intent.putExtra(Chat2Activity.EXTRA_KEY_CONV_TITLE, "咨询详情");
         intent.putExtra(EXTRA_KEY_DISEASECOUNSELING_ID, diseaseCounselingId);
         intent.putExtra(Chat2Activity.EXTRA_KEY_SINGE, true);
+        intent.putExtra(Chat2Activity.EXTRA_KEY_MODULE, "DrugZiXun");
         startActivity(intent);
-//         if(con.type.equals("302-0001")
-//                &&con.status.equals("303-0003")) {
-//
-//            new MaterialDialog.Builder(_mActivity)
-//                    .title("咨询24小时后自动完成。")
-//                    .content("已解决患者问题，提前完成？")
-//                    .positiveText(R.string.ok)
-//                    .negativeText(R.string.cancel)
-//                    .onPositive((dialog, which) -> {
-//                        ApiFactory.getDiseaseCounselingApi().complete(diseaseCounselingId)
-//                                .subscribeOn(Schedulers.io())
-//                                .observeOn(AndroidSchedulers.mainThread())
-//                                .subscribe(new Observer<BaseResp<String>>() {
-//                                    @Override
-//                                    public void onCompleted() {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onError(Throwable e) {
-//                                        ViewUtil.dismissProgressDialog();
-//                                        ViewUtil.showMessage(e.getMessage());
-//                                    }
-//
-//                                    @Override
-//                                    public void onNext(BaseResp<String> resp) {
-//                                        ViewUtil.dismissProgressDialog();
-//                                        if (resp.isSuccess()) {
-//
-//                                            EventBus.getDefault().post(new UpdateDiseaseCounselingStatusEvent(diseaseCounselingId,"303-0006"));
-//
-//                                        } else {
-//
-//
-//                                            ViewUtil.showMessage(resp.getMessage());
-//                                        }
-//                                    }
-//                                });
-//                    })
-//                    .onNegative((dialog, which) -> {
-//                        dialog.dismiss();
-//                    })
-//                    .show();
-//        }
-        //SelectDoctorFragment.launch(this, BusinessType.COUNSELING);
     }
     @OnClick(R.id.tv_single_action)
     void singleActionClick() {
@@ -375,7 +330,6 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
 
 
     private void setupViews() {
-//        ((FragmentContainerActivity) getActivity()).getSupportActionBar().setTitle(con.patientName);
         if (mRootView.getVisibility() == View.GONE) {
             mRootView.setVisibility(View.VISIBLE);
         }
@@ -387,7 +341,6 @@ public class DiseaseCounselingDetailFragment extends BaseFragment {
                 .into(mPatientAvatarView);
         mGenderView.setText(con.weChatAccount.sex==1?"男":"女");
         mPatientNameView.setText(con.weChatAccount.name);
-//        mAgeView.setText(String.valueOf(con.patientInfo.getAge()));
         mDiagnosisView.setText(con.describe);
         mStatusView.setText(con.getStatusName());
         if(con.status.compareTo("906-0002")<=0) {

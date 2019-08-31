@@ -15,6 +15,7 @@ import com.wxsoft.teleconsultation.entity.responsedata.QueryResponseData;
 import java.util.List;
 
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -172,6 +173,41 @@ public interface PrescriptionApi {
 	 */
 	@POST("api/Prescription/SaveMedicationConsultationChatRecord?isMobile=true")
 	Observable<BaseResp> saveChatRecord(@Body ChatRecord record);
+
+	/**
+	 * 发送邀请码
+	 * 处方流转中，医生给患者发送视频会诊邀请码，患者输入邀请码进行视频会诊
+	 * 在线开放KaiFang;患者咨询你DrugZiXun;
+	 * @param prescriptionId 在线问诊Id
+	 * @param moduleName 对应模块
+	 * @return
+	 */
+	@GET("api/Prescription/SendInvitationCode?isMobile=true")
+	Observable<BaseResp>  sendInvitationCode(@Query("prescriptionId") String prescriptionId,@Query("moduleName") String moduleName);
+
+	/**
+	 * 根据业务Id获取验证码
+	 * @param id
+	 * @return
+	 */
+	@GET("api/Prescription/GetInvitationCodeByBusinessId?isMobile=true")
+	Observable<BaseResp>  getInvitationCodeByBusinessId(@Query("id") String id);
+
+	/**
+	 * 根据业务Id获取华为账号
+	 * @param id
+	 * @return
+	 */
+	@GET("api/Prescription/GetHWAccountByBusinessId?isMobile=true")
+	Observable<BaseResp>  getHWAccountByBusinessId(@Query("id") String id);
+
+	/**
+	 * 根据业务Id获取华为账号
+	 * @param id
+	 * @return
+	 */
+	@GET("api/Prescription/GetHWAccountByInvitationCode?isMobile=true")
+	Observable<BaseResp>  getHWAccountByInvitationCode(@Query("invitationCode") String id);
 
 	/**
 	 * 获取指定类型的字典表

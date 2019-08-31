@@ -116,8 +116,11 @@ public class PrescriptionListFragment extends BaseFragment {
 
     @Subscribe
     public void load(Object object){
-        if(object instanceof UpdatePrescriptionStatusEvent)
+        if(object instanceof UpdatePrescriptionStatusEvent) {
+            mPage = 1;
+            mAdapter.clear();
             loadData();
+        }
     }
 
     @Override

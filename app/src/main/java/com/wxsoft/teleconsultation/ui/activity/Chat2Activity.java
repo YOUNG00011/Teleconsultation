@@ -1,6 +1,7 @@
 package com.wxsoft.teleconsultation.ui.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.huawei.tup.login.LoginAuthorizeResult;
@@ -53,11 +55,15 @@ import com.wxsoft.teleconsultation.util.keyboard.widget.FuncLayout;
 import com.wxsoft.teleconsultation.util.sendimage.SendImageHelper;
 import com.wxsoft.teleconsultation.vc.service.TupNotify;
 import com.wxsoft.teleconsultation.vc.service.call.CallService;
+import com.wxsoft.teleconsultation.vc.service.call.TupCallEventManager;
 import com.wxsoft.teleconsultation.vc.service.common.CallConstants;
+import com.wxsoft.teleconsultation.vc.service.conf.ConferenceService;
+import com.wxsoft.teleconsultation.vc.service.conf.DataConfService;
 import com.wxsoft.teleconsultation.vc.service.login.LoginService;
 import com.wxsoft.teleconsultation.vc.service.login.data.LoginParams;
 import com.wxsoft.teleconsultation.vc.service.utils.TUPLogUtil;
 import com.wxsoft.teleconsultation.vc.service.utils.Tools;
+import com.wxsoft.teleconsultation.vc.ui.activity.CallActivity;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -100,6 +106,7 @@ public class Chat2Activity extends BaseActivity
 
     public static final String EXTRA_KEY_FROM_GROUP = "fromGroup";
     public static final String EXTRA_KEY_SINGE = "single";
+    public static final String EXTRA_KEY_MODULE = "module";
     public static final String EXTRA_KEY_CONV = "conv";
     public static final String EXTRA_KEY_DISEASECOUNSELING_ID = "dis_id";
     public static final String EXTRA_KEY_CONV_TITLE = "CONV_TITLE";
@@ -147,7 +154,7 @@ public class Chat2Activity extends BaseActivity
 
     public static final String TARGET_ID = "targetId";
     public static final String TARGET_APP_KEY = "targetAppKey";
-    public static final String TARGET_APP_ALLOW_EDIT= "TARGET_APP_ALLOW_EDIT";
+    public static final String TARGET_APP_ALLOW_EDIT = "TARGET_APP_ALLOW_EDIT";
     //    private ArrayList<ImageItem> selImageList; //当前选择的所有图片
     public static final int REQUEST_CODE_SELECT = 100;
     private boolean mIsSingle = true;
@@ -181,13 +188,14 @@ public class Chat2Activity extends BaseActivity
     private static final Object LOCK = new Object();
 
     private String networkType = NETWORK_COMMON;
+    private String module;
     private String ipAddress;
     private String sipURI;
     private Handler mHandler;
 
     @OnClick(R.id.jmui_complate)
     void complateClick() {
-        if(con.status.equals("906-0002")) {
+        if (con.status.equals("906-0002")) {
             new MaterialDialog.Builder(this)
                     .title("咨询24小时后自动完成。")
                     .content("已解决患者问题，提前完成？")
@@ -213,7 +221,7 @@ public class Chat2Activity extends BaseActivity
                                     public void onNext(BaseResp<String> resp) {
                                         ViewUtil.dismissProgressDialog();
                                         if (resp.isSuccess()) {
-                                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"906-0003"));
+                                            org.greenrobot.eventbus.EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId, "906-0003"));
                                             stateView("303-0006");
                                         } else {
 
@@ -227,17 +235,17 @@ public class Chat2Activity extends BaseActivity
                         dialog.dismiss();
                     })
                     .show();
-        }else if(con.status.equals("906-0002")){
-            DiseaseCounselingRefuseFragment.launch(this,diseaseCounselingId);
+        } else if (con.status.equals("906-0002")) {
+            DiseaseCounselingRefuseFragment.launch(this, diseaseCounselingId);
         }
     }
 
     @Subscribe
     public void onEvent(Object object) {
         if (object instanceof UpdatePrescriptionConStatusEvent) {
-            UpdatePrescriptionConStatusEvent event=(UpdatePrescriptionConStatusEvent)object;
-            if(diseaseCounselingId.equals(event.id)){
-                con.status=event.status;
+            UpdatePrescriptionConStatusEvent event = (UpdatePrescriptionConStatusEvent) object;
+            if (diseaseCounselingId.equals(event.id)) {
+                con.status = event.status;
                 stateView(event.status);
             }
         }
@@ -277,20 +285,21 @@ public class Chat2Activity extends BaseActivity
 
     private void initData() {
         Intent intent = getIntent();
+        module = intent.getStringExtra(EXTRA_KEY_MODULE);
         mTitle = intent.getStringExtra(EXTRA_KEY_CONV_TITLE);
         mMyInfo = JMessageClient.getMyInfo();
 
         mGroupId = intent.getLongExtra(EXTRA_KEY_GROUP_ID, 0);
         final boolean fromGroup = intent.getBooleanExtra("fromGroup", false);
         mIsSingle = intent.getBooleanExtra(EXTRA_KEY_SINGE, false);
-        if(mIsSingle){
-            String user=intent.getStringExtra(EXTRA_KEY_CONV);
+        if (mIsSingle) {
+            String user = intent.getStringExtra(EXTRA_KEY_CONV);
 
 
-            if(user==null) {
+            if (user == null) {
                 diseaseCounselingId = intent.getStringExtra(EXTRA_KEY_DISEASECOUNSELING_ID);
-                boolean allowEdit=intent.getBooleanExtra(TARGET_APP_ALLOW_EDIT,true);
-               // ekBar.findViewById(R.id.edit_panel).setVisibility(allowEdit?View.VISIBLE:View.GONE);
+                boolean allowEdit = intent.getBooleanExtra(TARGET_APP_ALLOW_EDIT, true);
+                // ekBar.findViewById(R.id.edit_panel).setVisibility(allowEdit?View.VISIBLE:View.GONE);
                 ApiFactory.getPrescriptionApi().getConsultationDetail(diseaseCounselingId)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -330,10 +339,10 @@ public class Chat2Activity extends BaseActivity
                                 }
                             }
                         });
-            }else{
+            } else {
 
                 ekBar.findViewById(R.id.edit_panel).setVisibility(View.VISIBLE);
-                mConv=JMessageClient.getSingleConversation(user, mMyInfo.getAppKey());
+                mConv = JMessageClient.getSingleConversation(user, mMyInfo.getAppKey());
                 mChatView.setChatTitle(mTitle);
                 mChatAdapter = new ChattingListAdapter(mContext, mConv, longClickListener);//长按聊天内容监听
                 mChatView.setChatListAdapter(mChatAdapter);
@@ -341,7 +350,6 @@ public class Chat2Activity extends BaseActivity
                 mChatView.setToBottom();
                 mChatView.setConversation(mConv);
             }
-
 
 
         }
@@ -379,10 +387,10 @@ public class Chat2Activity extends BaseActivity
             options.setNeedReadReceipt(true);
             JMessageClient.sendMessage(msg, options);
             mChatAdapter.addMsgFromReceiptToList(msg);
-            if(con!=null && con.status.equals("303-0002")){
+            if (con != null && con.status.equals("303-0002")) {
                 start(mcgContent);
             }
-                //EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"303-0003"));
+            //EventBus.getDefault().post(new UpdatePrescriptionConStatusEvent(diseaseCounselingId,"303-0003"));
             ekBar.getEtChat().setText("");
             if (mAtList != null) {
                 mAtList.clear();
@@ -435,8 +443,8 @@ public class Chat2Activity extends BaseActivity
                 JMessageClient.enterGroupConversation(groupId);
             }
         }
-        if(mChatAdapter!=null)
-             mChatAdapter.notifyDataSetChanged();
+        if (mChatAdapter != null)
+            mChatAdapter.notifyDataSetChanged();
         super.onResume();
     }
 
@@ -581,11 +589,11 @@ public class Chat2Activity extends BaseActivity
     }
 
     private void onLoginSuccess() {
-        new Thread(() -> {
-            synchronized (LOCK) {
-                startVideo();
-            }
-        }).start();
+//        new Thread(() -> {
+//            synchronized (LOCK) {
+//                startVideo();
+//            }
+//        }).start();
     }
 
     private void handleRequestError(int errorCode, Activity activity) {
@@ -750,7 +758,7 @@ public class Chat2Activity extends BaseActivity
     }
 
     private void returnBtn() {
-        if(mConv==null)return;
+        if (mConv == null) return;
         mConv.resetUnreadCount();
         dismissSoftInput();
         JMessageClient.exitConversation();
@@ -804,11 +812,11 @@ public class Chat2Activity extends BaseActivity
         final Message message = event.getMessage();
 
         runOnUiThread(() -> {
-            Object obj=message.getTargetInfo();
+            Object obj = message.getTargetInfo();
 
-            if(mIsSingle){
-                String  userId= ((UserInfo) obj).getUserName();
-                String theId=con.weChatAccount.jMessagAccount.getUserId();
+            if (mIsSingle) {
+                String userId = ((UserInfo) obj).getUserName();
+                String theId = con.weChatAccount.jMessagAccount.getUserId();
                 if (userId.equals(theId)) {
                     Message lastMsg = mChatAdapter.getLastMsg();
                     if (lastMsg == null || message.getId() != lastMsg.getId()) {
@@ -817,7 +825,7 @@ public class Chat2Activity extends BaseActivity
                         mChatAdapter.notifyDataSetChanged();
                     }
                 }
-            }else {
+            } else {
 
 
                 long groupId = ((GroupInfo) obj).getGroupID();
@@ -1095,19 +1103,17 @@ public class Chat2Activity extends BaseActivity
                     return;
                 }
 
-                startVideo();
+                checkCodeSended();
+
+//                startVideo();
                 break;
             default:
                 break;
         }
     }
 
-    private void startVideo() {
-
-        Confrence confrence=new Confrence();
-        confrence.iMGroupId=String.valueOf(mGroupId);
-        confrence.hWAccountName= AppContext.getUser().getHwUserName();
-        ApiFactory.getSmcApi().createVideoCon(confrence)
+    private void checkCodeSended() {
+        ApiFactory.getPrescriptionApi().getInvitationCodeByBusinessId(diseaseCounselingId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<BaseResp>() {
@@ -1123,81 +1129,66 @@ public class Chat2Activity extends BaseActivity
                     }
 
                     @Override
+                    public void onNext(BaseResp baseResp) {
+                        if(baseResp.getData().equals("")){
+                            showMessageDialog();
+                        }else {
+                            startVideo(baseResp.getData().toString());
+                        }
+                    }
+                });
+    }
+
+    private void showMessageDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("开始视频");
+        builder.setMessage("开启视频之前，请先确认患者已登陆视频客户端！");
+        builder.setPositiveButton("视频", (dialogInterface, i) -> sendInvitationCode());
+        builder.setNegativeButton("取消", (dialogInterface, i) -> dialogInterface.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void showInvitatedCode(String code){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("邀请码");
+        builder.setMessage(code);
+        builder.setNegativeButton(getString(R.string.refuse), (dialogInterface, i) -> dialogInterface.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void sendInvitationCode(){
+        ApiFactory.getPrescriptionApi().sendInvitationCode(diseaseCounselingId,module)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BaseResp>() {
+                    @Override
+                    public void onCompleted() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ViewUtil.dismissProgressDialog();
+                        ViewUtil.showMessage(e.getMessage());
+                    }
+
+                    @Override
                     public void onNext(BaseResp resp) {
                         ViewUtil.dismissProgressDialog();
                         if (resp.isSuccess()) {
-                            Log.i("启动会话","成功");
+                            showInvitatedCode(resp.getData().toString());
+                            Toast.makeText(Chat2Activity.this,"发送成功",Toast.LENGTH_SHORT).show();
 
                         } else {
                             ViewUtil.showMessage(resp.getMessage());
                         }
                     }
                 });
+    }
 
-//
-//        ViewUtil.createProgressDialog(this, "");
-//        ApiFactory.getClinicManagerApi().getHWVideoGroupIdByJMGroupId(String.valueOf(mGroupId))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<BaseResp<String>>() {
-//                    @Override
-//                    public void onCompleted() {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        ViewUtil.dismissProgressDialog();
-//                        ViewUtil.showMessage(e.getMessage());
-//                    }
-//
-//                    @Override
-//                    public void onNext(BaseResp<String> resp) {
-//                        if (resp.isSuccess()) {
-//                            String HWVideoGroupId = resp.getData();
-//                            if (TextUtils.isEmpty(HWVideoGroupId)) {
-//                                ApiFactory.getClinicManagerApi().getHWAccountByConGroupId(String.valueOf(mGroupId))
-//                                        .subscribeOn(Schedulers.io())
-//                                        .observeOn(AndroidSchedulers.mainThread())
-//                                        .subscribe(new Observer<BaseResp<List<HWAccount>>>() {
-//                                            @Override
-//                                            public void onCompleted() {
-//
-//                                            }
-//
-//                                            @Override
-//                                            public void onError(Throwable e) {
-//                                                ViewUtil.dismissProgressDialog();
-//                                                ViewUtil.showMessage(e.getMessage());
-//                                            }
-//
-//                                            @Override
-//                                            public void onNext(BaseResp<List<HWAccount>> resp) {
-//                                                ViewUtil.dismissProgressDialog();
-//                                                if (resp.isSuccess()) {
-//                                                    List<HWAccount> hwAccounts = resp.getData();
-//                                                    if (hwAccounts != null && !hwAccounts.isEmpty()) {
-//                                                        ArrayList<String> numbers = new ArrayList<>();
-//                                                        for (HWAccount hwAccount : hwAccounts) {
-//                                                            numbers.add(hwAccount.getHwUserName());
-//                                                        }
-//                                                        CallActivity.launchForCreate(ChatActivity.this, numbers, mGroupId);
-//                                                    }
-//                                                } else {
-//                                                    ViewUtil.showMessage(resp.getMessage());
-//                                                }
-//                                            }
-//                                        });
-//                            } else {
-//                                ViewUtil.dismissProgressDialog();
-//                                CallActivity.launchForJoin(ChatActivity.this, HWVideoGroupId);
-//                            }
-//                        } else {
-//                            ViewUtil.dismissProgressDialog();
-//                            ViewUtil.showMessage(resp.getMessage());
-//                        }
-//                    }
-//                });
+    private void startVideo(String phone) {
+        CallActivity.launchForCall(this, phone);
     }
 
 

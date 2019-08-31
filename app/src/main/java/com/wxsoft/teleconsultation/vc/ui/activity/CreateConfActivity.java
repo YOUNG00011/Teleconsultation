@@ -80,43 +80,40 @@ public class CreateConfActivity extends Activity implements VCConfNotify {
         conferenceService.setConfServer(loginParams.getRegisterServerIp(), Integer.parseInt(loginParams.getServerPort()));
         conferenceService.setAuthAccountInfo(loginParams.getSipImpi(), loginParams.getVoipPassword());
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                String confName = "video";
-                String confPwd = "123";
+        new Handler().postDelayed(() -> {
+            String confName = "video";
+            String confPwd = "123";
 
-                String number = loginParams.getSipImpi();
-                TupConfBookVcOnPremiseConfInfo confInfo = new TupConfBookVcOnPremiseConfInfo();
-                confInfo.setSitecallType(0);
+            String number = loginParams.getSipImpi();
+            TupConfBookVcOnPremiseConfInfo confInfo = new TupConfBookVcOnPremiseConfInfo();
+            confInfo.setSitecallType(0);
 
-                confInfo.setServerAddr(new CCIPAddr(loginParams.getRegisterServerIp(), ConfctrlIPVersion.CC_IP_V4));
-                confInfo.setLocalAddr(new CCIPAddr(Tools.getLocalIp(), ConfctrlIPVersion.CC_IP_V4));
-                CCAddAttendeeInfo attendeeInfo = new CCAddAttendeeInfo();
-                CCIPAddr ccipAddr = new CCIPAddr();
-                ccipAddr.setIp(Tools.getLocalIp());
-                ccipAddr.setIpVer(ConfctrlIPVersion.CC_IP_V4);
-                attendeeInfo.setTerminalIpAddr(ccipAddr);
-                attendeeInfo.setTerminalType(ConfctrlSiteCallTerminalType.CC_sip);
-                attendeeInfo.setSiteBandwidth(1920);
-                attendeeInfo.setNumber(number);
-                attendeeInfo.setNumberLen(number.length());
-                attendeeInfo.setTerminalId(number);
-                attendeeInfo.setTerminalIdLength(number.length());
-                attendeeInfo.setUri(number + "@" + loginParams.getRegisterServerIp());
-                confInfo.setCcAddterminalInfo(lists);
+            confInfo.setServerAddr(new CCIPAddr(loginParams.getRegisterServerIp(), ConfctrlIPVersion.CC_IP_V4));
+            confInfo.setLocalAddr(new CCIPAddr(Tools.getLocalIp(), ConfctrlIPVersion.CC_IP_V4));
+            CCAddAttendeeInfo attendeeInfo = new CCAddAttendeeInfo();
+            CCIPAddr ccipAddr = new CCIPAddr();
+            ccipAddr.setIp(Tools.getLocalIp());
+            ccipAddr.setIpVer(ConfctrlIPVersion.CC_IP_V4);
+            attendeeInfo.setTerminalIpAddr(ccipAddr);
+            attendeeInfo.setTerminalType(ConfctrlSiteCallTerminalType.CC_sip);
+            attendeeInfo.setSiteBandwidth(1920);
+            attendeeInfo.setNumber(number);
+            attendeeInfo.setNumberLen(number.length());
+            attendeeInfo.setTerminalId(number);
+            attendeeInfo.setTerminalIdLength(number.length());
+            attendeeInfo.setUri(number + "@" + loginParams.getRegisterServerIp());
+            confInfo.setCcAddterminalInfo(lists);
 
-                confInfo.setSitenumber(lists.size());
-                confInfo.setPwdLen(6); //max length is 6
-                confInfo.setConfName(confName);
-                confInfo.setConfNameLen(confName.length());
-                confInfo.setPucPwd(confPwd);
-                confInfo.setSitecallMode(0); //CC_SITE_CALL_MODE_REPORT
-                confInfo.setHasDataConf(dataValue);
-                confInfo.setVideoProto(ConfctrlVideoProtocol.CC_VIDEO_PROTO_BUTT);
-                int ret = conferenceService.bookOnPremiseReservedConf(confInfo);
-                TUPLogUtil.i("ReservedConf", "result=" + ret);
-            }
+            confInfo.setSitenumber(lists.size());
+            confInfo.setPwdLen(6); //max length is 6
+            confInfo.setConfName(confName);
+            confInfo.setConfNameLen(confName.length());
+            confInfo.setPucPwd(confPwd);
+            confInfo.setSitecallMode(0); //CC_SITE_CALL_MODE_REPORT
+            confInfo.setHasDataConf(dataValue);
+            confInfo.setVideoProto(ConfctrlVideoProtocol.CC_VIDEO_PROTO_BUTT);
+            int ret = conferenceService.bookOnPremiseReservedConf(confInfo);
+            TUPLogUtil.i("ReservedConf", "result=" + ret);
         }, 1000);
     }
 

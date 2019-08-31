@@ -4,12 +4,12 @@ public class AppConstant {
 
     // 外网
     //public static final String BASE_URL = "http://218.22.27.205:8008/";
-//  public static final String BASE_URL = "http://hz.xjwnsoft.com:7000/";
+  public static final String BASE_URL = "http://hz.xjwnsoft.com:7000/";
     // 明成
 //    public static final String BASE_URL = "http://192.168.0.192:49927/";
 //    public static final String BASE_URL = "http://192.168.0.192:8001/";
-    public static final String BASE_URL = "http://192.168.0.191/HMCS.WebAPI/";
-
+//    public static final String BASE_URL = "http://192.168.0.191/HMCS.WebAPI/";
+//    http:///HMCS.WebAPI/
     public static final String USER_AVATAR_FILE_NAME = "avatar.jpg";
 
     public static final String EXTRA_BUNDLE = "extra_bundle";
