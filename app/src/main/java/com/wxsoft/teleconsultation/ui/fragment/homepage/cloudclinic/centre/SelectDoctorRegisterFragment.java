@@ -94,7 +94,7 @@ public class SelectDoctorRegisterFragment extends BaseFragment {
 
     @OnClick(R.id.tv_toggle)
     void toggleClick() {
-//        SelectHospitalFragment.launch(this);
+        com.wxsoft.teleconsultation.ui.fragment.SelectHospitalFragment.launch(this);
     }
 
     @Override
@@ -134,9 +134,9 @@ public class SelectDoctorRegisterFragment extends BaseFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == SelectHospitalFragment.REQUEST_SELECT_HOSPITAL) {
+            if (requestCode == 61) {
                 if (data != null) {
-                    hospital = (Hospital) data.getSerializableExtra(SelectHospitalFragment.KEY_DEPARTMENTS);
+                    hospital = (Hospital) data.getSerializableExtra(SelectHospitalFragment.KEY_HOSPITAL);
                     updateHospitalView(hospital.getName());
                     searchDoctor(hospital==null?null:hospital.getId() );
                 }
@@ -219,10 +219,14 @@ public class SelectDoctorRegisterFragment extends BaseFragment {
         mRemoveView.setVisibility(DEFAULT_HOSPITAL.equals(hospital) ? View.GONE : View.VISIBLE);
     }
 
-    private void searchDoctor( String departmentId) {
+
+    private void searchDoctor(String hospitalId) {
+        searchDoctor(hospitalId,"");
+    }
+    private void searchDoctor(String hospitalId,String doctorId) {
         mRecyclerView.showProgress();
 
-        QueryRequestBody body=QueryRequestBody.getOnlineDutyBody(AppContext.getUser().getDoctId(),nextWeeks.get(selected).date,AppContext.getUser().getHospitalId(), AppConstant.SIZE_OF_PAGE, mPage);
+        QueryRequestBody body=QueryRequestBody.getOnlineDutyBody(doctorId,nextWeeks.get(selected).date,hospitalId, AppConstant.SIZE_OF_PAGE, mPage);
         ApiFactory.getCloudClinicApi().getDoctorDuties(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

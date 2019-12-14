@@ -238,7 +238,7 @@ public class QueryRequestBody implements Serializable {
         body.conditions.add(new Condition("DoctorId", docId));
         if(hospital!=null)
             body.conditions.add(new Condition("HospitalId",hospital));
-            body.conditions.add(new Condition("DepartmentId", AppContext.getUser().getDepartmentId()));
+            body.conditions.add(new Condition("DepartmentId", ""));
 
         if(date!=null)
             body.conditions.add(new Condition("Date",date));

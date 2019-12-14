@@ -57,6 +57,7 @@ public class SelectHospitalFragment extends BaseFragment {
     private static final String FRAGMENT_ARGS_DEPARTMENTS_JSON = "FRAGMENT_ARGS_DEPARTMENTS_JSON";
     public static final int REQUEST_SELECT_HOSPITAL = 67;
     public static final String KEY_DEPARTMENTS = "KEY_DEPARTMENTS";
+    public static final String KEY_HOSPITAL = "KEY_HOSPITAL";
 
     @BindView(R.id.recycler_view)
     EasyRecyclerView mRecyclerView;
@@ -153,18 +154,22 @@ public class SelectHospitalFragment extends BaseFragment {
         mAdapter.setOnItemClickListener(position ->  {
             mSelectedHospitalName = mAdapter.getItem(position).getName();
             List<Department> departments = null;
-            for (String hospital1Name : mDepartments.keySet()) {
-                if (mSelectedHospitalName.equals(hospital1Name)) {
-                    departments = mDepartments.get(hospital1Name);
-                    break;
+            if(mDepartments == null || mDepartments.keySet() == null){
+
+            }else {
+                for (String hospital1Name : mDepartments.keySet()) {
+                    if (mSelectedHospitalName.equals(hospital1Name)) {
+                        departments = mDepartments.get(hospital1Name);
+                        break;
+                    }
                 }
-            }
 
-            if (departments == null) {
-                departments = new ArrayList<>();
-            }
+                if (departments == null) {
+                    departments = new ArrayList<>();
+                }
 
-            ExpectDepartmentFragment.launch(this, mAdapter.getItem(position), new Gson().toJson(departments));
+                ExpectDepartmentFragment.launch(this, mAdapter.getItem(position), new Gson().toJson(departments));
+            }
         });
 
         loadData();
@@ -205,6 +210,13 @@ public class SelectHospitalFragment extends BaseFragment {
     private void finish() {
         Intent intent = new Intent();
         intent.putExtra(KEY_DEPARTMENTS, new Gson().toJson(mDepartments));
+        _mActivity.setResult(RESULT_OK, intent);
+        _mActivity.finish();
+    }
+
+    private void finishHos() {
+        Intent intent = new Intent();
+        intent.putExtra(KEY_HOSPITAL, new Gson().toJson(mDepartments));
         _mActivity.setResult(RESULT_OK, intent);
         _mActivity.finish();
     }

@@ -3,5 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">http://hz.xjwnsoft.com</domain>
         <domain includeSubdomains="true">192.168.0.192</domain>
+        <domain includeSubdomains="true">106.124.140.97</domain>
+        <domain includeSubdomains="true">192.168.0.193</domain>
     </domain-config>
 </network-security-config>

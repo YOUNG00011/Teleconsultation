@@ -40,7 +40,7 @@ public interface PatientManagerApi {
      * @param doctId
      * @return
      */
-    @GET("api/PatientInfo/GetPatientInfosByDoctId?isMobile=true")
+    @GET("api/PatientInfo/GetPatientInfosByDoctId?isMobile=true&isDecryptDES=1")
     Observable<BaseResp<List<Patient>>> getPatientInfosByDoctId(@Query("doctId") String doctId);
 
     /**
@@ -49,7 +49,7 @@ public interface PatientManagerApi {
      * @param tag
      * @return
      */
-    @GET("api/PatientInfo/GetPatientInfoByTag?isMobile=true")
+    @GET("api/PatientInfo/GetPatientInfoByTag?isMobile=true&isDecryptDES=1")
     Observable<BaseResp<List<Patient>>> getPatientInfoByTag(@Query("doctId") String doctId, @Query("tag") String tag);
 
     /**
@@ -87,7 +87,7 @@ public interface PatientManagerApi {
      * @param body
      * @return
      */
-    @POST("api/PatientInfo/QueryPatientInfo?isMobile=true")
+    @POST("api/PatientInfo/QueryPatientInfo?isMobile=true&isDecryptDES=1")
     Observable<BaseResp<QueryResponseData<Patient>>> queryPatientInfo(@Body QueryRequestBody body);
 
     /**
@@ -103,7 +103,7 @@ public interface PatientManagerApi {
      * @param doctId
      * @return
      */
-    @GET("api/Doctor/GetHistoryPatient?isMobile=true")
+    @GET("api/Doctor/GetHistoryPatient?isMobile=true&isDecryptDES=1")
     Observable<BaseResp<List<Patient>>> getHistoryPatient(@Query("doctId") String doctId);
 
     /**

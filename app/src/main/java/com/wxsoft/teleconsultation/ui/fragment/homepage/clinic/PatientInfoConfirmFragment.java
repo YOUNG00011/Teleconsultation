@@ -127,11 +127,13 @@ public class PatientInfoConfirmFragment extends BaseFragment{
     }
 
     private String getBirthday(String birthday) {
-        return new StringBuffer()
-                .append(birthday.substring(0, 4)).append("-")
-                .append(birthday.substring(4, 6)).append("-")
-                .append(birthday.substring(6, 8))
-                .toString();
+
+        return birthday.substring(0,10);
+//        return new StringBuffer()
+//                .append(birthday.substring(0, 4)).append("-")
+//                .append(birthday.substring(4, 6)).append("-")
+//                .append(birthday.substring(6, 8))
+//                .toString();
     }
 
     private void sure() {
