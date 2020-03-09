@@ -4,8 +4,8 @@ public class AppConstant {
 
     // 外网
     //public static final String BASE_URL = "http://218.22.27.205:8008/";
-  public static final String BASE_URL = "http://192.168.0.193/HMCS.WebAPI/";
-//  public static final String BASE_URL = "http://106.124.140.97:8922/";
+//  public static final String BASE_URL = "http://192.168.0.193/HMCS.WebAPI/";
+  public static final String BASE_URL = "http://106.124.140.97:8922/";
 //  public static final String BASE_URL = "http://hz.xjwnsoft.com:7000/";
     // 明成
 //    public static final String BASE_URL = "http://192.168.0.192:49927/";

@@ -217,6 +217,9 @@ public class SelectDoctorRegisterFragment extends BaseFragment {
     private void updateHospitalView(String hospital) {
         mDepartmentView.setText(hospital);
         mRemoveView.setVisibility(DEFAULT_HOSPITAL.equals(hospital) ? View.GONE : View.VISIBLE);
+        if(hospital.equals("全部医院")){
+            searchDoctor(null);
+        }
     }
 
 

@@ -96,7 +96,12 @@ public class CallActivity extends Activity implements TupNotify, VCDataConfNotif
         Intent intent = new Intent(from, CallActivity.class);
         intent.putExtra(EXTRA_SESSIONBEAN, sessionBean);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.P) {
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        }else{
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+
         from.startActivity(intent);
     }
 
