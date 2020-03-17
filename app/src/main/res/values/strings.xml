@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">分级诊疗系统</string>
+    <string name="app_name">分级诊疗患者端</string>
     <string name="consultation_time">会诊时间:</string>
     <string name="patient_integration">患者评价</string>
     <string name="home_menu_trsnsfer_treatment">转诊</string>
@@ -41,7 +41,7 @@
     <string name="sign_in">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
     <string name="forget_password">忘记密码？</string>
     <string name="input_phone">输入手机号</string>
-    <string name="input_password">输入用户密码</string>
+    <string name="input_password">请输入邀请码</string>
 
     <!-- 验证手机号 -->
     <string name="verify_phone_recover_password">找回密码</string>

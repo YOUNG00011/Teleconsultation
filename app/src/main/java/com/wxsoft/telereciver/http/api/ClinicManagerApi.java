@@ -303,6 +303,8 @@ public interface ClinicManagerApi {
     @GET("api/Platform/GetHWDeviceAccountByOrgId?isMobile=true")
     Observable<BaseResp<List<HWAccount>>> getHWDeviceAccountByOrgId(@Query("orgId") String orgId);
 
+
+
     @POST("api/ConsultationManager/SaveConsultationHWDeviceAccountDTO?isMobile=true")
     Observable<BaseResp<HWDeviceAccount>> saveConsultationHWDeviceAccountDTO(@Body HWDeviceAccount hwDeviceAccount);
 

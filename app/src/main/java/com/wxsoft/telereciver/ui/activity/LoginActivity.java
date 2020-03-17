@@ -17,6 +17,7 @@ import com.wxsoft.telereciver.App;
 import com.wxsoft.telereciver.AppContext;
 import com.wxsoft.telereciver.R;
 import com.wxsoft.telereciver.entity.BaseResp;
+import com.wxsoft.telereciver.entity.HWAccount;
 import com.wxsoft.telereciver.entity.LocalSettingHWAccount;
 import com.wxsoft.telereciver.entity.User;
 import com.wxsoft.telereciver.entity.responsedata.LoginResp;
@@ -71,8 +72,6 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
     private static final int SMC_LOGIN_FAILED = 101;
     private static final Object LOCK = new Object();
 
-    @BindView(R.id.cet_phone)
-    ClearableEditText mPhoneView;
 
     @BindView(R.id.cet_password)
     ClearableEditText mPasswordView;
@@ -91,15 +90,6 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         login();
     }
 
-    @OnClick(R.id.tv_forget_pwd)
-    void forgetPwdClick() {
-        CheckPhoneFragment.launchForForgetPwd(this);
-    }
-
-    @OnClick(R.id.tv_register)
-    void registerClick() {
-        CheckPhoneFragment.launchForRegister(this);
-    }
 
     @Override
     protected int getLayoutId() {
@@ -111,8 +101,6 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         LoginService.getInstance().registerTupNotify(this);
         instance = this;
         setupHandler();
-//        mPhoneView.setText("13685536183");
-//        mPasswordView.setText("162518");
     }
 
     @Override
@@ -205,25 +193,20 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         processLogin(mUser.getHwUserName(), mUser.getHwPassword());
     }
 
-    private void importRingFile()
-    {
+    private void importRingFile() {
         boolean sdCardExist = Environment.getExternalStorageState()
                 .equals(Environment.MEDIA_MOUNTED);
-        if (!sdCardExist)
-        {
+        if (!sdCardExist) {
             TUPLogUtil.e(TAG, "sdcard is not exist");
             return;
         }
 
         TUPLogUtil.i(TAG, "import call ring file!~");
-        try
-        {
+        try {
             String pathtrg = Environment.getExternalStorageDirectory() + File.separator + RING_FILE;
             InputStream in = getAssets().open(RING_FILE);
             copyAssetsFile(in, pathtrg);
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             TUPLogUtil.e(TAG, "Progress get an IOException.");
         }
     }
@@ -253,8 +236,8 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
 
     private void checkJpushRegistrationId() {
         String id = JPushInterface.getRegistrationID(this);
-        if(mUser==null){
-            mUser=AppContext.getUser();
+        if (mUser == null) {
+            mUser = AppContext.getUser();
         }
         ApiFactory.getCommApi().saveJPushAccount(mUser.getId(), mUser.getName(), id, 0)
                 .subscribeOn(Schedulers.io())
@@ -308,12 +291,7 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         if (!Tools.isNetworkAvailable(App.getApplication())) {
             TUPLogUtil.e(TAG, " network has been disconnected");
         }
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                login(App.getApplication());
-            }
-        }).run();
+        new Thread(() -> login(App.getApplication())).run();
     }
 
     private boolean login(Context context) {
@@ -478,23 +456,21 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
 
     private void login() {
         // 登录验证
-        String username = mPhoneView.getText().toString().trim();
-        String password = mPasswordView.getText().toString().trim();
-        if (TextUtils.isEmpty(username)) {
-            ViewUtil.showMessage("用户名不能为空");
+
+        String code = mPasswordView.getText().toString().trim();
+
+        if (TextUtils.isEmpty(code)) {
+            ViewUtil.showMessage("邀请码不能为空");
             return;
         }
 
-        if (TextUtils.isEmpty(password)) {
-            ViewUtil.showMessage("密码不能为空");
-            return;
-        }
 
         ViewUtil.createProgressDialog(this, "登录中...");
-        ApiFactory.getLoginApi().login(username, password)
+
+        ApiFactory.getPrescriptionApi().getHWDeviceAccountByCode(code)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BaseResp<LoginResp>>() {
+                .subscribe(new Observer<BaseResp<HWAccount>>() {
                     @Override
                     public void onCompleted() {
 
@@ -507,56 +483,17 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                     }
 
                     @Override
-                    public void onNext(BaseResp<LoginResp> resp) {
+                    public void onNext(BaseResp<HWAccount> resp) {
                         if (resp.isSuccess()) {
-                            mUser = User.getUser(resp.getData());
-                            LocalSettingHWAccount account=new LocalSettingHWAccount();
-                            account.userId=mUser.getId();
-                            account.userName=mUser.getName();
-                           // account.hWAccountId=mUser.getHwUserName();
-                            account.hWAccountName=mUser.getHwUserName();
-                            account.hWAccountType="215-0001";
-                            ApiFactory.getCommApi().saveLocalHWAccount(account)
-                                    .subscribeOn(Schedulers.io())
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .subscribe(new Observer<BaseResp>() {
-                                                   @Override
-                                                   public void onCompleted() {
 
-                                                   }
-
-                                                   @Override
-                                                   public void onError(Throwable e) {
-                                                       ViewUtil.dismissProgressDialog();
-                                                       ViewUtil.showMessage(e.getMessage());
-                                                   }
-
-                                                   @Override
-                                                   public void onNext(BaseResp resp) {
-                                                       ViewUtil.dismissProgressDialog();
-                                                   }
-                                               });
-                            JMessageClient.login(mUser.getjUsername(), mUser.getjPassword(), new BasicCallback() {
-                                @Override
-                                public void gotResult(int responseCode, String responseMessage) {
-                                    if (responseCode == 0) {
-                                        if (TextUtils.isEmpty(mUser.getHwUserName())) {
-                                            ViewUtil.dismissProgressDialog();
-                                            ViewUtil.showMessage("该用户没有分配华为账号，视频暂不可用");
-                                            checkJpushRegistrationId();
-                                            AppContext.login(mUser);
-                                            HomeActivity.launch(LoginActivity.this);
-                                            finish();
-                                        } else {
-                                            hwLogin();
-                                        }
-//
-                                    } else {
-                                        ViewUtil.dismissProgressDialog();
-                                        ViewUtil.showMessage(responseCode + ":" + responseMessage);
-                                    }
-                                }
-                            });
+                            ViewUtil.dismissProgressDialog();
+                            HWAccount account = resp.getData();
+                            sipURI = account.getHwUserName() + "@" + AppContext.REGISTER_SERVER;
+                            getIpAddress();
+                            LoginService.getInstance().setIpAddress(ipAddress);
+                            importHWCer();
+                            importRingFile();
+                            processLogin(account.getHwUserName(), account.getHwPassword());
                         } else {
                             ViewUtil.dismissProgressDialog();
                             ViewUtil.showMessage(resp.getMessage());
@@ -626,11 +563,4 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         return false;
     }
 
-    @OnClick(R.id.tv_use_code)
-    void useCode(){
-
-
-        Intent intent = new Intent(this, Login2Activity.class);
-        startActivity(intent);
-    }
 }

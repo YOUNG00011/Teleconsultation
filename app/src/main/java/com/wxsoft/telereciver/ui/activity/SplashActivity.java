@@ -68,17 +68,7 @@ public class SplashActivity extends SupportBaseActivity implements TupNotify {
     @Override
     protected void setupViews(Bundle savedInstanceState) {
         LoginService.getInstance().registerTupNotify(this);
-
-        mUser = AppContext.getUser();
-        if (mUser == null) {
-            LoginActivity.launch(this);
-            finish();
-        } else {
-            setupHandler();
-            mUser.setHWAccount(null);
-            checkJpushRegistrationId();
-            login();
-        }
+        LoginActivity.launch(this);
     }
 
     @Override

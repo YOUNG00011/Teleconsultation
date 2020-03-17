@@ -2,6 +2,7 @@ package com.wxsoft.telereciver.http.api;
 
 import com.wxsoft.telereciver.entity.BaseResp;
 import com.wxsoft.telereciver.entity.CommEnum;
+import com.wxsoft.telereciver.entity.HWAccount;
 import com.wxsoft.telereciver.entity.PatientManagerTag;
 import com.wxsoft.telereciver.entity.prescription.ChatRecord;
 import com.wxsoft.telereciver.entity.prescription.Medicine;
@@ -213,6 +214,14 @@ public interface PrescriptionApi {
 	 */
 	@GET("api/platform/GetDictWithItemsByName?isMobile=true")
 	Observable<BaseResp<List<CommEnum>>> getMedicalInsurances(@Query("name") String name);
+
+	/**
+	 * 根据邀请码赋值本地华为账号
+	 * @param code
+	 * @return
+	 */
+	@GET("api/Prescription/GetHWAccountByInvitationCode??isMobile=true")
+	Observable<BaseResp<HWAccount>> getHWDeviceAccountByCode(@Query("invitationCode") String code);
 
 
 }
