@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+    <com.wxsoft.telereciver.ui.widget.ClearableEditText
         android:id="@+id/cet_email"
         android:layout_width="match_parent"
         android:layout_height="48dp"

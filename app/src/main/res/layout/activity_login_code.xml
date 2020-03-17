@@ -31,7 +31,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            <com.wxsoft.telereciver.ui.widget.ClearableEditText
                 android:id="@+id/cet_phone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-            <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+            <com.wxsoft.telereciver.ui.widget.ClearableEditText
                 android:id="@+id/cet_password"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"

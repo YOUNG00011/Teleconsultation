@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.wxsoft.teleconsultation.ui.widget.PaletteView
+    <com.wxsoft.telereciver.ui.widget.PaletteView
         android:id="@+id/palette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

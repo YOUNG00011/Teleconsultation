@@ -87,7 +87,7 @@
                 android:paddingRight="8dp"
                 android:gravity="center" />
 
-            <com.wxsoft.teleconsultation.ui.widget.InterceptAllEventLinearLayout
+            <com.wxsoft.telereciver.ui.widget.InterceptAllEventLinearLayout
                 android:id="@+id/ll_tag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_more_horiz_white_36dp"
                     android:layout_gravity="center_vertical" />
-            </com.wxsoft.teleconsultation.ui.widget.InterceptAllEventLinearLayout>
+            </com.wxsoft.telereciver.ui.widget.InterceptAllEventLinearLayout>
         </RelativeLayout>
     </LinearLayout>
 

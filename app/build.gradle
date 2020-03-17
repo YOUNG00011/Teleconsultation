@@ -6,7 +6,7 @@ android {
 //    }
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.wxsoft.teleconsultation"
+        applicationId "com.wxsoft.telereciver"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

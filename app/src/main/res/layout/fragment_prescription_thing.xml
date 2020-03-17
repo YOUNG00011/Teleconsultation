@@ -270,7 +270,7 @@
 
         <include layout="@layout/comm_horizontal_line"/>
 
-        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        <com.wxsoft.telereciver.ui.widget.ClearableEditText
           android:layout_marginTop="10dp"
           android:layout_width="match_parent"
           android:layout_height="48dp"

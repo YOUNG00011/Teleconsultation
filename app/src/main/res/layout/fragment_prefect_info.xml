@@ -39,7 +39,7 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_register_name" />
 
-                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                <com.wxsoft.telereciver.ui.widget.ClearableEditText
                     android:id="@+id/cet_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -73,7 +73,7 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_register_idcard" />
 
-                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                <com.wxsoft.telereciver.ui.widget.ClearableEditText
                     android:id="@+id/cet_idcard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -279,7 +279,7 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_password" />
 
-                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                <com.wxsoft.telereciver.ui.widget.ClearableEditText
                     android:id="@+id/cet_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -313,7 +313,7 @@
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_comfirm_password" />
 
-                <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+                <com.wxsoft.telereciver.ui.widget.ClearableEditText
                     android:id="@+id/cet_password_again"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

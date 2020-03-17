@@ -37,7 +37,7 @@
             />
 
         <!--语音输入-->
-        <com.wxsoft.teleconsultation.ui.widget.RecordVoiceButton
+        <com.wxsoft.telereciver.ui.widget.RecordVoiceButton
             android:id="@+id/btn_voice"
             android:layout_width="match_parent"
             android:layout_height="34dp"
@@ -63,7 +63,7 @@
             android:paddingTop="5dp">
 
             <!--输入框-->
-            <com.wxsoft.teleconsultation.util.keyboard.widget.EmoticonsEditText
+            <com.wxsoft.telereciver.util.keyboard.widget.EmoticonsEditText
                 android:id="@+id/et_chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
-    <com.wxsoft.teleconsultation.util.keyboard.widget.FuncLayout
+    <com.wxsoft.telereciver.util.keyboard.widget.FuncLayout
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

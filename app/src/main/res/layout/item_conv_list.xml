@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
 
-    <com.wxsoft.teleconsultation.ui.widget.SwipeLayoutConv
+    <com.wxsoft.telereciver.ui.widget.SwipeLayoutConv
         android:id="@+id/swp_layout"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -160,5 +160,5 @@
                     android:visibility="gone"/>
             </RelativeLayout>
         </RelativeLayout>
-    </com.wxsoft.teleconsultation.ui.widget.SwipeLayoutConv>
+    </com.wxsoft.telereciver.ui.widget.SwipeLayoutConv>
 </LinearLayout>

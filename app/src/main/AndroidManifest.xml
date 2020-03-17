@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.wxsoft.teleconsultation">
+    package="com.wxsoft.telereciver">
 
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
@@ -54,7 +54,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.wxsoft.teleconsultation.fileProvider"
+            android:authorities="com.wxsoft.telereciver.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -149,7 +149,7 @@
 
         <service android:name=".service.ListenCallService" /> <!-- Glide缓存 -->
         <meta-data
-            android:name="com.wxsoft.teleconsultation.util.GlideConfiguration"
+            android:name="com.wxsoft.telereciver.util.GlideConfiguration"
             android:value="GlideModule" /> <!-- ***********************极光配置*********************** -->
         <!-- Required SDK 核心功能 -->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
@@ -207,7 +207,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.wxsoft.teleconsultation" />
+                <category android:name="com.wxsoft.telereciver" />
             </intent-filter>
         </receiver> <!-- Required SDK核心功能 -->
         <receiver

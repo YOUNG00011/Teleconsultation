@@ -54,7 +54,7 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/black" />
 
-        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        <com.wxsoft.telereciver.ui.widget.ClearableEditText
             android:id="@+id/et_card_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/black" />
 
-        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        <com.wxsoft.telereciver.ui.widget.ClearableEditText
             android:id="@+id/ed_bank_branch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

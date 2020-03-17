@@ -22,7 +22,7 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/black" />
 
-        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        <com.wxsoft.telereciver.ui.widget.ClearableEditText
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -54,7 +54,7 @@
             android:layout_marginRight="10dp"
             android:textColor="@color/black" />
 
-        <com.wxsoft.teleconsultation.ui.widget.ClearableEditText
+        <com.wxsoft.telereciver.ui.widget.ClearableEditText
             android:id="@+id/et_goodat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
