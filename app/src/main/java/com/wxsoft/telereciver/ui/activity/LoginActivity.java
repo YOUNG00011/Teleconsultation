@@ -10,6 +10,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.huawei.tup.login.LoginAuthorizeResult;
 import com.huawei.utils.ZipUtil;
@@ -76,6 +79,14 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
     @BindView(R.id.cet_password)
     ClearableEditText mPasswordView;
 
+    @BindView(R.id.show_waiting)
+    TextView mWaiting;
+
+    @BindView(R.id.btn_login)
+    TextView btnLogin;
+    @BindView(R.id.rooting)
+    LinearLayout rooting;
+
 
     public static LoginActivity instance;
 
@@ -129,15 +140,19 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                 TUPLogUtil.i(TAG, "register success");
                 ViewUtil.dismissProgressDialog();
                 CallService.getInstance().renderCreate();
-                onLoginSuccess();
+                ViewUtil.dismissProgressDialog();
+                mHandler.sendEmptyMessage(SMC_LOGIN_SUCCESS);
                 break;
+            case TupCallParam.CallEvent.CALL_E_EVT_REG_UNSUPORTED_CONEVNE:
             case TupCallParam.CALL_E_REG_STATE.CALL_E_REG_STATE_UNREGISTER:
                 TUPLogUtil.i(TAG, "register fail");
                 ViewUtil.dismissProgressDialog();
                 TUPLogUtil.i(TAG, "errorCode->" + errorCode);
                 handleRequestError(errorCode, LoginActivity.this);
+                mHandler.sendEmptyMessage(SMC_LOGIN_FAILED);
                 break;
             default:
+
                 break;
         }
     }
@@ -170,13 +185,20 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                 break;
 
             case SMC_LOGIN_SUCCESS:
-                processLogin(mUser.getHwUserName(), mUser.getHwPassword());
                 ViewUtil.showMessage(((String) msg.obj));
+                rooting.setBackgroundResource(R.mipmap.the_bg);
+                mPasswordView.setVisibility(View.GONE);
+                btnLogin.setVisibility(View.GONE);
+                mWaiting.setVisibility(View.VISIBLE);
                 break;
 
             case SMC_LOGIN_FAILED:
                 ViewUtil.dismissProgressDialog();
                 ViewUtil.showMessage(((String) msg.obj));
+                rooting.setBackgroundResource(R.color.white);
+                mPasswordView.setVisibility(View.VISIBLE);
+                btnLogin.setVisibility(View.VISIBLE);
+                mWaiting.setVisibility(View.GONE);
                 break;
 
             default:
@@ -221,18 +243,7 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         }
     }
 
-    private void onLoginSuccess() {
 
-        new Thread(() -> {
-            synchronized (LOCK) {
-                ViewUtil.dismissProgressDialog();
-                checkJpushRegistrationId();
-                AppContext.login(mUser);
-                HomeActivity.launch(LoginActivity.this);
-                finish();
-            }
-        }).start();
-    }
 
     private void checkJpushRegistrationId() {
         String id = JPushInterface.getRegistrationID(this);
@@ -318,6 +329,7 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
         if (activity == null) {
             return;
         }
+
         String msg = null;
         switch (errorCode) {
             // 400 bad request
@@ -487,13 +499,24 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                         if (resp.isSuccess()) {
 
                             ViewUtil.dismissProgressDialog();
+
                             HWAccount account = resp.getData();
-                            sipURI = account.getHwUserName() + "@" + AppContext.REGISTER_SERVER;
-                            getIpAddress();
-                            LoginService.getInstance().setIpAddress(ipAddress);
-                            importHWCer();
-                            importRingFile();
-                            processLogin(account.getHwUserName(), account.getHwPassword());
+//                            rooting.setBackgroundResource(R.mipmap.the_bg);
+//                            mPasswordView.setVisibility(View.GONE);
+//                            mWaiting.setVisibility(View.VISIBLE);
+                            if(account!=null) {
+
+                                sipURI = account.getHwUserName() + "@" + AppContext.REGISTER_SERVER;
+                                getIpAddress();
+                                LoginService.getInstance().setIpAddress(ipAddress);
+                                importHWCer();
+                                importRingFile();
+                                processLogin(account.getHwUserName(), account.getHwPassword());
+                            }else{
+
+                                ViewUtil.showMessage(resp.getMessage());
+                            }
+
                         } else {
                             ViewUtil.dismissProgressDialog();
                             ViewUtil.showMessage(resp.getMessage());

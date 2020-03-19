@@ -220,7 +220,7 @@ public interface PrescriptionApi {
 	 * @param code
 	 * @return
 	 */
-	@GET("api/Prescription/GetHWAccountByInvitationCode??isMobile=true")
+	@GET("api/Prescription/GetHWAccountByInvitationCode?isMobile=true")
 	Observable<BaseResp<HWAccount>> getHWDeviceAccountByCode(@Query("invitationCode") String code);
 
 

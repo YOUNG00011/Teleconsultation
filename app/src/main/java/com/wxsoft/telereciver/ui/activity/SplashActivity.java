@@ -94,7 +94,7 @@ public class SplashActivity extends SupportBaseActivity implements TupNotify {
                 TUPLogUtil.i(TAG, "register success");
                 ViewUtil.dismissProgressDialog();
                 CallService.getInstance().renderCreate();
-                onLoginSuccess();
+                //onLoginSuccess();
                 break;
             case TupCallParam.CALL_E_REG_STATE.CALL_E_REG_STATE_UNREGISTER:
                 TUPLogUtil.i(TAG, "register fail");
@@ -283,38 +283,38 @@ public class SplashActivity extends SupportBaseActivity implements TupNotify {
         }
     }
 
-    private void onLoginSuccess() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                synchronized (LOCK) {
-                    AppContext.login(mUser);
-                    toHome();
-                }
-            }
-        }).start();
-    }
+//    private void onLoginSuccess() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                synchronized (LOCK) {
+//                    AppContext.login(mUser);
+//                    toHome();
+//                }
+//            }
+//        }).start();
+//    }
 
     private void toHome() {
-        JMessageClient.login(mUser.getjUsername(), mUser.getjPassword(), new BasicCallback() {
-            @Override
-            public void gotResult(int responseCode, String responseMessage) {
-                if (responseCode == 0) {
-                    if (TextUtils.isEmpty(mUser.getHwUserName())) {
-                        ViewUtil.dismissProgressDialog();
-                        ViewUtil.showMessage("该用户没有分配华为账号，视频暂不可用");
-                        checkJpushRegistrationId();
-
-                    } else {
-                        hwLogin();
-                    }
+//        JMessageClient.login(mUser.getjUsername(), mUser.getjPassword(), new BasicCallback() {
+//            @Override
+//            public void gotResult(int responseCode, String responseMessage) {
+//                if (responseCode == 0) {
+//                    if (TextUtils.isEmpty(mUser.getHwUserName())) {
+//                        ViewUtil.dismissProgressDialog();
+//                        ViewUtil.showMessage("该用户没有分配华为账号，视频暂不可用");
+//                        checkJpushRegistrationId();
 //
-                } else {
-                    ViewUtil.dismissProgressDialog();
-                    ViewUtil.showMessage(responseCode + ":" + responseMessage);
-                }
-            }
-        });
+//                    } else {
+//                        hwLogin();
+//                    }
+////
+//                } else {
+//                    ViewUtil.dismissProgressDialog();
+//                    ViewUtil.showMessage(responseCode + ":" + responseMessage);
+//                }
+//            }
+//        });
         Intent intent = new Intent(this, HomeActivity.class);
         if(getIntent().getBundleExtra(AppConstant.EXTRA_BUNDLE) != null){
             intent.putExtra(AppConstant.EXTRA_BUNDLE,
