@@ -25,6 +25,7 @@ import com.wxsoft.telereciver.entity.LocalSettingHWAccount;
 import com.wxsoft.telereciver.entity.User;
 import com.wxsoft.telereciver.entity.responsedata.LoginResp;
 import com.wxsoft.telereciver.http.ApiFactory;
+import com.wxsoft.telereciver.service.ListenCallService;
 import com.wxsoft.telereciver.ui.base.SupportBaseActivity;
 import com.wxsoft.telereciver.ui.fragment.CheckPhoneFragment;
 import com.wxsoft.telereciver.ui.widget.ClearableEditText;
@@ -111,6 +112,9 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
     protected void setupViews(Bundle savedInstanceState) {
         LoginService.getInstance().registerTupNotify(this);
         instance = this;
+
+
+        ListenCallService.start(this);
         setupHandler();
     }
 
