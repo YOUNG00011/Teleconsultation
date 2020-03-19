@@ -501,9 +501,6 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                             ViewUtil.dismissProgressDialog();
 
                             HWAccount account = resp.getData();
-//                            rooting.setBackgroundResource(R.mipmap.the_bg);
-//                            mPasswordView.setVisibility(View.GONE);
-//                            mWaiting.setVisibility(View.VISIBLE);
                             if(account!=null) {
 
                                 sipURI = account.getHwUserName() + "@" + AppContext.REGISTER_SERVER;
@@ -514,7 +511,7 @@ public class LoginActivity extends SupportBaseActivity implements TupNotify {
                                 processLogin(account.getHwUserName(), account.getHwPassword());
                             }else{
 
-                                ViewUtil.showMessage(resp.getMessage());
+                                ViewUtil.showMessage("邀请码无效,请联系医生重新发送邀请码");
                             }
 
                         } else {
